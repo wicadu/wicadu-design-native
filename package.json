@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "main": "src/index.d.ts",
   "scripts": {
+    "dev:init": "cp . ../app/node_modules/wcado-design-native -r",
+    "dev": "cp src ../app/node_modules/wcado-design-native -r",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
