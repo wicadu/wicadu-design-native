@@ -12,16 +12,19 @@ const propTypes = {
 
 interface Props {
   children: PropTypes.ReactNodeLike
+}
+
+interface DefaultProps {
   count?: number
   onPress?: () => void
 }
 
-const defaultProps: Props = {
+const defaultProps: DefaultProps = {
   count: 0,
   onPress: () => {}
 }
 
-function Badge ({ children, count, onPress }: Props) {
+function Badge ({ children, count, onPress }: Props & DefaultProps) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.count}>
@@ -57,5 +60,8 @@ const styles = StyleSheet.create({
     color: Colors.white
   }
 })
+
+Badge.propTypes = propTypes
+Badge.defaultProps = defaultProps
 
 export default Badge
