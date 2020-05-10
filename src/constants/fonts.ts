@@ -1,4 +1,5 @@
 export default {
+  size38: 38,
   size34: 34,
   size30: 30,
   size26: 26,
