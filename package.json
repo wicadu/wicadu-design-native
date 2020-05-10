@@ -1,17 +1,26 @@
 {
-  "name": "wcado-desing-native",
+  "name": "wcado-design-native",
   "version": "0.0.1",
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "16.11.0",
-    "react-native": "^0.61.4"
+  "main": "src/index.d.ts",
+  "scripts": {
+    "dev:init": "cp . ../app/node_modules/wcado-design-native -r",
+    "dev": "cp src ../app/node_modules/wcado-design-native -r",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/runtime": "^7.9.6",
-    "@react-native-community/eslint-config": "^1.1.0",
-    "babel-jest": "^26.0.1",
-    "eslint": "^6.8.0",
-    "metro-react-native-babel-preset": "^0.59.0"
-  }
+  "peerDependencies": {
+    "react": "16.11.0",
+    "react-native": "^0.61.4",
+    "styled-components": "^5.1.0",
+    "prop-types": "^15.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wcado/wcado-design-native.git"
+  },
+  "author": "Wcado <https://wcado.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wcado/wcado-design-native/issues"
+  },
+  "homepage": "https://github.com/Wcado/wcado-design-native#readme"
 }

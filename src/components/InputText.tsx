@@ -2,7 +2,7 @@ import React from 'react'
 import { TextInput, StyleSheet, Text, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
-import { Colors, Fonts } from '../../constants'
+import { Colors } from '../constants'
 
 const propTypes = {
   className: PropTypes.string,
