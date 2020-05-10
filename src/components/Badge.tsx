@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     borderRadius: 50 / 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.third,
     position: 'relative'
   },
   count: {
