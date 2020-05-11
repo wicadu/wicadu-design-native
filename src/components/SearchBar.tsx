@@ -9,6 +9,7 @@ const propTypes = {
   onPress: PropTypes.func,
   placeholder: PropTypes.string,
   style: PropTypes.object,
+  styleContainer: PropTypes.object,
   editable: PropTypes.bool,
   autoFocus: PropTypes.bool
 }
@@ -17,7 +18,8 @@ type Props = InferProps<typeof propTypes>
 
 const defaultProps: Props = {
   onPress: () => {},
-  style: {}
+  style: {},
+  styleContainer: {}
 }
 
 function SearchBar (props: Props & any) {
@@ -34,7 +36,7 @@ function SearchBar (props: Props & any) {
   }, [input, setText])
 
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, ...props.styleContainer}}>
       <TextInput
         {...props}
         ref={input}
