@@ -39,14 +39,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'relative',
-    width: Dimensions.get('window').width - 50,
+    width: Dimensions.get('window').width - 50 - 20,
+    marginRight: 20
   },
   input: {
     flex: 1,
-    height: 50,
-    fontSize: 20,
-    borderWidth: 0,
-    paddingRight: 50
+    height: 40,
+    fontSize: 18,
+    color: Colors.black,
+    paddingLeft: 15,
+    paddingRight: 50,
+    borderWidth: 1,
+    borderColor: Colors.gray,
+    borderRadius: 50
   },
   icon: {
     position: 'absolute',
