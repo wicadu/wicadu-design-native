@@ -22,6 +22,11 @@ const defaultProps: Props = {
 function SearchBar (props: any) {
   const input = useRef(null)
   const [ text, setText ] = useState<string>('')
+
+  const onChange = useCallback(text => {
+    setText(text)
+  }, [setText])
+
   const onClear = useCallback(() => {
     setText('')
     input.current.clear()
@@ -37,11 +42,11 @@ function SearchBar (props: any) {
     <View style={styles.container}>
       <TextInput
         {...props}
+        ref={input}
         style={{ ...styles.input, ...props.style}}
         placeholderTextColor={Colors.gray}
         onTouchStart={props.onPress}
-        onChangeText={text => setText(text)}
-        ref={input}
+        onChangeText={onChange}
       />
       <IconContainer containerStyle={styles.icon} icon={icon} />
     </View>
