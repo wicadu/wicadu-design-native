@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState, useMemo, useCallback } from 'react'
 import { TextInput, StyleSheet, View, Dimensions } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import IconContainer from './IconContainer'
@@ -20,6 +20,19 @@ const defaultProps: Props = {
 }
 
 function SearchBar (props: any) {
+  const input = useRef(null)
+  const [ text, setText ] = useState<string>('')
+  const onClear = useCallback(() => {
+    setText('')
+    input.current.clear()
+  }, [input, setText])
+
+  const icon = useMemo(() => text ? (
+    <AntDesign name='close' size={18} color={Colors.gray} onPress={onClear} />
+  ) : (
+    <AntDesign name='search1' size={18} color={Colors.gray} onPress={props.onPress} />
+  ), [text])
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -27,8 +40,10 @@ function SearchBar (props: any) {
         style={{ ...styles.input, ...props.style}}
         placeholderTextColor={Colors.gray}
         onTouchStart={props.onPress}
+        onChangeText={text => setText(text)}
+        ref={input}
       />
-      <IconContainer containerStyle={styles.icon} icon={<AntDesign name='search1' size={18} color={Colors.gray} onPress={props.onPress} />} />
+      <IconContainer containerStyle={styles.icon} icon={icon} />
     </View>
   )
 }
