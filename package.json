@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-native": "^0.61.4",
-    "styled-components": "^5.1.0",
-    "prop-types": "^15.7.2"
+    "styled-components": "^5.1.0"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Wcado/wcado-design-native/issues"
   },
-  "homepage": "https://github.com/Wcado/wcado-design-native#readme"
+  "homepage": "https://github.com/Wcado/wcado-design-native#readme",
+  "devDependencies": {
+    "@expo/vector-icons": "^10.2.0"
+  }
 }
