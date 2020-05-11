@@ -9,7 +9,8 @@ const propTypes = {
   onPress: PropTypes.func,
   placeholder: PropTypes.string,
   style: PropTypes.object,
-  editable: PropTypes.bool
+  editable: PropTypes.bool,
+  autoFocus: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
@@ -19,7 +20,7 @@ const defaultProps: Props = {
   style: {}
 }
 
-function SearchBar (props: any) {
+function SearchBar (props: Props & any) {
   const input = useRef(null)
   const [ text, setText ] = useState<string>('')
 
