@@ -8,51 +8,49 @@ import PropTypes, { InferProps } from 'prop-types'
 const propTypes = {
   onPress: PropTypes.func,
   placeholder: PropTypes.string,
+  style: PropTypes.object,
   editable: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
 
 const defaultProps: Props = {
-  onPress: () => {}
+  onPress: () => {},
+  style: {}
 }
 
 function SearchBar (props: any) {
   return (
     <View style={styles.container}>
-      <IconContainer containerStyle={styles.icon} icon={<AntDesign name='search1' size={18} color={Colors.gray} onPress={props.onPress} />} />
       <TextInput
         {...props}
-        style={styles.input}
-        clearButtonMode='always'
+        style={{ ...styles.input, ...props.style}}
         placeholderTextColor={Colors.gray}
         onTouchStart={props.onPress}
       />
+      <IconContainer containerStyle={styles.icon} icon={<AntDesign name='search1' size={18} color={Colors.gray} onPress={props.onPress} />} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get('window').width - 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    position: 'relative'
+    position: 'relative',
+    width: Dimensions.get('window').width - 50,
   },
   input: {
-    width: Dimensions.get('window').width - 100,
+    flex: 1,
     height: 50,
     fontSize: 20,
     borderWidth: 0,
-    backgroundColor: 'white',
-    paddingLeft: 50,
-    borderColor: 'red',
-    borderBottomWidth: 1
+    paddingRight: 50
   },
   icon: {
     position: 'absolute',
-    left: 0,
+    right: 0,
     zIndex: 1
   }
 })
