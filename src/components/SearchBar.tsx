@@ -57,8 +57,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'relative',
-    width: Dimensions.get('window').width - 50 - 20,
-    marginRight: 20
+    width: Dimensions.get('window').width - 30,
+    marginLeft: 15,
+    marginRight: 15
   },
   input: {
     flex: 1,
