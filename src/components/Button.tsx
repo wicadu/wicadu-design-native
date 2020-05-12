@@ -1,43 +1,45 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-
 import { Colors, Fonts } from '../constants'
 
 const propTypes = {
-  title: PropTypes.string.isRequired
-}
-
-interface DefaultProps {
-  type?: string,
-  inverse?: boolean,
-  onPress?: () => void,
-  size?: string
-}
-
-const defaultProps: DefaultProps = {
-  type: 'primary',
-  inverse: false,
-  onPress: () => {},
-  size: 'large'
+  title: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  inverse: PropTypes.bool,
+  size: PropTypes.string,
+  onPress: PropTypes.func
 }
 
 type Props = InferProps<typeof propTypes>
 
-function Button({ title, inverse, type, size, onPress }: Props & DefaultProps) {
-  const classes = styles({ type, inverse, size })
+interface StylesProps {
+  type?: string,
+  size?: string,
+  inverse?: boolean
+}
+
+const defaultProps: Props | StylesProps = {
+  type: 'primary',
+  size: 'large',
+  inverse: false,
+  onPress: () => {}
+}
+
+function Button({ title, type, size, inverse, onPress }: Props) {
+  const generatedStyles = styles({ type, inverse, size })
 
   return (
-    <TouchableOpacity style={classes.container} onPress={onPress}>
-      <Text style={classes.text}>{title}</Text>
+    <TouchableOpacity style={generatedStyles.container} onPress={onPress}>
+      <Text style={generatedStyles.text}>{title}</Text>
     </TouchableOpacity>
   )
 }
 
-const styles = ({ type, size, inverse }: DefaultProps) => {
-  const classType = inverse ? `${type}-inverse` : type
+const styles = ({ type, size, inverse }: StylesProps) => {
+  const classType = `${type}${inverse && '-inverse'}`
 
-  const defaultStyles = {
+  const defaultStylesContainer = {
     borderRadius: 15,
     display: 'flex',
     alignItems: 'center',
@@ -46,46 +48,54 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
   }
 
   const classes = {
-    'primary': {
-      backgroundColor: Colors.primary,
-      ...defaultStyles,
+    container: {
+      'primary': {
+        ...defaultStylesContainer,
+        backgroundColor: Colors.primary,
+      },
+      'primary-inverse': {
+        ...defaultStylesContainer,
+        borderWidth: 1,
+        borderColor: Colors.primary
+      },
     },
-    'primary-text': {
-      color: Colors.white,
-      fontSize: Fonts.size14
+    sizeContainer: {
+      'small': {
+        width: 100,
+        height: 30
+      },
+      'medium': {
+        width: 180,
+        height: 35
+      },
+      'large': {
+        width: Dimensions.get('window').width,
+        height: 50
+      }
     },
-    'primary-inverse': {
-      borderWidth: 1,
-      borderColor: Colors.primary,
-      ...defaultStyles
-    },
-    'primary-inverse-text': {
-      color: Colors.primary,
-      fontSize: Fonts.size14
-    },
-    small: {
-      height: 30,
-      width: 100,
-    },
-    medium: {
-      height: 35,
-      width: 180
-    },
-    large: {
-      height: 50,
-      width: Dimensions.get('window').width
+    text: {
+      'primary': {
+        color: Colors.white,
+        fontSize: Fonts.size14
+      },
+      'primary-inverse': {
+        color: Colors.primary,
+        fontSize: Fonts.size14
+      }
     }
   }
 
-  return StyleSheet.create({
+  const styles = {
     container: {
-      ...classes[classType],
-      ...dimentions[size]
+      ...classes.container[classType],
+      ...classes.sizeContainer[size]
     },
     text: {
-      ...classes[`${classType}-text`]
+      ...classes.text[classType]
     }
-  })
+  }
+
+  return StyleSheet.create(styles)
 }
 
 Button.propTypes = propTypes
