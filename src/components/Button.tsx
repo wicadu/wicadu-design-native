@@ -24,7 +24,7 @@ const defaultProps: DefaultProps = {
 
 type Props = InferProps<typeof propTypes>
 
-function ButtonWrapper({ title, inverse, type, size, onPress }: Props & DefaultProps) {
+function Button({ title, inverse, type, size, onPress }: Props & DefaultProps) {
   const classes = styles({ type, inverse, size })
 
   return (
@@ -35,7 +35,7 @@ function ButtonWrapper({ title, inverse, type, size, onPress }: Props & DefaultP
 }
 
 const styles = ({ type, size, inverse }: DefaultProps) => {
-  const typeClass = inverse ? `${type}-inverse` : type
+  const classType = inverse ? `${type}-inverse` : type
 
   const defaultStyles = {
     borderRadius: 15,
@@ -43,21 +43,6 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10
-  }
-
-  const dimentions = {
-    small: {
-      height: 30,
-      width: 100,
-    },
-    medium: {
-      height: 35,
-      width: 180
-    },
-    large: {
-      height: 50,
-      width: Dimensions.get('window').width
-    }
   }
 
   const classes = {
@@ -77,21 +62,33 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
     'primary-inverse-text': {
       color: Colors.primary,
       fontSize: Fonts.size14
+    },
+    small: {
+      height: 30,
+      width: 100,
+    },
+    medium: {
+      height: 35,
+      width: 180
+    },
+    large: {
+      height: 50,
+      width: Dimensions.get('window').width
     }
   }
 
   return StyleSheet.create({
     container: {
-      ...classes[typeClass],
+      ...classes[classType],
       ...dimentions[size]
     },
     text: {
-      ...classes[`${typeClass}-text`]
+      ...classes[`${classType}-text`]
     }
   })
 }
 
-ButtonWrapper.propTypes = propTypes
-ButtonWrapper.defaultProps = defaultProps
+Button.propTypes = propTypes
+Button.defaultProps = defaultProps
 
-export default ButtonWrapper
+export default Button
