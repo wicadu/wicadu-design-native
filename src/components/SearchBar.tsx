@@ -11,7 +11,8 @@ const propTypes = {
   style: PropTypes.object,
   styleContainer: PropTypes.object,
   editable: PropTypes.bool,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  iconRight: PropTypes.node
 }
 
 type Props = InferProps<typeof propTypes>
@@ -22,7 +23,7 @@ const defaultProps: Props = {
   styleContainer: {}
 }
 
-function SearchBar (props: Props & any) {
+function SearchBar (props: Props) {
   const input = useRef(null)
   const [ text, setText ] = useState<string>('')
 
@@ -35,20 +36,22 @@ function SearchBar (props: Props & any) {
     input.current.clear()
   }, [input, setText])
 
+  const { styleContainer, style, onPress, iconRight, ...rest } = props
+
   return (
-    <View style={{ ...styles.container, ...props.styleContainer}}>
+    <View style={{ ...styles.container, ...styleContainer}}>
       <TextInput
-        {...props}
+        {...rest}
         ref={input}
-        style={{ ...styles.input, ...props.style}}
+        style={{ ...styles.input, ...style}}
         placeholderTextColor={Colors.gray}
-        onTouchStart={props.onPress}
+        onTouchStart={onPress}
         onChangeText={onChange}
       />
       <IconContainer
         containerStyle={styles.icon}
-        icon={<AntDesign name={text ? 'close' : 'search1'} size={18} color={Colors.gray} />}
-        onPress={text ? onClear : props.onPress}
+        icon={ iconRight ? iconRight : <AntDesign name={text ? 'close' : 'search1'} size={18} color={Colors.gray} />}
+        onPress={text ? onClear : onPress}
       />      
     </View>
   )
