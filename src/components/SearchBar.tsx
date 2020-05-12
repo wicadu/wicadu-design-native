@@ -9,17 +9,20 @@ const propTypes = {
   onPress: PropTypes.func,
   placeholder: PropTypes.string,
   style: PropTypes.object,
-  editable: PropTypes.bool
+  styleContainer: PropTypes.object,
+  editable: PropTypes.bool,
+  autoFocus: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
 
 const defaultProps: Props = {
   onPress: () => {},
-  style: {}
+  style: {},
+  styleContainer: {}
 }
 
-function SearchBar (props: any) {
+function SearchBar (props: Props & any) {
   const input = useRef(null)
   const [ text, setText ] = useState<string>('')
 
@@ -33,7 +36,7 @@ function SearchBar (props: any) {
   }, [input, setText])
 
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, ...props.styleContainer}}>
       <TextInput
         {...props}
         ref={input}
@@ -57,8 +60,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'relative',
-    width: Dimensions.get('window').width - 50 - 20,
-    marginRight: 20
+    width: Dimensions.get('window').width - 30,
+    marginLeft: 15,
+    marginRight: 15
   },
   input: {
     flex: 1,
