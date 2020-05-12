@@ -37,7 +37,7 @@ function Button({ title, type, size, inverse, onPress }: Props) {
 }
 
 const styles = ({ type, size, inverse }: StylesProps) => {
-  const classType = `${type}${inverse && '-inverse'}`
+  const classType = `${type}${inverse ? '-inverse' : ''}`
 
   const defaultStylesContainer = {
     borderRadius: 15,
@@ -69,7 +69,6 @@ const styles = ({ type, size, inverse }: StylesProps) => {
         height: 35
       },
       'large': {
-        width: Dimensions.get('window').width,
         height: 50
       }
     },
