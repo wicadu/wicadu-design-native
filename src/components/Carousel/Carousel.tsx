@@ -4,6 +4,7 @@ import PropTypes, { InferProps } from 'prop-types'
 
 import Item from './Item'
 import { Fonts } from '../../constants'
+import { Button } from 'wcado-design-native'
 
 const propTypes = {
   children: PropTypes.node,
@@ -16,6 +17,12 @@ function Carousel ({ title, children }: Props) {
   return (
     <View>
       {title && <Text style={styles.title}>{title}</Text>}
+      <Button
+        title='See all'
+        className='primary-btn-inverse'
+        type='ghost'
+        onPress={() => {}}
+      />
       <ScrollView
         horizontal={true}
         contentContainerStyle={styles.itemList}
@@ -29,7 +36,8 @@ function Carousel ({ title, children }: Props) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: Fonts.size22
+    fontSize: Fonts.size22,
+    fontWeight: 'bold'
   },
   itemList: {
     height: 260,
