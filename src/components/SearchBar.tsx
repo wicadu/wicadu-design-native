@@ -59,13 +59,11 @@ function SearchBar (props: Props) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    position: 'relative',
-    width: Dimensions.get('window').width - 30,
-    marginLeft: 15,
-    marginRight: 15
+    position: 'relative'
   },
   input: {
     flex: 1,
