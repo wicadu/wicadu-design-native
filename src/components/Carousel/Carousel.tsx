@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     fontSize: Fonts.size22
   },
   itemList: {
-    height: 260,
+    height: 260
   }
 })
 

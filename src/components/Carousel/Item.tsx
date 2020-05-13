@@ -27,7 +27,7 @@ function Item ({ image, name, price, onPress }: Props) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    width: 160,
+    width: 160
   },
   image: {
     height: '70%',

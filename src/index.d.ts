@@ -11,7 +11,7 @@ export {
   SearchBar,
   InputText,
   Badge,
+  Carousel,
   Colors,
-  Fonts,
-  Carousel
+  Fonts
 }
