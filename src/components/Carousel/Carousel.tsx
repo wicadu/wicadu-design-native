@@ -4,18 +4,38 @@ import PropTypes, { InferProps } from 'prop-types'
 
 import Item from './Item'
 import { Fonts } from '../../constants'
+import Button from '../Button'
 
 const propTypes = {
   children: PropTypes.node,
-  title: PropTypes.string
+  title: PropTypes.string,
 }
 
-type Props = InferProps<typeof propTypes>
+interface DefaultProps {
+  seeAllItems?: boolean
+}
 
-function Carousel ({ title, children }: Props) {
+const defaultProps = {
+  seeAllItems: false
+}
+
+type Props = InferProps<typeof propTypes & DefaultProps>
+
+function Carousel ({ title, seeAllItems, children }: Props) {
   return (
     <View>
-      {title && <Text style={styles.title}>{title}</Text>}
+      <View style={styles.header}>
+      { title && <Text style={styles.title}>{title}</Text>}
+      { seeAllItems &&
+        <Button
+          title='See all'
+          type='ghost'
+          size='small'
+          onPress={() => {}}
+          inverse
+        />
+      }
+      </View>
       <ScrollView
         horizontal={true}
         contentContainerStyle={styles.itemList}
@@ -28,16 +48,22 @@ function Carousel ({ title, children }: Props) {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   title: {
-    fontSize: Fonts.size22
+    fontSize: Fonts.size22,
   },
   itemList: {
     height: 260
   }
 })
 
-Carousel.Item = Item
-
 Carousel.propTypes = propTypes
+Carousel.defaultProps = defaultProps
+Carousel.Item = Item
 
 export default Carousel
