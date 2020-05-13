@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native'
+import { StyleSheet, TouchableOpacity, Text } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 import { Colors, Fonts } from '../constants'
 
@@ -58,6 +58,15 @@ const styles = ({ type, size, inverse }: StylesProps) => {
         borderWidth: 1,
         borderColor: Colors.primary
       },
+      'ghost': {
+        ...defaultStylesContainer,
+        backgroundColor: Colors.grayDark
+      },
+      'ghost-inverse': {
+        ...defaultStylesContainer,
+        borderWidth: 1,
+        borderColor: Colors.grayDark
+      }
     },
     sizeContainer: {
       'small': {
@@ -79,6 +88,14 @@ const styles = ({ type, size, inverse }: StylesProps) => {
       },
       'primary-inverse': {
         color: Colors.primary,
+        fontSize: Fonts.size14
+      },
+      'ghost': {
+        color: Colors.white,
+        fontSize: Fonts.size14
+      },
+      'ghost-inverse': {
+        color: Colors.grayDark,
         fontSize: Fonts.size14
       }
     }
