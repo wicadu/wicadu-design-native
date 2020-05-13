@@ -2,9 +2,9 @@ import Button from './components/Button'
 import SearchBar from './components/SearchBar'
 import InputText from './components/InputText'
 import Badge from './components/Badge'
+import Carousel from './components/Carousel'
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
-import Carousel from './components/Carousel/index'
 
 export {
   Button,
