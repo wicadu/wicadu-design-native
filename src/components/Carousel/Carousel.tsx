@@ -38,7 +38,6 @@ function Carousel ({ title, seeAllItems, children }: Props) {
       </View>
       <ScrollView
         horizontal={true}
-        contentContainerStyle={styles.itemList}
         showsHorizontalScrollIndicator={false}
       >
         {children}
@@ -56,9 +55,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: Fonts.size22,
-  },
-  itemList: {
-    height: 260
   }
 })
 
