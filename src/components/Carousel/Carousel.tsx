@@ -1,8 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, ScrollView, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-
-import Item from './Item'
 import { Fonts } from '../../constants'
 import Button from '../Button'
 
@@ -60,6 +58,5 @@ const styles = StyleSheet.create({
 
 Carousel.propTypes = propTypes
 Carousel.defaultProps = defaultProps
-Carousel.Item = Item
 
 export default Carousel
