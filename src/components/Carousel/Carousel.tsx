@@ -2,42 +2,23 @@ import React from 'react'
 import { StyleSheet, Text, ScrollView, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 import { Fonts } from '../../constants'
-import Button from '../Button'
 
 const propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   title: PropTypes.string,
+  headerRight: PropTypes.node,
 }
 
-interface DefaultProps {
-  seeAllItems?: boolean
-}
+type Props = InferProps<typeof propTypes>
 
-const defaultProps = {
-  seeAllItems: false
-}
-
-type Props = InferProps<typeof propTypes & DefaultProps>
-
-function Carousel ({ title, seeAllItems, children }: Props) {
+function Carousel ({ title, children, headerRight }: Props) {
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.header}>
-      { title && <Text style={styles.title}>{title}</Text>}
-      { seeAllItems &&
-        <Button
-          title='See all'
-          type='ghost'
-          size='small'
-          onPress={() => {}}
-          inverse
-        />
-      }
+        {title && <Text style={styles.title}>{title}</Text>}
+        {headerRight && headerRight}
       </View>
-      <ScrollView
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-      >
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {children}
       </ScrollView>
     </View>
@@ -45,11 +26,16 @@ function Carousel ({ title, seeAllItems, children }: Props) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginBottom: 20
+  },
   header: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    height: 50
   },
   title: {
     fontSize: Fonts.size22,
@@ -57,6 +43,5 @@ const styles = StyleSheet.create({
 })
 
 Carousel.propTypes = propTypes
-Carousel.defaultProps = defaultProps
 
 export default Carousel
