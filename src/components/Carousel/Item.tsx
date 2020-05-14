@@ -3,23 +3,21 @@ import { StyleSheet, TouchableOpacity } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
-  image: PropTypes.string,
-  children: PropTypes.node,
-  onPress: PropTypes.func.isRequired
+  children: PropTypes.node.isRequired,
+  onPress: PropTypes.func
 }
 
 interface DefaultProps {
-  onPress?: () => void
+  onPress: () => void
 }
 
-const defaultProps = {
-  children: null,
+const defaultProps: DefaultProps = {
   onPress: () => {}
 }
 
 type Props = InferProps<typeof propTypes>
 
-function Item ({ children, onPress }: Props & DefaultProps) {
+function Item ({ children, onPress }: Props) {
   return (
     <TouchableOpacity style={styles.container} onPress={() => onPress()}>
       {children}
@@ -29,13 +27,13 @@ function Item ({ children, onPress }: Props & DefaultProps) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    width: 160
+    minWidth: 100,
+    minHeight: 100,
+    margin: 10
   }
 })
 
 Item.defaultProps = defaultProps
-
 Item.propTypes = propTypes
 
 export default Item
