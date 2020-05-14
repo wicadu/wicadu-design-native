@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     height: 50
   },
   title: {
-    fontSize: Fonts.size22,
+    fontSize: Fonts.size26,
   }
 })
 
