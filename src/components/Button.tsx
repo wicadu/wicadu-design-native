@@ -60,12 +60,12 @@ const styles = ({ type, size, inverse }: StylesProps) => {
       },
       'ghost': {
         ...defaultStylesContainer,
-        backgroundColor: Colors.grayDark
+        backgroundColor: Colors.darkGray
       },
       'ghost-inverse': {
         ...defaultStylesContainer,
         borderWidth: 1,
-        borderColor: Colors.grayDark
+        borderColor: Colors.darkGray
       }
     },
     sizeContainer: {
@@ -95,7 +95,7 @@ const styles = ({ type, size, inverse }: StylesProps) => {
         fontSize: Fonts.size14
       },
       'ghost-inverse': {
-        color: Colors.grayDark,
+        color: Colors.darkGray,
         fontSize: Fonts.size14
       }
     }

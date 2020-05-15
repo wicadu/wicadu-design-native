@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 50,
     borderWidth: 1,
-    borderColor: Colors.gray,
+    borderColor: Colors.lightGray,
     borderRadius: 50
   },
   icon: {

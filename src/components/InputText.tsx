@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     marginVertical: 30
   },
   'input-auth-label': {
-    color: Colors.grayLight,
+    color: Colors.gray,
   },
   'input-auth': {
     borderBottomWidth: 1,
-    borderBottomColor: Colors.gray,
-    color: Colors.gray,
+    borderBottomColor: Colors.lightGray,
+    color: Colors.lightGray,
     paddingTop: 7.5,
     paddingBottom: 5,
   },
