@@ -6,24 +6,24 @@ import { Fonts } from '../../constants'
 const propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  headerRight: PropTypes.node,
+  headerRight: PropTypes.node
 }
 
 type Props = InferProps<typeof propTypes>
 
-function Carousel ({ title, children, headerRight }: Props) {
+const Carousel = React.forwardRef(({ title, headerRight, children }: Props, ref) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         {title && <Text style={styles.title}>{title}</Text>}
         {headerRight && headerRight}
       </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+      <ScrollView ref={ref} horizontal= {true} showsHorizontalScrollIndicator={false}>
         {children}
       </ScrollView>
     </View>
   )
-}
+})
 
 const styles = StyleSheet.create({
   container: {
