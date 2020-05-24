@@ -1,44 +1,38 @@
-import React, { useState } from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
+import ViewPager from '@react-native-community/viewpager'
 
 const propTypes = {
   children: PropTypes.node.isRequired
 }
 
 interface DefaultProps {
-  totalItems: number
+  initialPage: number,
+  onScroll: (position: number) => void
 }
 
 const defaultProps = {
-  totalItems: 1
+  onScroll: () => {}
 }
 
 type Props = InferProps<typeof propTypes>
 
-function Slider ({ totalItems, children }: Props & DefaultProps) {
-  const [intervals, setIntervals] = useState(1)
-
+const Slider = React.forwardRef(({ children, onScroll }: Props & DefaultProps, ref) => {
   return (
-    <ScrollView
-      horizontal={true}
-      contentContainerStyle={{ ...styles.scrollView, width: `${100 * intervals}%` }}
-      showsHorizontalScrollIndicator={false}
-      onContentSizeChange={() => setIntervals(Math.ceil(totalItems / 1))}
-      scrollEventThrottle={200}
-      pagingEnabled
-      decelerationRate='fast'
+    <ViewPager
+      ref={ref}
+      style={styles.container}      
+      onPageScroll={({ nativeEvent }) => onScroll(nativeEvent.position)}
     >
       {children}
-    </ScrollView>
+    </ViewPager>
   )
-}
+})
 
 const styles = StyleSheet.create({
-  scrollView: {
-    display: 'flex',
-    flexDirection: 'row',
-    overflow: 'hidden'
+  container: {
+    flex: 1
   }
 })
 
