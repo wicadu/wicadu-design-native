@@ -1,10 +1,9 @@
 export default {
-  size38: 38,
-  size34: 34,
-  size30: 30,
-  size26: 26,
-  size22: 22,
-  size18: 18,
-  size14: 14,
-  size10: 10
+  tiny: 10,
+  small: 14,
+  medium: 16,
+  large: 20,
+  huge: 26,
+  gigantic: 20,
+  ultra: 38
 }
