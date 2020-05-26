@@ -4,6 +4,6 @@ export default {
   medium: 16,
   large: 20,
   huge: 26,
-  gigantic: 20,
+  gigantic: 30,
   ultra: 38
 }
