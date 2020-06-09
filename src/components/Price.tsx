@@ -8,6 +8,10 @@ const propTypes = {
   styles: PropTypes.object
 }
 
+const defaultProps = {
+  styles: {}
+}
+
 type Props = InferProps<typeof propTypes>
 
 function Price ({ amount, styles }: Props) {
@@ -15,6 +19,7 @@ function Price ({ amount, styles }: Props) {
 }
 
 Price.propTypes = propTypes
+Price.defaultProps = defaultProps
 
 export default Price
 

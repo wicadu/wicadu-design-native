@@ -6,42 +6,69 @@ import { Fonts } from '../../constants'
 const propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  headerRight: PropTypes.node
+  headerRight: PropTypes.node,
+  horizontal: PropTypes.bool,
+  containerStyles: PropTypes.object
 }
 
 type Props = InferProps<typeof propTypes>
 
-const Carousel = React.forwardRef(({ title, headerRight, children }: Props, ref) => {
+interface StylesProps {
+  height?: number,
+}
+
+const defaultProps: Props | StylesProps = {
+  height: 100,
+  horizontal: false
+}
+
+
+const Carousel = React.forwardRef((props: Props, ref) => {
+  const generatedStyles = styles(props)
+
+  const { title, horizontal, headerRight, children } = props
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        {title && <Text style={styles.title}>{title}</Text>}
+    <View style={generatedStyles.container}>
+      <View style={generatedStyles.header}>
+        {title && <Text style={generatedStyles.title}>{title}</Text>}
         {headerRight && headerRight}
       </View>
-      <ScrollView ref={ref} horizontal= {true} showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        ref={ref}
+        horizontal={Boolean(horizontal)}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
         {children}
       </ScrollView>
     </View>
   )
 })
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginBottom: 20
-  },
-  header: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 50
-  },
-  title: {
-    fontSize: Fonts.size26,
+const styles = ({ height }: StylesProps) => {
+  const defaultStyles = {
+    container: {
+      flex: 1,
+      marginBottom: 20,
+      height,
+    },
+    header: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 50
+    },
+    title: {
+      fontSize: Fonts.huge,
+    }
   }
-})
+
+  return StyleSheet.create(defaultStyles)
+}
 
 Carousel.propTypes = propTypes
+Carousel.defaultProps = defaultProps
 
 export default Carousel

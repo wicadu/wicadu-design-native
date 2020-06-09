@@ -1,6 +1,5 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import { Colors } from '../constants'
 import PropTypes from 'prop-types'
 
@@ -33,12 +32,12 @@ const defaultProps: DefaultProps = {
 function Badge ({ size, children, count, onPress }: Props & DefaultProps) {
   const generatedStyles = styles({ size })
   return (
-    <TouchableOpacity style={generatedStyles.container} onPress={onPress}>
+    <TouchableWithoutFeedback style={generatedStyles.container} onPress={onPress}>
       <View style={generatedStyles.count}>
         <Text style={generatedStyles.countNumber}>{count}</Text>
       </View>
       {children}
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   )
 }
 
