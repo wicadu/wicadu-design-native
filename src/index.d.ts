@@ -5,6 +5,7 @@ import Badge from './components/Badge'
 import Carousel from './components/Carousel'
 import Slider from './components/Slider'
 import Price from './components/Price'
+import Count from './components/Count'
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
 
@@ -16,6 +17,7 @@ export {
   Carousel,
   Slider,
   Price,
+  Count,
   Colors,
   Fonts
 }
