@@ -8,13 +8,14 @@ const propTypes = {
   title: PropTypes.string,
   headerRight: PropTypes.node,
   horizontal: PropTypes.bool,
-  containerStyles: PropTypes.object
+  containerStyles: PropTypes.object,
+  height: PropTypes.number
 }
 
 type Props = InferProps<typeof propTypes>
 
 interface StylesProps {
-  height?: number,
+  height: number,
 }
 
 const defaultProps: Props | StylesProps = {

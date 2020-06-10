@@ -33,10 +33,12 @@ function Badge ({ size, children, count, onPress }: Props & DefaultProps) {
   const generatedStyles = styles({ size })
   return (
     <TouchableWithoutFeedback style={generatedStyles.container} onPress={onPress}>
-      <View style={generatedStyles.count}>
-        <Text style={generatedStyles.countNumber}>{count}</Text>
-      </View>
-      {children}
+      <>
+        <View style={generatedStyles.count}>
+          <Text style={generatedStyles.countNumber}>{count}</Text>
+        </View>
+        {children}
+      </>
     </TouchableWithoutFeedback>
   )
 }
