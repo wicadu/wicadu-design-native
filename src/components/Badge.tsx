@@ -32,13 +32,13 @@ const defaultProps: DefaultProps = {
 function Badge ({ size, children, count, onPress }: Props & DefaultProps) {
   const generatedStyles = styles({ size })
   return (
-    <TouchableWithoutFeedback style={generatedStyles.container} onPress={onPress}>
-      <>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={generatedStyles.container}>
         <View style={generatedStyles.count}>
           <Text style={generatedStyles.countNumber}>{count}</Text>
         </View>
         {children}
-      </>
+      </View>
     </TouchableWithoutFeedback>
   )
 }
@@ -63,7 +63,7 @@ const styles = ({ size }: DefaultProps) => {
       position: 'absolute',
       top: 0,
       right: 0,
-      zIndex: 5
+      zIndex: 5,
     },
     countNumber: {
       color: Colors.white

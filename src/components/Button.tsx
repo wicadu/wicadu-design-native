@@ -84,19 +84,19 @@ const styles = ({ type, size, inverse }: StylesProps) => {
     text: {
       'primary': {
         color: Colors.white,
-        fontSize: Fonts.size14
+        fontSize: Fonts.small
       },
       'primary-inverse': {
         color: Colors.primary,
-        fontSize: Fonts.size14
+        fontSize: Fonts.small
       },
       'ghost': {
         color: Colors.white,
-        fontSize: Fonts.size14
+        fontSize: Fonts.small
       },
       'ghost-inverse': {
         color: Colors.darkGray,
-        fontSize: Fonts.size14
+        fontSize: Fonts.small
       }
     }
   }
