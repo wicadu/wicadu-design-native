@@ -9,20 +9,22 @@ const propTypes = {
   headerRight: PropTypes.node,
   horizontal: PropTypes.bool,
   containerStyles: PropTypes.object,
-  height: PropTypes.number
+  height: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]) 
 }
 
 type Props = InferProps<typeof propTypes>
 
 interface StylesProps {
-  height: number,
+  height: number | string,
 }
 
 const defaultProps: Props | StylesProps = {
-  height: 100,
+  height: 'auto',
   horizontal: false
 }
-
 
 const Carousel = React.forwardRef((props: Props, ref) => {
   const generatedStyles = styles(props)
