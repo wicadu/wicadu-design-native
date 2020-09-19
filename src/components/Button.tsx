@@ -1,5 +1,7 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+
 import PropTypes, { InferProps } from 'prop-types'
 import { Colors, Fonts } from '../constants'
 
@@ -8,38 +10,45 @@ const propTypes = {
   type: PropTypes.string,
   inverse: PropTypes.bool,
   size: PropTypes.string,
-  onPress: PropTypes.func
+  onPress: PropTypes.func.isRequired
+}
+
+interface DefaultProps {
+  type?: string,
+  size?: string,
+  inverse?: boolean,
+  disabled?: boolean,
+  onPress?: () => void
+}
+
+const defaultProps: DefaultProps = {
+  type: 'primary',
+  size: 'large',
+  inverse: false,
+  onPress: () => {},
+  disabled: false
 }
 
 type Props = InferProps<typeof propTypes>
 
-interface StylesProps {
-  type?: string,
-  size?: string,
-  inverse?: boolean
-}
+function Button(props: Props & DefaultProps) {
+  const generatedStyles = styles(props)
 
-const defaultProps: Props | StylesProps = {
-  type: 'primary',
-  size: 'large',
-  inverse: false,
-  onPress: () => {}
-}
-
-function Button({ title, type, size, inverse, onPress }: Props) {
-  const generatedStyles = styles({ type, inverse, size })
+  const { title, onPress, disabled } = props
 
   return (
-    <TouchableOpacity style={generatedStyles.container} onPress={onPress}>
-      <Text style={generatedStyles.text}>{title}</Text>
-    </TouchableOpacity>
+    <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
+      <View style={generatedStyles.container}>
+        <Text style={generatedStyles.text}>{title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 
-const styles = ({ type, size, inverse }: StylesProps) => {
-  const classType = `${type}${inverse ? '-inverse' : ''}`
+const styles = ({ type, size, inverse }: DefaultProps) => {
+  const classType: string = `${type}${inverse ? '-inverse' : ''}`
 
-  const defaultStylesContainer = {
+  const defaultStylesContainer: object = {
     borderRadius: 15,
     display: 'flex',
     alignItems: 'center',
@@ -47,7 +56,7 @@ const styles = ({ type, size, inverse }: StylesProps) => {
     marginVertical: 10
   }
 
-  const classes = {
+  const classes: object = {
     container: {
       'primary': {
         ...defaultStylesContainer,
@@ -101,7 +110,7 @@ const styles = ({ type, size, inverse }: StylesProps) => {
     }
   }
 
-  const styles = {
+  return StyleSheet.create({
     container: {
       ...classes.container[classType],
       ...classes.sizeContainer[size]
@@ -109,9 +118,7 @@ const styles = ({ type, size, inverse }: StylesProps) => {
     text: {
       ...classes.text[classType]
     }
-  }
-
-  return StyleSheet.create(styles)
+  })
 }
 
 Button.propTypes = propTypes
