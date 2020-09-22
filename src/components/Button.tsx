@@ -1,8 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
-
 import PropTypes, { InferProps } from 'prop-types'
-import { Colors, Fonts } from '../constants'
+import { Colors } from '../constants'
 
 const propTypes = {
   title: PropTypes.string.isRequired,
@@ -18,8 +17,7 @@ interface DefaultProps {
   size?: string,
   inverse?: boolean,
   disabled?: boolean,
-  onPress?: () => void,
-  id: string
+  onPress?: () => void
 }
 
 const defaultProps: DefaultProps = {
@@ -27,8 +25,7 @@ const defaultProps: DefaultProps = {
   size: 'large',
   inverse: false,
   onPress: () => {},
-  disabled: false,
-  id: ''
+  disabled: false
 }
 
 type Props = InferProps<typeof propTypes>
@@ -36,10 +33,10 @@ type Props = InferProps<typeof propTypes>
 function Button(props: Props & DefaultProps) {
   const generatedStyles = styles(props)
 
-  const { title, onPress, disabled, id } = props
+  const { title, onPress, disabled } = props
 
   return (
-    <TouchableWithoutFeedback onPress={onPress} accessible accessibilityLabel={id} disabled={disabled}>
+    <TouchableWithoutFeedback onPress={onPress}disabled={disabled}>
       <View style={generatedStyles.container}>
         <Text style={generatedStyles.text}>{title}</Text>
       </View>
@@ -51,11 +48,16 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
   const classType: string = `${type}${inverse ? '-inverse' : ''}`
 
   const defaultStylesContainer: object = {
-    borderRadius: 15,
+    borderRadius: 10,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10
+  }
+
+  const defaultStylesText: object = {
+    fontFamily: 'Cabin_Regular',
+    fontSize: 16
   }
 
   const classes: object = {
@@ -94,24 +96,20 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
     },
     text: {
       'primary': {
-        color: Colors.white,
-        fontSize: 16,
-        fontWeight: 'bold'
+        ...defaultStylesText,
+        color: Colors.white
       },
       'primary-inverse': {
-        color: Colors.primary,
-        fontSize: 16,
-        fontWeight: 'bold'
+        ...defaultStylesText,
+        color: Colors.primary
       },
       'ghost': {
-        color: Colors.white,
-        fontSize: 16,
-        fontWeight: 'bold'
+        ...defaultStylesText,
+        color: Colors.white
       },
       'ghost-inverse': {
-        color: Colors.darkGray,
-        fontSize: 16,
-        fontWeight: 'bold'
+        ...defaultStylesText,
+        color: Colors.darkGray
       }
     }
   }
