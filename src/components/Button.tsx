@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 
 import PropTypes, { InferProps } from 'prop-types'
 import { Colors, Fonts } from '../constants'
@@ -10,7 +9,8 @@ const propTypes = {
   type: PropTypes.string,
   inverse: PropTypes.bool,
   size: PropTypes.string,
-  onPress: PropTypes.func.isRequired
+  onPress: PropTypes.func.isRequired,
+  id: PropTypes.string
 }
 
 interface DefaultProps {
@@ -18,7 +18,8 @@ interface DefaultProps {
   size?: string,
   inverse?: boolean,
   disabled?: boolean,
-  onPress?: () => void
+  onPress?: () => void,
+  id: string
 }
 
 const defaultProps: DefaultProps = {
@@ -26,7 +27,8 @@ const defaultProps: DefaultProps = {
   size: 'large',
   inverse: false,
   onPress: () => {},
-  disabled: false
+  disabled: false,
+  id: ''
 }
 
 type Props = InferProps<typeof propTypes>
@@ -34,10 +36,10 @@ type Props = InferProps<typeof propTypes>
 function Button(props: Props & DefaultProps) {
   const generatedStyles = styles(props)
 
-  const { title, onPress, disabled } = props
+  const { title, onPress, disabled, id } = props
 
   return (
-    <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
+    <TouchableWithoutFeedback onPress={onPress} accessible accessibilityLabel={id} disabled={disabled}>
       <View style={generatedStyles.container}>
         <Text style={generatedStyles.text}>{title}</Text>
       </View>
@@ -87,25 +89,29 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
         height: 35
       },
       'large': {
-        height: 50
+        height: 55
       }
     },
     text: {
       'primary': {
         color: Colors.white,
-        fontSize: Fonts.small
+        fontSize: 16,
+        fontWeight: 'bold'
       },
       'primary-inverse': {
         color: Colors.primary,
-        fontSize: Fonts.small
+        fontSize: 16,
+        fontWeight: 'bold'
       },
       'ghost': {
         color: Colors.white,
-        fontSize: Fonts.small
+        fontSize: 16,
+        fontWeight: 'bold'
       },
       'ghost-inverse': {
         color: Colors.darkGray,
-        fontSize: Fonts.small
+        fontSize: 16,
+        fontWeight: 'bold'
       }
     }
   }
