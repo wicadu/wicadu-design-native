@@ -5,26 +5,38 @@ import PropTypes, { InferProps } from 'prop-types'
 import { Colors } from '../constants'
 
 const propTypes = {
-  className: PropTypes.string,
   label: PropTypes.string,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  maxLength: PropTypes.number
+  radius: PropTypes.number,
+  bgColor: PropTypes.string,
+  inputStyles: PropTypes.object,
+  error: PropTypes.shape({
+    message: PropTypes.string
+  }).isRequired,
+  onChangeText: PropTypes.func.isRequired
 }
 
 interface DefaultProps {
-  radius: number,
-  bgColor: string,
-  error: boolean | object,
-  inputStyles: object,
-  keyboardType: string
+  keyboardType: string | any,
+  onChangeText?: (value: string) => void,
+  autoCompleteType?: string | any,
+  autoFocus: boolean,
+  value: string,
+  maxLength: number,
+  placeholder: string,
 }
 
-const defaultProps: DefaultProps = {
+const defaultProps: (Props & DefaultProps) = {
   radius: 15,
   bgColor: 'white',
-  error: false,
+  error: {},
   inputStyles: {},
-  keyboardType: 'default'
+  keyboardType: 'default',
+  autoCompleteType: 'off',
+  autoFocus: false,
+  value: '',
+  maxLength: 100,
+  placeholder: '',
+  onChangeText(){}
 }
 
 type Props = InferProps<typeof propTypes>
@@ -32,19 +44,32 @@ type Props = InferProps<typeof propTypes>
 function TextInput(props: Props & DefaultProps) {
   const generatedStyles = styles(props)
   
-  const { error } = props
+  const { error, autoCompleteType, keyboardType, autoFocus, onChangeText, value, maxLength, placeholder } = props
 
   return (
     <View style={generatedStyles.container}>
       <View style={generatedStyles.inputContainer}>
-        <Input style={generatedStyles.input} {...props} />
+        <Input
+          style={generatedStyles.input}
+          autoCompleteType={autoCompleteType}
+          keyboardType={keyboardType}
+          autoFocus={autoFocus}
+          onChangeText={(value: string) => onChangeText(value)}
+          value={value}
+          maxLength={maxLength}
+          placeholder={placeholder}
+        />
       </View>
-      { error && <Text style={generatedStyles.error}>Este campo es obligatorio</Text>}
+      { Object.values(error).length >= 1 &&
+        <Text style={generatedStyles.error}>
+          {error.message || 'Este campo es obligatorio'}
+        </Text>
+      }
     </View>
   )
 }
 
-const styles = (props: DefaultProps) => {
+const styles = (props: Props & DefaultProps) => {
   const { radius, bgColor, error, inputStyles } = props
 
   return StyleSheet.create({
@@ -59,7 +84,7 @@ const styles = (props: DefaultProps) => {
       margin: 0,
       marginVertical: 5,
       borderWidth: 1,
-      borderColor: error ? 'rgb(246, 71, 71)' : 'transparent'
+      borderColor: Object.values(error).length >= 1 ? 'rgb(246, 71, 71)' : 'transparent'
     },
     input: {
       fontSize: 18,
