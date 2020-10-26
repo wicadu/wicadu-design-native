@@ -5,7 +5,9 @@ import IconContainer from './atoms/IconContainer'
 import Badge from './atoms/Badge'
 
 // Molecules
-import SearchBar from './components/SearchBar'
+import SearchBar from './molecules/SearchBar'
+
+// Undefined type
 import Carousel from './components/Carousel'
 import Slider from './components/Slider'
 import Price from './components/Price'
