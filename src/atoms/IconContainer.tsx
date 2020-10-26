@@ -1,23 +1,20 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { TouchableOpacity } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   containerStyle: PropTypes.object,
-  icon: PropTypes.node,
-  onPress: PropTypes.func
+  icon: PropTypes.node
 }
 
 const defaultProps = {
-  containerStyle: {},
-  onPress: () => {}
+  containerStyle: {}
 }
 
 type Props = InferProps<typeof propTypes>
 
-function IconContainer ({ containerStyle, icon, onPress }: Props) {
-  return <TouchableOpacity style={{ ...styles.container, ...containerStyle }} onPress={onPress}>{icon}</TouchableOpacity>
+function IconContainer ({ containerStyle, icon }: Props) {
+  return <View style={{ ...styles.container, ...containerStyle }}>{icon}</View>
 }
 
 const styles = StyleSheet.create({

@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
-import { Colors } from '../constants'
 import PropTypes from 'prop-types'
+
+import { Colors } from '../constants'
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -29,8 +30,11 @@ const defaultProps: DefaultProps = {
   size: 50
 }
 
-function Badge ({ size, children, count, onPress }: Props & DefaultProps) {
-  const generatedStyles = styles({ size })
+function Badge (props: Props & DefaultProps) {
+  const generatedStyles = styles(props)
+
+  const { children, count, onPress } = props
+
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={generatedStyles.container}>
