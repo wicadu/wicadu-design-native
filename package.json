@@ -1,6 +1,6 @@
 {
   "name": "wcado-design-native",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "main": "src/index.d.ts",
   "scripts": {
     "dev:init": "cp  -r . ../app/node_modules/wcado-design-native",
