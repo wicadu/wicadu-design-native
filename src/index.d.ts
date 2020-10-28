@@ -1,30 +1,30 @@
-// Atoms
+// Atoms & Molecules
 import TextInput from './atoms/TextInput'
 import Button from './atoms/Button'
 import IconContainer from './atoms/IconContainer'
 import Badge from './atoms/Badge'
-
-// Molecules
+import Count from './atoms/Count'
 import SearchBar from './molecules/SearchBar'
+import Carousel from './molecules/Carousel'
+import Slider from './molecules/Slider'
 
-// Undefined type
-import Carousel from './components/Carousel'
-import Slider from './components/Slider'
-import Price from './components/Price'
-import Count from './components/Count'
+// Utils
+import formatNumber from './utils/formatNumber'
+
+// Constants
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
 
 export {
-  Button,
-  SearchBar,
   TextInput,
+  Button,
+  IconContainer,
   Badge,
+  SearchBar,
   Carousel,
   Slider,
-  IconContainer,
-  Price,
   Count,
+  formatNumber,
   Colors,
   Fonts
 }
