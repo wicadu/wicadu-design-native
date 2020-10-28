@@ -1,9 +1,13 @@
+import normalizeSize from '../utils/normalizeSize'
+
 export default {
-  tiny: 10,
-  small: 14,
-  medium: 16,
-  large: 20,
-  huge: 26,
-  gigantic: 30,
-  ultra: 38
+  f10: normalizeSize(10),
+  f12: normalizeSize(12),
+  f14: normalizeSize(14),
+  f16: normalizeSize(16),
+  f18: normalizeSize(18),
+  f20: normalizeSize(20),
+  f24: normalizeSize(24),
+  f28: normalizeSize(28),
+  f32: normalizeSize(32),
 }
