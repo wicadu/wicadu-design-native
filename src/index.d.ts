@@ -6,6 +6,7 @@ import Badge from './atoms/Badge'
 import Count from './atoms/Count'
 import Splash from './atoms/Splash'
 import SearchBar from './molecules/SearchBar'
+import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 
@@ -22,6 +23,7 @@ export {
   IconContainer,
   Badge,
   SearchBar,
+  Bag,
   Carousel,
   Slider,
   Count,
