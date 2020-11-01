@@ -1,7 +1,5 @@
-import { Dimensions, PixelRatio } from 'react-native'
-
-// Retrieve initial screen's width
-const { width: screenWidth } = Dimensions.get('window')
+import { PixelRatio } from 'react-native'
+import { screenWidth } from '../constants/utils'
 
 //Guideline sizes are based on standard ~3" screen mobile device
 const guidelineBaseWidth = 320
