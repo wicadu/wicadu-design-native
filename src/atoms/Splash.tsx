@@ -3,7 +3,7 @@ import { StyleSheet, StatusBar, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import PropTypes, { InferProps } from 'prop-types'
 
-import { screenWidth } from '../constants/utils'
+import Utils from '../constants/utils'
 import normalizeSize from '../utils/normalizeSize'
 
 const propTypes = {
@@ -22,11 +22,7 @@ function Splash (props: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle='light-content' />
-      <Image
-        source={image}
-        resizeMode='center'
-        style={styles.image}
-      />
+      {image && <Image source={image} resizeMode='center' style={styles.image} /> }
     </SafeAreaView>
   )
 }
@@ -39,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   image: {
-    width: normalizeSize(screenWidth)
+    width: normalizeSize(Utils.screenWidth)
   }
 })
 
