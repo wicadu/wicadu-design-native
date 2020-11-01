@@ -4,6 +4,7 @@ import Button from './atoms/Button'
 import IconContainer from './atoms/IconContainer'
 import Badge from './atoms/Badge'
 import Count from './atoms/Count'
+import Splash from './atoms/Splash'
 import SearchBar from './molecules/SearchBar'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
@@ -24,6 +25,7 @@ export {
   Carousel,
   Slider,
   Count,
+  Splash,
   formatNumber,
   Colors,
   Fonts
