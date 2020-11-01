@@ -16,6 +16,7 @@ import formatNumber from './utils/formatNumber'
 // Constants
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
+import Utils from './constants/utils'
 
 export {
   TextInput,
@@ -30,5 +31,6 @@ export {
   Splash,
   formatNumber,
   Colors,
-  Fonts
+  Fonts,
+  Utils
 }
