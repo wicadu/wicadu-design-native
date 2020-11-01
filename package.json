@@ -9,9 +9,10 @@
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "16.11.0",
+    "react": "^16.11.0",
     "react-native": "^0.61.4",
-    "styled-components": "^5.1.0"
+    "react-native-safe-area-context": "^3.1.8",
+    "@expo/vector-icons": "^10.2.1"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/Wcado/wcado-design-native/issues"
   },
-  "homepage": "https://github.com/Wcado/wcado-design-native#readme",
-  "devDependencies": {
-    "@expo/vector-icons": "^10.2.0"
-  }
+  "homepage": "https://github.com/Wcado/wcado-design-native#readme"
 }
