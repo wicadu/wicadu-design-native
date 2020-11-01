@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
-import { Colors } from '../constants'
+import Colors from '../constants/colors'
 
 const propTypes = {
   type: PropTypes.string,
