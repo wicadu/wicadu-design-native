@@ -5,6 +5,7 @@ import IconContainer from './atoms/IconContainer'
 import Badge from './atoms/Badge'
 import Count from './atoms/Count'
 import Splash from './atoms/Splash'
+import Link from './atoms/Link'
 import SearchBar from './molecules/SearchBar'
 import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
@@ -12,6 +13,7 @@ import Slider from './molecules/Slider'
 
 // Utils
 import formatNumber from './utils/formatNumber'
+import normalizeSize from './utils/normalizeSize'
 
 // Constants
 import Colors from './constants/colors'
@@ -29,7 +31,9 @@ export {
   Slider,
   Count,
   Splash,
+  Link,
   formatNumber,
+  normalizeSize,
   Colors,
   Fonts,
   Utils
