@@ -1,3 +1,11 @@
+# 1.1.1
+
+- Add sizePercent functions
+
+# 1.1.0
+
+- Add Link Component.
+
 # 1.0.0
 
 - Refactor all components and implemented Atomic desing.

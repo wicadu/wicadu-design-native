@@ -14,6 +14,7 @@ import Slider from './molecules/Slider'
 // Utils
 import formatNumber from './utils/formatNumber'
 import normalizeSize from './utils/normalizeSize'
+import sizesPercent from './utils/sizesPercent'
 
 // Constants
 import Colors from './constants/colors'
@@ -34,6 +35,7 @@ export {
   Link,
   formatNumber,
   normalizeSize,
+  sizesPercent,
   Colors,
   Fonts,
   Utils
