@@ -10,4 +10,6 @@ export default {
   f24: normalizeSize(24),
   f28: normalizeSize(28),
   f32: normalizeSize(32),
+  CabinBold: 'Cabin_Bold',
+  CabinRegular: 'Cabin_Regular'
 }

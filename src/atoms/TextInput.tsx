@@ -58,6 +58,7 @@ function TextInput(props: Props & DefaultProps) {
           value={value}
           maxLength={maxLength}
           placeholder={placeholder}
+          autoCapitalize='none'
         />
       </View>
       { Object.values(error).length >= 1 &&
