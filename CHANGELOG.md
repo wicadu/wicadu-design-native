@@ -1,3 +1,7 @@
+# 1.1.2
+
+- Fix component Link(Props).
+
 # 1.1.1
 
 - Add sizePercent functions

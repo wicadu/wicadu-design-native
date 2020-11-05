@@ -23,10 +23,10 @@ const propTypes = {
   children: PropTypes.node,
   innerStyle: PropTypes.object,
   textStyle: PropTypes.object,
+  alignSelf: PropTypes.string
 }
 
 const defaultProps: (Props & DefaultProps) = {
-  isPhoneNumber: false,
   underline: false,
   lineColor: Colors.primary,
   children: null,
@@ -36,6 +36,10 @@ const defaultProps: (Props & DefaultProps) = {
   text: '',
   innerStyle: {},
   textStyle: {},
+  alignSelf: 'center',
+  isPhoneNumber: false,
+  onPress(){},
+  url: '',
 }
 
 interface DefaultProps {
@@ -110,13 +114,14 @@ const styles = (props: Props) => {
     lineColor,
     fontSize,
     color,
+    alignSelf
   } = props
 
   return StyleSheet.create({
     container: {
       height: fontSize * 1.4,
       justifyContent: 'center',
-      textAlign: 'center',
+      alignSelf: alignSelf,
       borderBottomWidth: underline ? 1 : 0,
       borderBottomColor: lineColor,
       borderStyle: 'solid',
