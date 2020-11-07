@@ -1,10 +1,10 @@
 {
-  "name": "wcado-design-native",
+  "name": "wicadu-design-native",
   "version": "1.1.2",
   "main": "src/index.d.ts",
   "scripts": {
-    "dev:init": "cp  -r . ../app/node_modules/wcado-design-native",
-    "dev": "cp  -r src ../app/node_modules/wcado-design-native",
+    "dev:init": "cp  -r . ../app/node_modules/wicadu-design-native",
+    "dev": "cp  -r src ../app/node_modules/wicadu-design-native",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wcado/wcado-design-native.git"
+    "url": "git+https://github.com/wicadu/wicadu-design-native"
   },
-  "author": "Wcado <https://wcado.com>",
+  "author": "wicadu <https://wicadu.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wcado/wcado-design-native/issues"
+    "url": "https://github.com/wicadu/wicadu-design-native/issues"
   },
-  "homepage": "https://github.com/Wcado/wcado-design-native#readme"
+  "homepage": "https://github.com/wicadu/wicadu-design-native#readme"
 }
