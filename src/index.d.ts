@@ -1,4 +1,5 @@
-// Atoms & Molecules
+import Form from './hoc/Form'
+
 import TextInput from './atoms/TextInput'
 import Button from './atoms/Button'
 import IconContainer from './atoms/IconContainer'
@@ -11,17 +12,16 @@ import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 
-// Utils
 import formatNumber from './utils/formatNumber'
 import normalizeSize from './utils/normalizeSize'
 import sizesPercent from './utils/sizesPercent'
 
-// Constants
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
 import Utils from './constants/utils'
 
 export {
+  Form,
   TextInput,
   Button,
   IconContainer,
