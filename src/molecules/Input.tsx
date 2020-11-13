@@ -3,6 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form'
 import { View } from 'react-native'
 import TextInput from '../atoms/TextInput'
 import PropTypes, { InferProps } from 'prop-types'
+import InputError from '../@types/InputError'
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -22,7 +23,7 @@ const defaultProps = {
 function Input ({ name, defaultValue, ...props }: Props) {
   const { control, errors } = useFormContext()
 
-  const error: { type: string, message: string } | undefined = errors[name]
+  const error: InputError | undefined = errors[name]
 
   return (
     <View>
