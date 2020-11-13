@@ -10,6 +10,7 @@ const propTypes = {
   defaultValue: PropTypes.string,
   placeholder: PropTypes.string,
   keyboardType: PropTypes.string,
+  secureTextEntry: PropTypes.bool,
   autoCompleteType: PropTypes.string,
   autoFocus: PropTypes.bool
 }
