@@ -1,4 +1,6 @@
 import Form from './hoc/Form'
+import { Controller } from 'react-hook-form'
+import Input from './molecules/Input'
 
 import TextInput from './atoms/TextInput'
 import Button from './atoms/Button'
@@ -22,7 +24,9 @@ import Utils from './constants/utils'
 
 export {
   Form,
+  Controller,
   TextInput,
+  Input,
   Button,
   IconContainer,
   Badge,
