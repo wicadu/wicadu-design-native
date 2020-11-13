@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
+
 import ViewPager from '@react-native-community/viewpager'
 
 const propTypes = {

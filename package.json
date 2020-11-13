@@ -1,29 +1,36 @@
 {
-  "name": "wcado-design-native",
-  "version": "0.0.8",
+  "name": "@wicadu/native-ui",
+  "version": "1.1.4",
   "main": "src/index.d.ts",
   "scripts": {
-    "dev:init": "cp  -r . ../app/node_modules/wcado-design-native",
-    "dev": "cp  -r src ../app/node_modules/wcado-design-native",
+    "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
+    "@expo/vector-icons": "^10.2.1",
     "prop-types": "^15.7.2",
-    "react": "16.11.0",
+    "react": "^16.11.0",
     "react-native": "^0.61.4",
-    "styled-components": "^5.1.0"
+    "react-native-safe-area-context": "^3.1.8"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wcado/wcado-design-native.git"
+    "url": "git+https://github.com/wicadu/wicadu-native-ui"
   },
-  "author": "Wcado <https://wcado.com>",
+  "author": "wicadu <https://wicadu.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wcado/wcado-design-native/issues"
+    "url": "https://github.com/wicadu/wicadu-native-ui/issues"
   },
-  "homepage": "https://github.com/Wcado/wcado-design-native#readme",
-  "devDependencies": {
-    "@expo/vector-icons": "^10.2.0"
+  "homepage": "https://github.com/wicadu/wicadu-native-ui#readme",
+  "description": "UI library to wicadu app design system",
+  "keywords": [
+    "react",
+    "react-native",
+    "wicadu",
+    "design-system"
+  ],
+  "dependencies": {
+    "react-hook-form": "^6.11.0"
   }
 }

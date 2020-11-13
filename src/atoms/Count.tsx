@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react'
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-import { Colors, Fonts } from '../constants'
+
+import Fonts from '../constants/fonts'
+import Colors from '../constants/colors'
 
 const propTypes = {
   number: PropTypes.number,
@@ -14,7 +16,6 @@ const defaultProps: Props = {
   number: 0,
   onPress: () => {}
 }
-
 
 function Count({ number, onPress }: Props) {
   const [count, setCount] = useState(number || 0)
