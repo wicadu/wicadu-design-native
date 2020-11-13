@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, ScrollView, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-import { Fonts } from '../../constants'
+
+import Fonts from '../../constants/fonts'
 
 const propTypes = {
   children: PropTypes.node.isRequired,

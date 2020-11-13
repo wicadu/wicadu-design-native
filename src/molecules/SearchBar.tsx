@@ -1,7 +1,7 @@
 import React, { useRef, useState, useCallback } from 'react'
-import { TextInput, StyleSheet, View, Dimensions } from 'react-native'
+import { TextInput, StyleSheet, View } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import IconContainer from './IconContainer'
+import IconContainer from '../atoms/IconContainer'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
