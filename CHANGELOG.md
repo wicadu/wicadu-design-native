@@ -1,3 +1,11 @@
+# 1.1.4
+
+- React Hook Form added.
+
+# 1.1.3
+
+- Update name.
+
 # 1.1.2
 
 - Fix component Link(Props).
@@ -12,4 +20,4 @@
 
 # 1.0.0
 
-- Refactor all components and implemented Atomic desing.
+- Refactor all components and implemented Atomic design.

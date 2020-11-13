@@ -1,34 +1,36 @@
 {
-  "name": "@wicadu/ui-design-native",
-  "version": "1.1.3",
+  "name": "@wicadu/native-ui",
+  "version": "1.1.4",
   "main": "src/index.d.ts",
   "scripts": {
-    "dev:init": "cp  -r . ../app/node_modules/@wicadu/ui-design-native",
-    "dev": "cp  -r src ../app/node_modules/@wicadu/ui-design-native",
+    "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
+    "@expo/vector-icons": "^10.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-native": "^0.61.4",
-    "react-native-safe-area-context": "^3.1.8",
-    "@expo/vector-icons": "^10.2.1"
+    "react-native-safe-area-context": "^3.1.8"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wicadu/wicadu-design-native"
+    "url": "git+https://github.com/wicadu/wicadu-native-ui"
   },
   "author": "wicadu <https://wicadu.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wicadu/wicadu-design-native/issues"
+    "url": "https://github.com/wicadu/wicadu-native-ui/issues"
   },
-  "homepage": "https://github.com/wicadu/wicadu-design-native#readme",
-  "description": "UI library to desing system wicadu app",
+  "homepage": "https://github.com/wicadu/wicadu-native-ui#readme",
+  "description": "UI library to wicadu app design system",
   "keywords": [
     "react",
     "react-native",
     "wicadu",
     "design-system"
-  ]
+  ],
+  "dependencies": {
+    "react-hook-form": "^6.11.0"
+  }
 }

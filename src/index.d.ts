@@ -1,4 +1,7 @@
-// Atoms & Molecules
+import Form from './hoc/Form'
+import { Controller } from 'react-hook-form'
+import Input from './molecules/Input'
+
 import TextInput from './atoms/TextInput'
 import Button from './atoms/Button'
 import IconContainer from './atoms/IconContainer'
@@ -11,18 +14,19 @@ import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 
-// Utils
 import formatNumber from './utils/formatNumber'
 import normalizeSize from './utils/normalizeSize'
 import sizesPercent from './utils/sizesPercent'
 
-// Constants
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
 import Utils from './constants/utils'
 
 export {
+  Form,
+  Controller,
   TextInput,
+  Input,
   Button,
   IconContainer,
   Badge,
