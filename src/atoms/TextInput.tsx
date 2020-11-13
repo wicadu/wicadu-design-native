@@ -1,7 +1,6 @@
 import React from 'react'
 import { TextInput as Input, StyleSheet, Text, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
-
 import Colors from '../constants/colors'
 
 const propTypes = {
@@ -9,26 +8,23 @@ const propTypes = {
   radius: PropTypes.number,
   bgColor: PropTypes.string,
   inputStyles: PropTypes.object,
+  keyboardType: PropTypes.string,
+  autoCompleteType: PropTypes.string,
+  autoFocus: PropTypes.bool,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
   error: PropTypes.shape({
+    type: PropTypes.string,
     message: PropTypes.string
-  }).isRequired,
-  onChangeText: PropTypes.func.isRequired
+  }),
+  onChangeText: PropTypes.func,
+  autoCapitalize: PropTypes.string
 }
 
-interface DefaultProps {
-  keyboardType: string | any,
-  onChangeText?: (value: string) => void,
-  autoCompleteType?: string | any,
-  autoFocus: boolean,
-  value: string,
-  maxLength: number,
-  placeholder: string,
-}
-
-const defaultProps: (Props & DefaultProps) = {
+const defaultProps: Props = {
   radius: 15,
   bgColor: 'white',
-  error: {},
   inputStyles: {},
   keyboardType: 'default',
   autoCompleteType: 'off',
@@ -36,41 +32,33 @@ const defaultProps: (Props & DefaultProps) = {
   value: '',
   maxLength: 100,
   placeholder: '',
-  onChangeText(){}
+  onChangeText () {},
+  autoCapitalize: 'none'
 }
 
 type Props = InferProps<typeof propTypes>
 
-function TextInput(props: Props & DefaultProps) {
+function TextInput(props: Props) {
   const generatedStyles = styles(props)
-  
-  const { error, autoCompleteType, keyboardType, autoFocus, onChangeText, value, maxLength, placeholder } = props
+
+  const { value, onChangeText, error } = props
 
   return (
     <View style={generatedStyles.container}>
       <View style={generatedStyles.inputContainer}>
         <Input
           style={generatedStyles.input}
-          autoCompleteType={autoCompleteType}
-          keyboardType={keyboardType}
-          autoFocus={autoFocus}
-          onChangeText={(value: string) => onChangeText(value)}
           value={value}
-          maxLength={maxLength}
-          placeholder={placeholder}
-          autoCapitalize='none'
+          onChangeText={(value: string) => onChangeText(value)}
+          {...props}
         />
       </View>
-      { Object.values(error).length >= 1 &&
-        <Text style={generatedStyles.error}>
-          {error.message || 'Este campo es obligatorio'}
-        </Text>
-      }
+      {Boolean(error) && <Text style={generatedStyles.error}>{error.message}</Text>}
     </View>
   )
 }
 
-const styles = (props: Props & DefaultProps) => {
+const styles = (props: Props) => {
   const { radius, bgColor, error, inputStyles } = props
 
   return StyleSheet.create({
@@ -85,14 +73,14 @@ const styles = (props: Props & DefaultProps) => {
       margin: 0,
       marginVertical: 5,
       borderWidth: 1,
-      borderColor: Object.values(error).length >= 1 ? 'rgb(246, 71, 71)' : 'transparent'
+      borderColor: Boolean(error) ? Colors.error : 'transparent'
     },
     input: {
       fontSize: 18,
       ...inputStyles
     },
     error: {
-      color: 'rgb(246, 71, 71)',
+      color: Colors.error,
     }
   })
 }

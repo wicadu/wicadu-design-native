@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { View } from 'react-native'
 import TextInput from '../atoms/TextInput'
@@ -22,7 +22,7 @@ const defaultProps = {
 function Input ({ name, defaultValue, ...props }: Props) {
   const { control, errors } = useFormContext()
 
-  const error = useMemo(() => errors[name], [errors, name])
+  const error: { type: string, message: string } | undefined = errors[name]
 
   return (
     <View>
