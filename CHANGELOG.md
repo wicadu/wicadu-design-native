@@ -1,3 +1,7 @@
+# 1.1.4
+
+- React Hook Form added.
+
 # 1.1.3
 
 - Update name.
