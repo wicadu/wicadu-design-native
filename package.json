@@ -1,6 +1,6 @@
 {
   "name": "@wicadu/native-ui",
-  "version": "1.1.5",
+  "version": "1.0.6",
   "main": "src/index.d.ts",
   "scripts": {
     "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
