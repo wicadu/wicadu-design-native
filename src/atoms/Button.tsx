@@ -4,7 +4,7 @@ import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
-  title: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   type: PropTypes.string,
   inverse: PropTypes.bool,
   size: PropTypes.string,
@@ -12,15 +12,8 @@ const propTypes = {
   id: PropTypes.string
 }
 
-interface DefaultProps {
-  type?: string,
-  size?: string,
-  inverse?: boolean,
-  disabled?: boolean,
-  onPress?: () => void
-}
-
-const defaultProps: DefaultProps = {
+const defaultProps: Props = {
+  children: '',
   type: 'primary',
   size: 'large',
   inverse: false,
@@ -30,10 +23,10 @@ const defaultProps: DefaultProps = {
 
 type Props = InferProps<typeof propTypes>
 
-function Button(props: Props & DefaultProps) {
+function Button(props: Props) {
   const generatedStyles = styles(props)
 
-  const { title, onPress, disabled } = props
+  const { children: title, onPress, disabled } = props
 
   return (
     <TouchableWithoutFeedback onPress={onPress}disabled={disabled}>
@@ -44,7 +37,7 @@ function Button(props: Props & DefaultProps) {
   )
 }
 
-const styles = ({ type, size, inverse }: DefaultProps) => {
+const styles = ({ type, size, inverse }: Props) => {
   const classType: string = `${type}${inverse ? '-inverse' : ''}`
 
   const defaultStylesContainer: object = {
