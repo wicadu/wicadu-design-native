@@ -7,14 +7,14 @@ const propTypes = {
   children: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['default', 'title', 'description']),
   size: PropTypes.number,
-  styles: PropTypes.object
+  style: PropTypes.object
 }
 
 const defaultProps: Props = {
   children: '',
   type: 'default',
   size: 18,
-  styles: {}
+  style: {}
 }
 
 type Props = InferProps<typeof propTypes>
@@ -27,7 +27,7 @@ function Typography (props: Props) {
   return <Text style={generatedStyles.text}>{children}</Text>
 }
 
-const styles = ({ type, size, styles }: Props) => {
+const styles = ({ type, size, style }: Props) => {
   const defaultStylesText: object = {
     fontFamily: 'Cabin_Regular',
     fontSize: size
@@ -52,7 +52,7 @@ const styles = ({ type, size, styles }: Props) => {
   return StyleSheet.create({
     text: {
       ...classes.text[type],
-      ...styles
+      ...style
     }
   })
 }
