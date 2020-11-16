@@ -6,6 +6,7 @@ import PropTypes, { InferProps } from 'prop-types'
 const propTypes = {
   children: PropTypes.string.isRequired,
   type: PropTypes.string,
+  icon: PropTypes.element,
   inverse: PropTypes.bool,
   size: PropTypes.string,
   onPress: PropTypes.func.isRequired,
@@ -15,6 +16,7 @@ const propTypes = {
 const defaultProps: Props = {
   children: '',
   type: 'primary',
+  icon: null,
   size: 'large',
   inverse: false,
   onPress: () => {},
@@ -26,12 +28,12 @@ type Props = InferProps<typeof propTypes>
 function Button(props: Props) {
   const generatedStyles = styles(props)
 
-  const { children: title, onPress, disabled } = props
+  const { children: title, icon, onPress, disabled } = props
 
   return (
     <TouchableWithoutFeedback onPress={onPress}disabled={disabled}>
       <View style={generatedStyles.container}>
-        <Text style={generatedStyles.text}>{title}</Text>
+      <Text style={generatedStyles.text}>{title}</Text>{icon && <View style={generatedStyles.iconContainer}>{icon}</View>}
       </View>
     </TouchableWithoutFeedback>
   )
@@ -45,7 +47,9 @@ const styles = ({ type, size, inverse }: Props) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10
+    marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
 
   const defaultStylesText: object = {
@@ -104,6 +108,12 @@ const styles = ({ type, size, inverse }: Props) => {
         ...defaultStylesText,
         color: Colors.darkGray
       }
+    },
+    sizeIconContainer: {
+      'large': {
+        position: 'absolute',
+        right: 20
+      }
     }
   }
 
@@ -114,6 +124,9 @@ const styles = ({ type, size, inverse }: Props) => {
     },
     text: {
       ...classes.text[classType]
+    },
+    iconContainer: {
+      ...classes.sizeIconContainer[size]
     }
   })
 }
