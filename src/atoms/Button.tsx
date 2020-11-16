@@ -56,8 +56,8 @@ const styles = ({ type, size, inverse }: DefaultProps) => {
   }
 
   const defaultStylesText: object = {
-    fontFamily: 'Cabin_Regular',
-    fontSize: 16
+    fontFamily: 'Cabin_Bold',
+    fontSize: 18
   }
 
   const classes: object = {
