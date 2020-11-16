@@ -9,8 +9,7 @@ const propTypes = {
   icon: PropTypes.element,
   inverse: PropTypes.bool,
   size: PropTypes.string,
-  onPress: PropTypes.func.isRequired,
-  id: PropTypes.string
+  onPress: PropTypes.func.isRequired
 }
 
 const defaultProps: Props = {
@@ -19,8 +18,7 @@ const defaultProps: Props = {
   icon: null,
   size: 'default',
   inverse: false,
-  onPress: () => {},
-  disabled: false
+  onPress: () => {}
 }
 
 type Props = InferProps<typeof propTypes>
@@ -31,9 +29,9 @@ function Button(props: Props) {
   const { children: title, icon, onPress, disabled } = props
 
   return (
-    <TouchableWithoutFeedback onPress={onPress}disabled={disabled}>
+    <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
       <View style={generatedStyles.container}>
-      <Text style={generatedStyles.text}>{title}</Text>{icon && <View style={generatedStyles.iconContainer}>{icon}</View>}
+      <Text style={generatedStyles.text}>{title}</Text>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
       </View>
     </TouchableWithoutFeedback>
   )
