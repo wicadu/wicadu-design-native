@@ -35,7 +35,7 @@ const styles = ({ type, size, style }: Props) => {
 
   const classes: object = {
     text: {
-      'default': {},
+      'default': defaultStylesText,
       'title': {
         ...defaultStylesText,
         fontFamily: 'Cabin_Bold',
