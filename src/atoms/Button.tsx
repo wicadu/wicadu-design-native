@@ -17,7 +17,7 @@ const defaultProps: Props = {
   children: '',
   type: 'primary',
   icon: null,
-  size: 'large',
+  size: 'default',
   inverse: false,
   onPress: () => {},
   disabled: false
@@ -49,7 +49,8 @@ const styles = ({ type, size, inverse }: Props) => {
     justifyContent: 'center',
     marginVertical: 10,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 
   const defaultStylesText: object = {
@@ -76,9 +77,11 @@ const styles = ({ type, size, inverse }: Props) => {
         ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.darkGray
-      }
+      },
+      'link': {}
     },
     sizeContainer: {
+      'default': {},
       'small': {
         width: 100,
         height: 30
@@ -107,6 +110,11 @@ const styles = ({ type, size, inverse }: Props) => {
       'ghost-inverse': {
         ...defaultStylesText,
         color: Colors.darkGray
+      },
+      'link': {
+        ...defaultStylesText,
+        fontSize: 16,
+        color: Colors.primary
       }
     },
     sizeIconContainer: {
