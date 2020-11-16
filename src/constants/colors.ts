@@ -1,5 +1,5 @@
 export default {
-  primary: '#5430ff',
+  primary: '#056cf2',
   secondary: '#8053FF',
   third: '#A772FF',
   fourth: '#CD92FF',
@@ -10,6 +10,6 @@ export default {
   success: '#40BEA7',
   warning: '',
   error: '#FF001B',
-  white: '#FFFFFF',
+  white: '#f2f2f2',
   black: '#000000'
 }

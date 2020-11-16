@@ -1,3 +1,7 @@
+# 1.1.5
+
+- Button component refactoring.
+
 # 1.1.4
 
 - React Hook Form added.
