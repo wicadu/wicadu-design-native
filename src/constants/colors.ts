@@ -6,7 +6,7 @@ export default {
   fifth: '#F4B4FF',
   gray: '#AFA8BA',
   lightGray: '#D3D3D3',
-  darkGray: '#4A4453', 
+  darkGray: '#8a8a8a',
   success: '#40BEA7',
   warning: '',
   error: '#FF001B',

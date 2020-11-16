@@ -5,15 +5,15 @@ import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['title']),
+  type: PropTypes.oneOf(['default', 'title', 'description']),
   size: PropTypes.number,
   styles: PropTypes.object
 }
 
 const defaultProps: Props = {
   children: '',
-  type: 'title',
-  size: 16,
+  type: 'default',
+  size: 18,
   styles: {}
 }
 
@@ -29,16 +29,22 @@ function Typography (props: Props) {
 
 const styles = ({ type, size, styles }: Props) => {
   const defaultStylesText: object = {
-    fontFamily: 'Cabin_Bold',
+    fontFamily: 'Cabin_Regular',
     fontSize: size
   }
 
   const classes: object = {
     text: {
+      'default': {},
       'title': {
         ...defaultStylesText,
-        fontSize: 24,
+        fontFamily: 'Cabin_Bold',
+        fontSize: 26,
         color: Colors.black
+      },
+      'description': {
+        ...defaultStylesText,
+        color: Colors.darkGray
       }
     }
   }
