@@ -11,5 +11,5 @@ export default {
   warning: '',
   error: '#FF001B',
   white: '#f2f2f2',
-  black: '#000000'
+  black: '#1E1926'
 }
