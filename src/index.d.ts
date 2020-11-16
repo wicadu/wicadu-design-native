@@ -1,6 +1,5 @@
 import Form from './hoc/Form'
 import { Controller } from 'react-hook-form'
-import Input from './molecules/Input'
 
 import TextInput from './atoms/TextInput'
 import Button from './atoms/Button'
@@ -9,6 +8,9 @@ import Badge from './atoms/Badge'
 import Count from './atoms/Count'
 import Splash from './atoms/Splash'
 import Link from './atoms/Link'
+import Typography from './atoms/Typography'
+
+import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
 import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
@@ -37,6 +39,7 @@ export {
   Count,
   Splash,
   Link,
+  Typography,
   formatNumber,
   normalizeSize,
   sizesPercent,

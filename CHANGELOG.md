@@ -1,22 +1,26 @@
-# 1.1.5
+# 1.0.6
 
-- Button component refactoring.
+- Typography atom added.
 
-# 1.1.4
+# 1.0.5
+
+- Button atom refactoring.
+
+# 1.0.4
 
 - React Hook Form added.
 
-# 1.1.3
+# 1.0.3
 
 - Update name.
 
-# 1.1.2
+# 1.0.2
 
 - Fix component Link(Props).
 
-# 1.1.1
+# 1.0.1
 
-- Add sizePercent functions
+- Add sizePercent functions and fix version number
 
 # 1.1.0
 
