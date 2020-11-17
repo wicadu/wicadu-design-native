@@ -5,7 +5,7 @@ import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'title', 'description']),
+  type: PropTypes.oneOf(['default', 'title', 'title-2', 'description']),
   size: PropTypes.number,
   style: PropTypes.object
 }
@@ -33,14 +33,23 @@ const styles = ({ type, size, style }: Props) => {
     fontSize: size
   }
 
+  const defaultStylesTitleText: object = {
+    fontFamily: 'Cabin_Bold',
+    color: Colors.black
+  }
+
   const classes: object = {
     text: {
       'default': defaultStylesText,
       'title': {
         ...defaultStylesText,
-        fontFamily: 'Cabin_Bold',
-        fontSize: 26,
-        color: Colors.black
+        ...defaultStylesTitleText,
+        fontSize: 26
+      },
+      'title-2': {
+        ...defaultStylesText,
+        ...defaultStylesTitleText,
+        fontSize: 24
       },
       'description': {
         ...defaultStylesText,
