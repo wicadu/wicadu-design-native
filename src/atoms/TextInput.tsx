@@ -1,13 +1,11 @@
 import React from 'react'
-import { TextInput as Input, StyleSheet, Text, View } from 'react-native'
-import PropTypes, { InferProps } from 'prop-types'
+import { TextInput as Input, StyleSheet, View } from 'react-native'
 import Colors from '../constants/colors'
+import Typography from './Typography'
+import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   label: PropTypes.string,
-  radius: PropTypes.number,
-  bgColor: PropTypes.string,
-  inputStyles: PropTypes.object,
   keyboardType: PropTypes.string,
   autoCompleteType: PropTypes.string,
   autoFocus: PropTypes.bool,
@@ -23,9 +21,7 @@ const propTypes = {
 }
 
 const defaultProps: Props = {
-  radius: 15,
   bgColor: 'white',
-  inputStyles: {},
   keyboardType: 'default',
   autoCompleteType: 'off',
   autoFocus: false,
@@ -53,21 +49,23 @@ function TextInput(props: Props) {
           {...props}
         />
       </View>
-      {Boolean(error) && <Text style={generatedStyles.error}>{error.message}</Text>}
+      <View style={generatedStyles.errorContainer}>
+        {Boolean(error) && <Typography size={14} style={generatedStyles.error}>{error.message}</Typography>}
+      </View>
     </View>
   )
 }
 
 const styles = (props: Props) => {
-  const { radius, bgColor, error, inputStyles } = props
+  const { error } = props
 
   return StyleSheet.create({
     container: {
       marginVertical: 10
     },
     inputContainer: {
-      borderRadius: radius,
-      backgroundColor: Colors[bgColor],
+      borderRadius: 5,
+      backgroundColor: '#FFFFFF',
       paddingVertical: 15,
       paddingHorizontal: 10,
       margin: 0,
@@ -76,11 +74,14 @@ const styles = (props: Props) => {
       borderColor: Boolean(error) ? Colors.error : 'transparent'
     },
     input: {
-      fontSize: 18,
-      ...inputStyles
+      fontSize: 18
+    },
+    errorContainer: {
+      height: 17
     },
     error: {
       color: Colors.error,
+      textAlign: 'right'
     }
   })
 }
