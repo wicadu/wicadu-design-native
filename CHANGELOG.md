@@ -1,3 +1,7 @@
+# 1.1.7
+
+- Button fixed.
+
 # 1.0.6
 
 - Typography atom added.
