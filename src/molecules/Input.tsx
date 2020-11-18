@@ -4,7 +4,6 @@ import { View } from 'react-native'
 import TextInput from '../atoms/TextInput'
 import PropTypes, { InferProps } from 'prop-types'
 import InputError from '../@types/InputError'
-import InputEditable from './InputEditable'
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -48,7 +47,5 @@ function Input ({ name, defaultValue, ...props }: Props) {
 
 Input.propTypes = propTypes
 Input.defaultProps = defaultProps
-
-Input.Editable = InputEditable
 
 export default Input
