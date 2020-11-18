@@ -9,6 +9,8 @@ const propTypes = {
   icon: PropTypes.element,
   inverse: PropTypes.bool,
   size: PropTypes.string,
+  containerStyle: PropTypes.object,
+  textStyle: PropTypes.object,
   onPress: PropTypes.func.isRequired
 }
 
@@ -18,6 +20,8 @@ const defaultProps: Props = {
   icon: null,
   size: 'default',
   inverse: false,
+  containerStyle: {},
+  textStyle: {},
   onPress: () => {}
 }
 
@@ -31,29 +35,30 @@ function Button(props: Props) {
   return (
     <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
       <View style={generatedStyles.container}>
-      <Text style={generatedStyles.text}>{title}</Text>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
+        <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
       </View>
     </TouchableWithoutFeedback>
   )
 }
 
-const styles = ({ type, size, inverse }: Props) => {
+const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
   const classType: string = `${type}${inverse ? '-inverse' : ''}`
 
   const defaultStylesContainer: object = {
     borderRadius: 10,
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginVertical: 10
   }
 
   const defaultStylesText: object = {
     fontFamily: 'Cabin_Bold',
     fontSize: 18
+  }
+
+  const defaultSizeIconContainer: object = {
+    position: 'absolute',
+    right: 20
   }
 
   const classes: object = {
@@ -116,9 +121,11 @@ const styles = ({ type, size, inverse }: Props) => {
       }
     },
     sizeIconContainer: {
+      'default': {
+        ...defaultSizeIconContainer
+      },
       'large': {
-        position: 'absolute',
-        right: 20
+        ...defaultSizeIconContainer
       }
     }
   }
@@ -126,10 +133,12 @@ const styles = ({ type, size, inverse }: Props) => {
   return StyleSheet.create({
     container: {
       ...classes.container[classType],
-      ...classes.sizeContainer[size]
+      ...classes.sizeContainer[size],
+      ...containerStyle
     },
     text: {
-      ...classes.text[classType]
+      ...classes.text[classType],
+      ...textStyle
     },
     iconContainer: {
       ...classes.sizeIconContainer[size]
