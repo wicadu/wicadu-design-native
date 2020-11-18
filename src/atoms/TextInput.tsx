@@ -9,6 +9,7 @@ const propTypes = {
   keyboardType: PropTypes.string,
   autoCompleteType: PropTypes.string,
   autoFocus: PropTypes.bool,
+  hidden: PropTypes.bool,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
@@ -57,12 +58,16 @@ function TextInput(props: Props) {
 }
 
 const styles = (props: Props) => {
-  const { error } = props
+  const { error, hidden } = props
+
+  let container: any = {
+    marginVertical: 10
+  }
+
+  if (hidden) container.display = 'none'
 
   return StyleSheet.create({
-    container: {
-      marginVertical: 10
-    },
+    container,
     inputContainer: {
       borderRadius: 5,
       backgroundColor: '#FFFFFF',

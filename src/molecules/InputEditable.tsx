@@ -13,15 +13,14 @@ function InputEditable ({ ...props }) {
     name: props.name
   })
 
-  const [ editing, setEditing ] = useState(false)
+  const [ edited, setEdited ] = useState(true)
 
-  const onEdit = useCallback(() => setEditing(true), [setEditing])
+  const onEdit = useCallback(() => setEdited(false), [setEdited])
 
   return (
     <View style={styles.container}>
-      {editing ? (
-        <Input control={control} {...props} />
-      ) : (
+      <Input control={control} hidden={edited} {...props} />
+      {edited && (
         <Button type='link'
           containerStyle={styles.buttonContainer}
           textStyle={styles.buttonText}
