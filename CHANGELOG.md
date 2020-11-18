@@ -1,3 +1,7 @@
+# 1.1.9
+
+- Remove Input.Editable.
+
 # 1.1.8
 
 - Input fixed and styles added to Input.Editable.
