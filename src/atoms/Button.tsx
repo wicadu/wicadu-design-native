@@ -98,8 +98,8 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
         height: 30
       },
       'medium': {
-        width: 180,
-        height: 35
+        width: 200,
+        height: 45
       },
       'large': {
         height: 55

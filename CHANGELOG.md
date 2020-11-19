@@ -1,3 +1,7 @@
+# 1.1.11
+
+- Medium size of Button fixed.
+
 # 1.1.10
 
 - Add loading to Button.
