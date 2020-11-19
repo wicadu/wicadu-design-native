@@ -80,6 +80,10 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
         borderWidth: 1,
         borderColor: Colors.primary
       },
+      'light': {
+        ...defaultStylesContainer,
+        backgroundColor: Colors.white,
+      },
       'ghost': {
         ...defaultStylesContainer,
         backgroundColor: Colors.darkGray
@@ -111,6 +115,10 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
         color: Colors.white
       },
       'primary-inverse': {
+        ...defaultStylesText,
+        color: Colors.primary
+      },
+      'light': {
         ...defaultStylesText,
         color: Colors.primary
       },
