@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
+import React, { Fragment } from 'react'
+import { StyleSheet, View, Text, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
@@ -8,6 +8,8 @@ const propTypes = {
   type: PropTypes.string,
   icon: PropTypes.element,
   inverse: PropTypes.bool,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
   size: PropTypes.string,
   containerStyle: PropTypes.object,
   textStyle: PropTypes.object,
@@ -30,12 +32,18 @@ type Props = InferProps<typeof propTypes>
 function Button(props: Props) {
   const generatedStyles = styles(props)
 
-  const { children: title, icon, onPress, disabled } = props
+  const { children: title, icon, onPress, loading, disabled } = props
 
   return (
-    <TouchableWithoutFeedback onPress={onPress} disabled={disabled}>
+    <TouchableWithoutFeedback onPress={onPress} disabled={loading || disabled}>
       <View style={generatedStyles.container}>
-        <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
+        {loading ? (
+          <ActivityIndicator size='small' color={Colors.white} />
+        ) : (
+          <Fragment>
+            <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
+          </Fragment>
+        )}
       </View>
     </TouchableWithoutFeedback>
   )
