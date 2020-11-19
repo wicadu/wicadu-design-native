@@ -1,3 +1,7 @@
+# 1.1.12
+
+- New types (light and light-inverse) of Button added.
+
 # 1.1.11
 
 - Medium size of Button fixed.
