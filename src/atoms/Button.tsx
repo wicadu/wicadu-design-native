@@ -84,6 +84,11 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
         ...defaultStylesContainer,
         backgroundColor: Colors.white,
       },
+      'light-inverse': {
+        ...defaultStylesContainer,
+        borderWidth: 1,
+        borderColor: Colors.white
+      },
       'ghost': {
         ...defaultStylesContainer,
         backgroundColor: Colors.darkGray
@@ -121,6 +126,10 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
       'light': {
         ...defaultStylesText,
         color: Colors.primary
+      },
+      'light-inverse': {
+        ...defaultStylesText,
+        color: Colors.white
       },
       'ghost': {
         ...defaultStylesText,
