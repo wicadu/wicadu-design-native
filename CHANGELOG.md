@@ -1,3 +1,7 @@
+# 1.1.10
+
+- Add loading to Button.
+
 # 1.1.9
 
 - Remove Input.Editable.
