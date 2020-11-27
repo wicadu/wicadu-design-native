@@ -1,3 +1,7 @@
+# 1.1.13
+
+- Link-Disabled type added to Button.
+
 # 1.1.12
 
 - New types (light and light-inverse) of Button added.

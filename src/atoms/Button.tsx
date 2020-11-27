@@ -38,7 +38,9 @@ function Button(props: Props) {
     <TouchableWithoutFeedback onPress={onPress} disabled={loading || disabled}>
       <View style={generatedStyles.container}>
         {loading ? (
-          <ActivityIndicator size='small' color={Colors.white} />
+          <View style={generatedStyles.containerLoading}>
+            <ActivityIndicator size='small' color={generatedStyles.loading.color} />
+          </View>
         ) : (
           <Fragment>
             <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
@@ -49,8 +51,11 @@ function Button(props: Props) {
   )
 }
 
-const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
-  const classType: string = `${type}${inverse ? '-inverse' : ''}`
+const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Props) => {
+  let classType: string = type
+
+  if (inverse) classType += '-inverse'
+  if (disabled) classType += '-disabled'
 
   const defaultStylesContainer: object = {
     borderRadius: 10,
@@ -69,32 +74,30 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
     right: 20
   }
 
+  const defaultLoading: object = {
+    color: Colors.white
+  }
+
   const classes: object = {
     container: {
       'primary': {
-        ...defaultStylesContainer,
         backgroundColor: Colors.primary,
       },
       'primary-inverse': {
-        ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.primary
       },
       'light': {
-        ...defaultStylesContainer,
         backgroundColor: Colors.white,
       },
       'light-inverse': {
-        ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.white
       },
       'ghost': {
-        ...defaultStylesContainer,
         backgroundColor: Colors.darkGray
       },
       'ghost-inverse': {
-        ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.darkGray
       },
@@ -103,11 +106,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
     sizeContainer: {
       'default': {},
       'small': {
-        width: 100,
         height: 30
       },
       'medium': {
-        width: 200,
         height: 45
       },
       'large': {
@@ -116,33 +117,40 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
     },
     text: {
       'primary': {
-        ...defaultStylesText,
         color: Colors.white
       },
       'primary-inverse': {
-        ...defaultStylesText,
         color: Colors.primary
       },
       'light': {
-        ...defaultStylesText,
         color: Colors.primary
       },
       'light-inverse': {
-        ...defaultStylesText,
         color: Colors.white
       },
       'ghost': {
-        ...defaultStylesText,
         color: Colors.white
       },
       'ghost-inverse': {
-        ...defaultStylesText,
         color: Colors.darkGray
       },
       'link': {
-        ...defaultStylesText,
-        fontSize: 16,
         color: Colors.primary
+      },
+      'link-disabled': {
+        color: Colors.gray
+      }
+    },
+    sizeText: {
+      'default': {
+        fontSize: 18
+      },
+      'small': {
+        fontSize: 16
+      },
+      'medium': {},
+      'large': {
+        fontSize: 18
       }
     },
     sizeIconContainer: {
@@ -152,21 +160,42 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
       'large': {
         ...defaultSizeIconContainer
       }
+    },
+    loading: {
+      'primary': {
+        color: Colors.white,
+      },
+      'link': {
+        color: Colors.primary,
+      },
+      'link-disabled': {
+        color: Colors.gray
+      }
     }
   }
 
   return StyleSheet.create({
     container: {
+      ...defaultStylesContainer,
       ...classes.container[classType],
       ...classes.sizeContainer[size],
       ...containerStyle
     },
     text: {
+      ...defaultStylesText,
       ...classes.text[classType],
+      ...classes.sizeText[size],
       ...textStyle
     },
     iconContainer: {
       ...classes.sizeIconContainer[size]
+    },
+    containerLoading: {
+      marginLeft: 5
+    },
+    loading: {
+      ...defaultLoading,
+      ...classes.loading[classType]
     }
   })
 }
