@@ -49,8 +49,11 @@ function Button(props: Props) {
   )
 }
 
-const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
-  const classType: string = `${type}${inverse ? '-inverse' : ''}`
+const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Props) => {
+  let classType: string = type
+
+  if (inverse) classType += '-inverse'
+  if (disabled) classType += '-disabled'
 
   const defaultStylesContainer: object = {
     borderRadius: 10,
@@ -134,6 +137,10 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
       'link': {
         fontSize: 16,
         color: Colors.primary
+      },
+      'link-disabled': {
+        fontSize: 16,
+        color: Colors.gray
       }
     },
     sizeIconContainer: {
@@ -150,6 +157,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
       },
       'link': {
         color: Colors.primary,
+      },
+      'link-disabled': {
+        color: Colors.gray
       }
     }
   }
