@@ -38,7 +38,9 @@ function Button(props: Props) {
     <TouchableWithoutFeedback onPress={onPress} disabled={loading || disabled}>
       <View style={generatedStyles.container}>
         {loading ? (
-          <ActivityIndicator size='small' color={generatedStyles.loading.color} />
+          <View style={generatedStyles.containerLoading}>
+            <ActivityIndicator size='small' color={generatedStyles.loading.color} />
+          </View>
         ) : (
           <Fragment>
             <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
@@ -104,11 +106,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     sizeContainer: {
       'default': {},
       'small': {
-        width: 100,
         height: 30
       },
       'medium': {
-        width: 200,
         height: 45
       },
       'large': {
@@ -135,12 +135,22 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
         color: Colors.darkGray
       },
       'link': {
-        fontSize: 16,
         color: Colors.primary
       },
       'link-disabled': {
-        fontSize: 16,
         color: Colors.gray
+      }
+    },
+    sizeText: {
+      'default': {
+        fontSize: 18
+      },
+      'small': {
+        fontSize: 16
+      },
+      'medium': {},
+      'large': {
+        fontSize: 18
       }
     },
     sizeIconContainer: {
@@ -174,10 +184,14 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     text: {
       ...defaultStylesText,
       ...classes.text[classType],
+      ...classes.sizeText[size],
       ...textStyle
     },
     iconContainer: {
       ...classes.sizeIconContainer[size]
+    },
+    containerLoading: {
+      marginLeft: 5
     },
     loading: {
       ...defaultLoading,
