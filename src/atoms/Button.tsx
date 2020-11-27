@@ -38,7 +38,7 @@ function Button(props: Props) {
     <TouchableWithoutFeedback onPress={onPress} disabled={loading || disabled}>
       <View style={generatedStyles.container}>
         {loading ? (
-          <ActivityIndicator size='small' color={Colors.white} />
+          <ActivityIndicator size='small' color={generatedStyles.loading.color} />
         ) : (
           <Fragment>
             <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
@@ -69,32 +69,30 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
     right: 20
   }
 
+  const defaultLoading: object = {
+    color: Colors.white
+  }
+
   const classes: object = {
     container: {
       'primary': {
-        ...defaultStylesContainer,
         backgroundColor: Colors.primary,
       },
       'primary-inverse': {
-        ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.primary
       },
       'light': {
-        ...defaultStylesContainer,
         backgroundColor: Colors.white,
       },
       'light-inverse': {
-        ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.white
       },
       'ghost': {
-        ...defaultStylesContainer,
         backgroundColor: Colors.darkGray
       },
       'ghost-inverse': {
-        ...defaultStylesContainer,
         borderWidth: 1,
         borderColor: Colors.darkGray
       },
@@ -116,31 +114,24 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
     },
     text: {
       'primary': {
-        ...defaultStylesText,
         color: Colors.white
       },
       'primary-inverse': {
-        ...defaultStylesText,
         color: Colors.primary
       },
       'light': {
-        ...defaultStylesText,
         color: Colors.primary
       },
       'light-inverse': {
-        ...defaultStylesText,
         color: Colors.white
       },
       'ghost': {
-        ...defaultStylesText,
         color: Colors.white
       },
       'ghost-inverse': {
-        ...defaultStylesText,
         color: Colors.darkGray
       },
       'link': {
-        ...defaultStylesText,
         fontSize: 16,
         color: Colors.primary
       }
@@ -152,21 +143,35 @@ const styles = ({ type, size, inverse, containerStyle, textStyle }: Props) => {
       'large': {
         ...defaultSizeIconContainer
       }
+    },
+    loading: {
+      'primary': {
+        color: Colors.white,
+      },
+      'link': {
+        color: Colors.primary,
+      }
     }
   }
 
   return StyleSheet.create({
     container: {
+      ...defaultStylesContainer,
       ...classes.container[classType],
       ...classes.sizeContainer[size],
       ...containerStyle
     },
     text: {
+      ...defaultStylesText,
       ...classes.text[classType],
       ...textStyle
     },
     iconContainer: {
       ...classes.sizeIconContainer[size]
+    },
+    loading: {
+      ...defaultLoading,
+      ...classes.loading[classType]
     }
   })
 }
