@@ -160,6 +160,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       'default': {
         ...defaultSizeIconContainer
       },
+      'medium': {
+        ...defaultSizeIconContainer
+      },
       'large': {
         ...defaultSizeIconContainer
       }
