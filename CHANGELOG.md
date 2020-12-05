@@ -1,3 +1,7 @@
+# 1.1.14
+
+- Inverse Link type added to Button and align icon to right.
+
 # 1.1.13
 
 - Link-Disabled type added to Button.

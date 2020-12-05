@@ -137,6 +137,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       'link': {
         color: Colors.primary
       },
+      'link-inverse': {
+        color: Colors.white
+      },
       'link-disabled': {
         color: Colors.gray
       }
@@ -155,6 +158,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     },
     sizeIconContainer: {
       'default': {
+        ...defaultSizeIconContainer
+      },
+      'medium': {
         ...defaultSizeIconContainer
       },
       'large': {
