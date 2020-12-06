@@ -1,3 +1,7 @@
+# 1.1.17
+
+- Fix show/hide HeaderSection at Carousel Component
+
 # 1.1.16
 
 - Add React Hook Form as controller of SearchBar molecule.
