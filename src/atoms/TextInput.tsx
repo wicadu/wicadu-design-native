@@ -40,7 +40,7 @@ function TextInput(props: Props) {
   const { value, onChangeText, error } = props
 
   return (
-    <View style={generatedStyles.container}>
+    <View>
       <View style={generatedStyles.inputContainer}>
         <Input
           style={generatedStyles.input}
@@ -60,16 +60,12 @@ const styles = (props: Props) => {
   const { error } = props
 
   return StyleSheet.create({
-    container: {
-      marginVertical: 10
-    },
     inputContainer: {
       borderRadius: 5,
       backgroundColor: '#FFFFFF',
       paddingVertical: 15,
       paddingHorizontal: 10,
       margin: 0,
-      marginVertical: 5,
       borderWidth: 1,
       borderColor: Boolean(error) ? Colors.error : 'transparent'
     },
@@ -77,7 +73,8 @@ const styles = (props: Props) => {
       fontSize: 18
     },
     errorContainer: {
-      height: 17
+      height: 17,
+      marginVertical: 5
     },
     error: {
       color: Colors.error,
