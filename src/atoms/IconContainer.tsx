@@ -1,20 +1,26 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   containerStyle: PropTypes.object,
-  icon: PropTypes.node
+  icon: PropTypes.node,
+  onPress: PropTypes.func,
 }
 
 const defaultProps = {
-  containerStyle: {}
+  containerStyle: {},
+  onPress () {}
 }
 
 type Props = InferProps<typeof propTypes>
 
-function IconContainer ({ containerStyle, icon }: Props) {
-  return <View style={{ ...styles.container, ...containerStyle }}>{icon}</View>
+function IconContainer ({ containerStyle, icon, ...props }: Props) {
+  return (
+    <View style={{ ...styles.container, ...containerStyle }}>
+      <TouchableWithoutFeedback style={styles.container} {...props}>{icon}</TouchableWithoutFeedback>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
