@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm, FormProvider, useFormContext } from 'react-hook-form'
+import { useForm, useWatch, FormProvider, useFormContext } from 'react-hook-form'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
@@ -23,5 +23,6 @@ Form.propTypes = propTypes
 Form.defaultProps = defaultProps
 
 Form.useForm = useFormContext
+Form.useWatch = useWatch
 
 export default Form
