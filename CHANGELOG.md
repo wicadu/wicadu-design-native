@@ -1,3 +1,7 @@
+# 1.1.15
+
+- Export useWatch of React Hook Form.
+
 # 1.1.14
 
 - Inverse Link type added to Button and align icon to right.
