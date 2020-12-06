@@ -1,3 +1,7 @@
+# 1.1.16
+
+- Add React Hook Form as controller of SearchBar molecule.
+
 # 1.1.15
 
 - Export useWatch of React Hook Form.
