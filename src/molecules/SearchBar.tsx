@@ -32,7 +32,6 @@ function SearchBar ({ name, styleContainer, onPress: rawOnPress, ...props }: Pro
     name,
     defaultValue: ''
   })
-  console.log({value})
 
   const onClear = useCallback(() => {
     setValue(name, '')
