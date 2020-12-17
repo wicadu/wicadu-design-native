@@ -1,3 +1,7 @@
+# 1.1.19
+
+- Add warning color
+
 # 1.1.18
 
 - Add title-3, title-4 to Typography.
