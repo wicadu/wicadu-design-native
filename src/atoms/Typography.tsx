@@ -5,9 +5,11 @@ import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'title', 'title-2', 'description']),
+  type: PropTypes.oneOf(['default', 'title', 'title-2', 'title-3', 'title-4', 'description']),
   size: PropTypes.number,
-  style: PropTypes.object
+  style: PropTypes.object,
+  numberOfLines: PropTypes.number,
+  ellipsizeMode: PropTypes.string,
 }
 
 const defaultProps: Props = {
@@ -24,7 +26,7 @@ function Typography (props: Props) {
 
   const { children } = props
 
-  return <Text style={generatedStyles.text}>{children}</Text>
+  return <Text style={generatedStyles.text} numberOfLines={props.numberOfLines} ellipsizeMode={props.ellipsizeMode}>{children}</Text>
 }
 
 const styles = ({ type, size, style }: Props) => {
@@ -50,6 +52,16 @@ const styles = ({ type, size, style }: Props) => {
         ...defaultStylesText,
         ...defaultStylesTitleText,
         fontSize: 24
+      },
+      'title-3': {
+        ...defaultStylesText,
+        ...defaultStylesTitleText,
+        fontSize: 22
+      },
+      'title-4': {
+        ...defaultStylesText,
+        ...defaultStylesTitleText,
+        fontSize: 20
       },
       'description': {
         ...defaultStylesText,

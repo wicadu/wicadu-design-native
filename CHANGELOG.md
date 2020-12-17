@@ -1,3 +1,7 @@
+# 1.1.18
+
+- Add title-3, title-4 to Typography.
+
 # 1.1.17
 
 - Fix show/hide HeaderSection at Carousel Component
