@@ -1,3 +1,7 @@
+# 1.1.17
+
+- Add title-3, title-4 to Typography.
+
 # 1.1.16
 
 - Add React Hook Form as controller of SearchBar molecule.
