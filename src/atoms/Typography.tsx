@@ -5,7 +5,7 @@ import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'title', 'title-2', 'description']),
+  type: PropTypes.oneOf(['default', 'title', 'title-2', 'title-3', 'title-4', 'description']),
   size: PropTypes.number,
   style: PropTypes.object,
   numberOfLines: PropTypes.number,
