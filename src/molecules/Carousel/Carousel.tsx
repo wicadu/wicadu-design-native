@@ -4,6 +4,13 @@ import PropTypes, { InferProps } from 'prop-types'
 
 import Fonts from '../../constants/fonts'
 
+interface ICarousel {
+  title: string,
+  horizontal: boolean,
+  containerStyles: object,
+  height: number | string
+}
+
 const propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
@@ -18,26 +25,26 @@ const propTypes = {
 
 type Props = InferProps<typeof propTypes>
 
-interface StylesProps {
-  height: number | string,
-}
-
-const defaultProps: Props | StylesProps = {
+const defaultProps: Props | ICarousel = {
+  title: '',
   height: 'auto',
-  horizontal: false
+  horizontal: false,
+  containerStyles: {}
 }
 
-const Carousel = React.forwardRef((props: Props, ref) => {
+const Carousel = React.forwardRef((props: ICarousel & Props, ref) => {
   const generatedStyles = styles(props)
 
-  const { title, horizontal, headerRight, children } = props
+  const { title, horizontal, headerRight, children, containerStyles } = props
 
   return (
-    <View style={generatedStyles.container}>
-      <View style={generatedStyles.header}>
-        {title && <Text style={generatedStyles.title}>{title}</Text>}
-        {headerRight && headerRight}
-      </View>
+    <View style={{ ...generatedStyles.container, ...containerStyles}}>
+      {(title || headerRight) && (
+        <View style={generatedStyles.header}>
+          {title && <Text style={generatedStyles.title}>{title}</Text>}
+          {headerRight && headerRight}
+        </View>
+      )}
       <ScrollView
         ref={ref}
         horizontal={Boolean(horizontal)}
@@ -50,12 +57,14 @@ const Carousel = React.forwardRef((props: Props, ref) => {
   )
 })
 
-const styles = ({ height }: StylesProps) => {
+const styles = (props: ICarousel) => {
+  const { height } = props
+
   const defaultStyles = {
     container: {
       flex: 1,
       marginBottom: 20,
-      height,
+      height
     },
     header: {
       flex: 1,
@@ -65,7 +74,7 @@ const styles = ({ height }: StylesProps) => {
       height: 50
     },
     title: {
-      fontSize: Fonts.huge,
+      fontSize: Fonts.f16,
     }
   }
 
