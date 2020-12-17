@@ -8,7 +8,7 @@ export default {
   lightGray: '#D3D3D3',
   darkGray: '#8a8a8a',
   success: '#40BEA7',
-  warning: '',
+  warning: '#ffd500',
   error: '#FF001B',
   white: '#f2f2f2',
   black: '#1E1926'
