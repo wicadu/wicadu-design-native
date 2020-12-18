@@ -1,3 +1,7 @@
+# 1.2.0
+
+- Refactor component Count and migrate from Atom to Molecule
+
 # 1.1.19
 
 - Add warning color
