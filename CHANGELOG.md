@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Fix touchable of Carousel.Item
+
 # 1.2.0
 
 - Refactor component Count and migrate from Atom to Molecule
