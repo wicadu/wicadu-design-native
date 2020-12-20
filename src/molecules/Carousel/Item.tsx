@@ -1,32 +1,37 @@
-import React  from 'react'
-import { StyleSheet, TouchableOpacity } from 'react-native'
+import React, { useCallback } from 'react'
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
+  id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   children: PropTypes.node.isRequired,
   onPress: PropTypes.func
 }
 
-interface DefaultProps {
-  onPress: () => void
-}
+type Props = InferProps<typeof propTypes>
 
-const defaultProps: DefaultProps = {
+const defaultProps: Props = {
   onPress: () => {}
 }
 
-type Props = InferProps<typeof propTypes>
+function Item ({ id, children, onPress: rawOnPress }: Props) {
+  const onPress = useCallback(() => rawOnPress(id), [rawOnPress, id])
 
-function Item ({ children, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onPress()}>
-      {children}
-    </TouchableOpacity>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        {children}
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     minWidth: 100,
     minHeight: 100,
     margin: 10
