@@ -14,7 +14,7 @@ import SearchBar from './molecules/SearchBar'
 import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
-import Count from './molecules/Count'
+import AddOrSubtract from './molecules/AddOrSubtract'
 
 import formatNumber from './utils/formatNumber'
 import normalizeSize from './utils/normalizeSize'
@@ -36,7 +36,7 @@ export {
   Bag,
   Carousel,
   Slider,
-  Count,
+  AddOrSubtract,
   Splash,
   Link,
   Typography,
