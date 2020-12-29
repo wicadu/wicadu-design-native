@@ -1,3 +1,7 @@
+# 1.2.2
+
+- Refactoring AddOrSubtract (Old Count)
+
 # 1.2.1
 
 - Fix touchable of Carousel.Item
