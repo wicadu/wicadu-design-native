@@ -1,3 +1,7 @@
+# 1.2.3
+
+- Add maxQuantity to AddOrSubtract molecule
+
 # 1.2.2
 
 - Refactoring AddOrSubtract (Old Count)
