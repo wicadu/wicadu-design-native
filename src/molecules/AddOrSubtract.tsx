@@ -23,7 +23,7 @@ enum ActionType {
   'SUBTRACT'
 }
 
-function AddOrSubtract ({ initialQuantity, onChangeQuantity }: Props) {
+function AddOrSubtract ({ initialQuantity, maxQuantity, onChangeQuantity }: Props) {
   const [ quantity, setQuantity ] = useState(initialQuantity)
 
   const onChange = useCallback((type: ActionType) => {
@@ -37,6 +37,8 @@ function AddOrSubtract ({ initialQuantity, onChangeQuantity }: Props) {
   }, [quantity, setQuantity, onChangeQuantity])
 
   const onAddQuantity = useCallback(() => {
+    if (quantity >= maxQuantity) return
+
     onChange(ActionType.ADD)
   }, [onChange])
 
