@@ -1,3 +1,7 @@
+# 1.2.4
+
+- Add defaultProps and disable prop into AddOrSubtract molecule
+
 # 1.2.3
 
 - Add maxQuantity to AddOrSubtract molecule

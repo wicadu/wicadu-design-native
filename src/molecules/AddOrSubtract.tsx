@@ -8,14 +8,20 @@ import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   initialQuantity: PropTypes.number.isRequired,
-  onChangeQuantity: PropTypes.func.isRequired
+  onChangeQuantity: PropTypes.func.isRequired,
+  maxQuantity: PropTypes.number,
+  minQuantity: PropTypes.number,
+  disabled: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
 
 const defaultProps: Props = {
   initialQuantity: 0,
-  onChangeQuantity () {}
+  onChangeQuantity () {},
+  maxQuantity: 1,
+  minQuantity: 0,
+  disabled: false
 }
 
 enum ActionType {
@@ -23,7 +29,7 @@ enum ActionType {
   'SUBTRACT'
 }
 
-function AddOrSubtract ({ initialQuantity, maxQuantity, onChangeQuantity }: Props) {
+function AddOrSubtract ({ onChangeQuantity, initialQuantity, maxQuantity, minQuantity, disabled }: Props) {
   const [ quantity, setQuantity ] = useState(initialQuantity)
 
   const onChange = useCallback((type: ActionType) => {
@@ -37,13 +43,13 @@ function AddOrSubtract ({ initialQuantity, maxQuantity, onChangeQuantity }: Prop
   }, [quantity, setQuantity, onChangeQuantity])
 
   const onAddQuantity = useCallback(() => {
-    if (quantity >= maxQuantity) return
+    if (quantity >= maxQuantity || disabled) return
 
     onChange(ActionType.ADD)
   }, [onChange])
 
   const onSubtractQuantity = useCallback(() => {
-    if (quantity < 1) return
+    if (quantity <= minQuantity || disabled) return
 
     onChange(ActionType.SUBTRACT)
   }, [onChange])
