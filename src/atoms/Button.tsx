@@ -87,6 +87,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
         borderWidth: 1,
         borderColor: Colors.primary
       },
+      'primary-disabled': {
+        backgroundColor: Colors.lightGray,
+      },
       'light': {
         backgroundColor: Colors.white,
       },
@@ -121,6 +124,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       },
       'primary-inverse': {
         color: Colors.primary
+      },
+      'primary-disabled': {
+        color: Colors.white
       },
       'light': {
         color: Colors.primary

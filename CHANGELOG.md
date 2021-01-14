@@ -1,3 +1,7 @@
+# 1.2.5
+
+- Add disable state/styles for Button atom
+
 # 1.2.4
 
 - Add defaultProps and disable prop into AddOrSubtract molecule
