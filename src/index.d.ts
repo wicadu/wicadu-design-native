@@ -8,6 +8,7 @@ import Badge from './atoms/Badge'
 import Splash from './atoms/Splash'
 import Link from './atoms/Link'
 import Typography from './atoms/Typography'
+import RadioButton from './atoms/RadioButton'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -40,6 +41,7 @@ export {
   Splash,
   Link,
   Typography,
+  RadioButton,
   formatNumber,
   normalizeSize,
   sizesPercent,
