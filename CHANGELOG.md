@@ -1,3 +1,6 @@
+# 1.3.0
+
+- Add Collapse
 # 1.2.5
 
 - Add disable state/styles for Button atom
