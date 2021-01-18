@@ -6,12 +6,13 @@ import colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node
 }
 
 type Props = InferProps<typeof propTypes>
 
-function Collapse ({ title }: Props) {
+function Collapse ({ title, children }: Props) {
   const [ collapsed, setCollapsed ] = useState(false)
 
   const toCollapse = useCallback(() => setCollapsed(!collapsed), [setCollapsed, collapsed])
@@ -28,6 +29,11 @@ function Collapse ({ title }: Props) {
           )}
         </View>
       </TouchableWithoutFeedback>
+      {collapsed && (
+        <View style={styles.containerChildren}>
+          {children}
+        </View>
+      )}
     </View>
   )
 }
@@ -43,6 +49,9 @@ const styles = StyleSheet.create({
   title: {
     marginRight: 7,
     marginBottom: 5
+  },
+  containerChildren: {
+    marginLeft: 7
   }
 })
 
