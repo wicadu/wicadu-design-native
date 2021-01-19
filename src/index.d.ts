@@ -18,7 +18,7 @@ import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
 
-import formatNumber from './utils/formatNumber'
+import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
 import sizesPercent from './utils/sizesPercent'
 
@@ -44,7 +44,7 @@ export {
   Typography,
   RadioButton,
   Collapse,
-  formatNumber,
+  formatCurrency,
   normalizeSize,
   sizesPercent,
   Colors,
