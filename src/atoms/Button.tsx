@@ -61,7 +61,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10
+    marginVertical: 10,
+    paddingVertical: 7,
+    paddingHorizontal: 10
   }
 
   const defaultStylesText: object = {
@@ -109,7 +111,7 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     sizeContainer: {
       'default': {},
       'small': {
-        height: 30
+        minHeight: 30
       },
       'medium': {
         height: 45
