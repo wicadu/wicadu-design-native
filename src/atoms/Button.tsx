@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'

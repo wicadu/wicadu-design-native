@@ -1,11 +1,17 @@
+# 1.3.5
+
+- Add loadings to AddOrSubtract
 # 1.3.4
+
 - Fix types and sizes of RadioButton
 # 1.3.3
 
 - Fix padding, height and icon of Small Button
+
 # 1.3.2
 
 - Fix formatCurrency
+
 # 1.3.1
 
 - Add RadioButton atom.
