@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ActivityIndicator } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import Typography from '../atoms/Typography'
 import IconContainer from '../atoms/IconContainer'
@@ -11,7 +11,8 @@ const propTypes = {
   onChangeQuantity: PropTypes.func.isRequired,
   maxQuantity: PropTypes.number,
   minQuantity: PropTypes.number,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
@@ -21,7 +22,8 @@ const defaultProps: Props = {
   onChangeQuantity () {},
   maxQuantity: 1,
   minQuantity: 0,
-  disabled: false
+  disabled: false,
+  loading: false
 }
 
 enum ActionType {
@@ -29,7 +31,7 @@ enum ActionType {
   'SUBTRACT'
 }
 
-function AddOrSubtract ({ onChangeQuantity, initialQuantity, maxQuantity, minQuantity, disabled }: Props) {
+function AddOrSubtract ({ onChangeQuantity, initialQuantity, maxQuantity, minQuantity, disabled, loading }: Props) {
   const [ quantity, setQuantity ] = useState(initialQuantity)
 
   const onChange = useCallback((type: ActionType) => {
@@ -61,7 +63,13 @@ function AddOrSubtract ({ onChangeQuantity, initialQuantity, maxQuantity, minQua
         containerStyle={styles.button}
         onPress={onSubtractQuantity}
       />
-      <Typography type='title-4'>{String(quantity)}</Typography>
+      {loading ? (
+        <View>
+          <ActivityIndicator size='small' color={Colors.darkGray} />
+        </View>
+      ) : (
+        <Typography type='title-4'>{String(quantity)}</Typography>
+      )}
       <IconContainer
         icon={<AntDesign name='plus' size={20} color={Colors.gray} />}
         containerStyle={styles.button}
