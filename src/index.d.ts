@@ -16,6 +16,7 @@ import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
+import Collapse from './molecules/Collapse'
 
 import formatNumber from './utils/formatNumber'
 import normalizeSize from './utils/normalizeSize'
@@ -42,6 +43,7 @@ export {
   Link,
   Typography,
   RadioButton,
+  Collapse,
   formatNumber,
   normalizeSize,
   sizesPercent,

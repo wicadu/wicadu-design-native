@@ -1,7 +1,10 @@
-# 1.3.0
+# 1.3.1
 
 - Add RadioButton atom.
 
+# 1.3.0
+
+- Add Collapse
 # 1.2.5
 
 - Add disable state/styles for Button atom
