@@ -1,3 +1,6 @@
+# 1.3.2
+
+- Fix formatCurrency
 # 1.3.1
 
 - Add RadioButton atom.
