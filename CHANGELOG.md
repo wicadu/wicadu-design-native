@@ -1,7 +1,9 @@
+# 1.3.5
+
+- Add loadings to AddOrSubtract
 # 1.3.4
 
--Add loadings to AddOrSubtract
-
+- Fix types and sizes of RadioButton
 # 1.3.3
 
 - Fix padding, height and icon of Small Button
