@@ -1,27 +1,24 @@
 import React, { useCallback } from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
-import Colors from '../constants/colors'
-
 const propTypes = {
-  onChangeSelected: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['primary', 'bordered']),
+  type: PropTypes.oneOf(['primary']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   checked: PropTypes.bool,
   checkedValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  onChangeSelected: PropTypes.func.isRequired
 }
 
 const defaultProps: Props = {
-  onChangeSelected(){},
   type: 'primary',
-  size: 'default',
-  checked: false,
-  disabled: false,
+  size: 'medium',
   value: '',
-  checkedValue: ''
+  checkedValue: '',
+  onChangeSelected () {}
 }
 
 type Props = InferProps<typeof propTypes>
@@ -46,45 +43,31 @@ function RadioButton (props: Props){
   )
 }
 
-const styles = ({ type, size, disabled, checked, value, checkedValue }: Props) => {
-  let classType: string = type
-
-  if (checked || checkedValue === value) classType += '-checked'
+const styles = ({ type: classType, size, disabled, checked }: Props) => {
+  if (checked) classType += '-checked'
   if (disabled) classType += '-disabled'
 
   const sizes: object = {
-    'small': 30,
-    'medium': 40,
-    'large': 50,
+    'small': 20,
+    'medium': 25,
+    'large': 30
   }
 
   const classes: object = {
     container: {
-      'primary': {},
-      'primary-checked': {},
-      'bordered': {
-        borderWidth: 1,
-        borderColor: Colors.primary,
+      'primary': {
+        borderColor: Colors.darkGray,
       },
-      'bordered-checked': {
-        borderWidth: 1,
-        borderColor: Colors.primary,
-        padding: 4
+      'primary-checked': {
+        borderColor: Colors.primary
+      },
+      'primary-disabled': {
+        borderColor: Colors.lightGray
       }
     },
     bullet: {
-      'primary': {
-        borderWidth: 1,
-        borderColor: Colors.primary,
-      },
+      'primary': {},
       'primary-checked': {
-        backgroundColor: Colors.primary,
-      },
-      'primary-disabled': {
-        backgroundColor: Colors.gray,
-      },
-      'bordered': {},
-      'bordered-checked': {
         backgroundColor: Colors.primary,
         height: sizes[size] - 10,
         width: sizes[size] - 10,
@@ -98,8 +81,11 @@ const styles = ({ type, size, disabled, checked, value, checkedValue }: Props) =
 
   const defaultContainerStyles: object = {
     margin: 5,
+    borderWidth: 2,
     height: sizes[size],
-    width: sizes[size]
+    width: sizes[size],
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 
   const defaultBulletStyles: object = {
