@@ -1,3 +1,5 @@
+# 1.3.4
+- Fix types and sizes of RadioButton
 # 1.3.3
 
 - Fix padding, height and icon of Small Button
