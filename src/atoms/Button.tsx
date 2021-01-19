@@ -42,9 +42,9 @@ function Button(props: Props) {
             <ActivityIndicator size='small' color={generatedStyles.loading.color} />
           </View>
         ) : (
-          <Fragment>
+          <View style={generatedStyles.textContainer}>
             <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
-          </Fragment>
+          </View>
         )}
       </View>
     </TouchableWithoutFeedback>
@@ -168,6 +168,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       'default': {
         ...defaultSizeIconContainer
       },
+      'small': {
+        marginLeft: 5
+      },
       'medium': {
         ...defaultSizeIconContainer
       },
@@ -194,6 +197,9 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       ...classes.container[classType],
       ...classes.sizeContainer[size],
       ...containerStyle
+    },
+    textContainer: {
+      flexDirection: 'row'
     },
     text: {
       ...defaultStylesText,
