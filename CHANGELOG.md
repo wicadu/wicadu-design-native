@@ -1,3 +1,6 @@
+# 1.4.0
+
+- Bag removed and props of Badge fixed
 # 1.3.5
 
 - Add loadings to AddOrSubtract
