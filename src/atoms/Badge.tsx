@@ -1,36 +1,24 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
-import PropTypes from 'prop-types'
-
 import Colors from '../constants/colors'
+import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   children: PropTypes.node.isRequired,
   count: PropTypes.number,
   onPress: PropTypes.func,
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  size: PropTypes.number.isRequired
 }
 
-interface Props {
-  children: PropTypes.ReactNodeLike
-}
+type Props = InferProps<typeof propTypes>
 
-interface DefaultProps {
-  count?: number
-  onPress?: () => void,
-  size?: number
-}
-
-const defaultProps: DefaultProps = {
+const defaultProps: Props = {
   count: 0,
   onPress: () => {},
   size: 50
 }
 
-function Badge (props: Props & DefaultProps) {
+function Badge (props: Props) {
   const generatedStyles = styles(props)
 
   const { children, count, onPress } = props
@@ -47,7 +35,7 @@ function Badge (props: Props & DefaultProps) {
   )
 }
 
-const styles = ({ size }: DefaultProps) => {
+const styles = ({ size }: Props) => {
   return StyleSheet.create({
     container: {
       width: size,
