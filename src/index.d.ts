@@ -12,7 +12,6 @@ import RadioButton from './atoms/RadioButton'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
-import Bag from './molecules/Bag'
 import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
@@ -35,7 +34,6 @@ export {
   IconContainer,
   Badge,
   SearchBar,
-  Bag,
   Carousel,
   Slider,
   AddOrSubtract,
