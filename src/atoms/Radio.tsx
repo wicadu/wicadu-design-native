@@ -7,35 +7,33 @@ const propTypes = {
   type: PropTypes.oneOf(['primary']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   checked: PropTypes.bool,
-  checkedValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  onChangeSelected: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 }
 
 const defaultProps: Props = {
   type: 'primary',
   size: 'medium',
   value: '',
-  checkedValue: '',
-  onChangeSelected () {}
+  onChange () {}
 }
 
 type Props = InferProps<typeof propTypes>
 
-function RadioButton (props: Props){
+function Radio (props: Props){
   const generatedStyles = styles(props)
 
-  const { onChangeSelected, disabled, value } = props
+  const { onChange, disabled, value } = props
 
-  const onPressed = useCallback(() => {
+  const handlePressed = useCallback(() => {
     if (disabled) return
 
-    onChangeSelected(value)
-  }, [disabled, onChangeSelected, value])
+    onChange(value)
+  }, [disabled, onChange, value])
 
   return (
-    <TouchableWithoutFeedback onPress={onPressed}>
+    <TouchableWithoutFeedback onPress={handlePressed}>
       <View style={generatedStyles.container}>
         <View style={generatedStyles.bullet} />
       </View>
@@ -107,8 +105,8 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
   })
 }
 
-RadioButton.propTypes = propTypes
-RadioButton.defaultProps = defaultProps
+Radio.propTypes = propTypes
+Radio.defaultProps = defaultProps
 
 
-export default RadioButton
+export default Radio
