@@ -43,7 +43,8 @@ function Button(props: Props) {
           </View>
         ) : (
           <View style={generatedStyles.textContainer}>
-            <View><Text style={generatedStyles.text}>{title}</Text></View>{Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
+            <Text style={generatedStyles.text}>{title}</Text>
+            {Boolean(icon) && <View style={generatedStyles.iconContainer}>{icon}</View>}
           </View>
         )}
       </View>
@@ -72,8 +73,7 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
   }
 
   const defaultSizeIconContainer: object = {
-    position: 'absolute',
-    right: 20
+    marginLeft: 10
   }
 
   const defaultLoading: object = {
@@ -202,7 +202,8 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       ...containerStyle
     },
     textContainer: {
-      flexDirection: 'row'
+      flexDirection: 'row',
+      alignItems: 'center'
     },
     text: {
       ...defaultStylesText,
