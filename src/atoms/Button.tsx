@@ -106,7 +106,10 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
         borderWidth: 1,
         borderColor: Colors.darkGray
       },
-      'link': {}
+      'link': {
+        paddingVertical: 0,
+        paddingHorizontal: 0
+      }
     },
     sizeContainer: {
       'default': {},
