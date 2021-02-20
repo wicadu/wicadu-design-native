@@ -37,7 +37,7 @@ type Props = InferProps<typeof propTypes>
 function TextInput(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChange, error } = props
+  const { value, onChange, error, ...restProps } = props
 
   return (
     <View>
@@ -46,7 +46,7 @@ function TextInput(props: Props) {
           style={generatedStyles.input}
           value={value}
           onChangeText={(value: string) => onChange(value)}
-          {...props}
+          {...restProps}
         />
       </View>
       <View style={generatedStyles.errorContainer}>
