@@ -8,7 +8,7 @@ const propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 }
 
@@ -27,9 +27,7 @@ function Radio (props: Props){
   const { onChange, disabled, value } = props
 
   const handlePressed = useCallback(() => {
-    console.log('PRESIONADO')
     if (disabled) return
-
     onChange(value)
   }, [disabled, onChange, value])
 

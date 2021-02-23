@@ -1,5 +1,5 @@
 import React from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
+import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { View } from 'react-native'
 import Radio from '../atoms/Radio'
 import PropTypes, { InferProps } from 'prop-types'
@@ -16,22 +16,24 @@ const defaultProps = {
 }
 
 function RadioButton ({ name, type, value: defaultValue, ...props }: Props) {
-  const { control, watch } = useFormContext()
+  const { control } = useFormContext()
 
-  const formValue = watch(name)
-console.log('DATA', formValue, name)
+  const formValue = useWatch({
+    control,
+    name
+  })
+
   return (
     <View>
       <Controller
         name={name}
         control={control}
-        render={({ onChange, value }) => {
-          console.log('value', value)
+        render={({ onChange }) => {
           return (
             <Radio
               onChange={(value: string) => onChange(value)}
-              value={value}
-              checked={value === formValue}
+              value={defaultValue}
+              checked={defaultValue === formValue}
               {...props}
             />
           )
