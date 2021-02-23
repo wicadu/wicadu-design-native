@@ -16,7 +16,8 @@ import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
-import RadioBox from './molecules/RadioBox'
+
+import RadioBox from './organisms/RadioBox'
 
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'

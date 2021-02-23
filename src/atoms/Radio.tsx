@@ -27,6 +27,7 @@ function Radio (props: Props){
   const { onChange, disabled, value } = props
 
   const handlePressed = useCallback(() => {
+    console.log('PRESIONADO')
     if (disabled) return
 
     onChange(value)
@@ -57,7 +58,8 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
         borderColor: Colors.darkGray,
       },
       'primary-checked': {
-        borderColor: Colors.primary
+        borderColor: Colors.primary,
+        borderWidth: 1
       },
       'primary-disabled': {
         borderColor: Colors.lightGray
@@ -67,8 +69,8 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
       'primary': {},
       'primary-checked': {
         backgroundColor: Colors.primary,
-        height: sizes[size] - 10,
-        width: sizes[size] - 10,
+        height: sizes[size] - 7,
+        width: sizes[size] - 7
       }
     },
   }
@@ -78,8 +80,7 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
   }
 
   const defaultContainerStyles: object = {
-    margin: 5,
-    borderWidth: 2,
+    borderWidth: 1.5,
     height: sizes[size],
     width: sizes[size],
     justifyContent: 'center',

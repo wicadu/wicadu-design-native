@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import { StyleSheet, View } from 'react-native'
-import Radio from '../atoms/Radio'
-import Borders from '../atoms/Borders'
+import RadioButton from '../molecules/RadioButton'
 import Typography from '../atoms/Typography'
 import colors from '../constants/colors'
 
@@ -22,28 +21,29 @@ function RadioBox ({ title, description, ...props }: Props) {
   const generatedStyles = styles(props)
 
   return (
-    <Borders color={generatedStyles.borders.borderColor}>
+    <View style={generatedStyles.container}>
       <View style={generatedStyles.containerRadio}>
-        <Radio {...props} />
         <View style={generatedStyles.containerTitle}>
           {typeof(title) === 'string' ? <Typography type='title-4'>{title}</Typography> : title}
         </View>
+        <RadioButton {...props} />
       </View>
       <Typography type='description'>{description}</Typography>
-    </Borders>
+    </View>
   )
 }
 
-const styles = (props: Props) => {
-  const { error } = props
-
+const styles = ({ disabled }: Props) => {
   return StyleSheet.create({
-    borders: {
-      borderColor: colors.primary
+    container: {
+      backgroundColor: disabled ? '#f8f8f8' : 'white',
+      borderRadius: 15,
+      padding: 15
     },
     containerRadio: {
       flexDirection: 'row',
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'space-between'
     },
     containerTitle: {
       marginBottom: 10
