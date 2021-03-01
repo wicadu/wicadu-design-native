@@ -38,7 +38,7 @@ function RadioButton ({ name, type, value: defaultValue, ...props }: Props) {
             />
           )
         }}
-        defaultValue={defaultValue}
+        defaultValue=''
       />
     </View>
   )
