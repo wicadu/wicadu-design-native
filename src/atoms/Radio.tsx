@@ -7,35 +7,32 @@ const propTypes = {
   type: PropTypes.oneOf(['primary']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   checked: PropTypes.bool,
-  checkedValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   disabled: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  onChangeSelected: PropTypes.func.isRequired
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 const defaultProps: Props = {
   type: 'primary',
   size: 'medium',
   value: '',
-  checkedValue: '',
-  onChangeSelected () {}
+  onChange () {}
 }
 
 type Props = InferProps<typeof propTypes>
 
-function RadioButton (props: Props){
+function Radio (props: Props){
   const generatedStyles = styles(props)
 
-  const { onChangeSelected, disabled, value } = props
+  const { onChange, disabled, value } = props
 
-  const onPressed = useCallback(() => {
+  const handlePressed = useCallback(() => {
     if (disabled) return
-
-    onChangeSelected(value)
-  }, [disabled, onChangeSelected, value])
+    onChange(value)
+  }, [disabled, onChange, value])
 
   return (
-    <TouchableWithoutFeedback onPress={onPressed}>
+    <TouchableWithoutFeedback onPress={handlePressed}>
       <View style={generatedStyles.container}>
         <View style={generatedStyles.bullet} />
       </View>
@@ -59,7 +56,8 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
         borderColor: Colors.darkGray,
       },
       'primary-checked': {
-        borderColor: Colors.primary
+        borderColor: Colors.primary,
+        borderWidth: 1
       },
       'primary-disabled': {
         borderColor: Colors.lightGray
@@ -69,8 +67,8 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
       'primary': {},
       'primary-checked': {
         backgroundColor: Colors.primary,
-        height: sizes[size] - 10,
-        width: sizes[size] - 10,
+        height: sizes[size] - 7,
+        width: sizes[size] - 7
       }
     },
   }
@@ -80,8 +78,7 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
   }
 
   const defaultContainerStyles: object = {
-    margin: 5,
-    borderWidth: 2,
+    borderWidth: 1.5,
     height: sizes[size],
     width: sizes[size],
     justifyContent: 'center',
@@ -107,8 +104,8 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
   })
 }
 
-RadioButton.propTypes = propTypes
-RadioButton.defaultProps = defaultProps
+Radio.propTypes = propTypes
+Radio.defaultProps = defaultProps
 
 
-export default RadioButton
+export default Radio
