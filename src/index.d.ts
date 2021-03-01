@@ -8,7 +8,7 @@ import Badge from './atoms/Badge'
 import Splash from './atoms/Splash'
 import Link from './atoms/Link'
 import Typography from './atoms/Typography'
-import RadioButton from './atoms/RadioButton'
+import Radio from './atoms/Radio'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -16,6 +16,8 @@ import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
+
+import RadioBox from './organisms/RadioBox'
 
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
@@ -40,7 +42,8 @@ export {
   Splash,
   Link,
   Typography,
-  RadioButton,
+  Radio,
+  RadioBox,
   Collapse,
   formatCurrency,
   normalizeSize,

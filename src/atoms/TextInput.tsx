@@ -28,7 +28,7 @@ const defaultProps: Props = {
   value: '',
   maxLength: 100,
   placeholder: '',
-  onChangeText () {},
+  onChange () {},
   autoCapitalize: 'none'
 }
 
@@ -37,7 +37,7 @@ type Props = InferProps<typeof propTypes>
 function TextInput(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChangeText, error } = props
+  const { value, onChange, error, ...restProps } = props
 
   return (
     <View>
@@ -45,8 +45,8 @@ function TextInput(props: Props) {
         <Input
           style={generatedStyles.input}
           value={value}
-          onChangeText={(value: string) => onChangeText(value)}
-          {...props}
+          onChangeText={(value: string) => onChange(value)}
+          {...restProps}
         />
       </View>
       <View style={generatedStyles.errorContainer}>

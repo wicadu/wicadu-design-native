@@ -33,7 +33,7 @@ function Input ({ name, defaultValue, ...props }: Props) {
         control={control}
         render={({ onChange, value }) => (
           <TextInput
-            onChangeText={(value: string) => onChange(value)}
+            onChange={(value: string) => onChange(value)}
             value={value}
             error={error}
             {...props}
