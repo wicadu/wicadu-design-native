@@ -1,12 +1,19 @@
+# 1.5.1
+
+- Add loading to bag
+
 # 1.5.0
 
 - Add Radio, RadioButton and RadioBox
+
 # 1.4.0
 
 - Bag removed and props of Badge fixed
+
 # 1.3.5
 
 - Add loadings to AddOrSubtract
+
 # 1.3.4
 
 - Fix types and sizes of RadioButton
