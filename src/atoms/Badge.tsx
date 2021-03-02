@@ -53,9 +53,9 @@ const styles = ({ size }: Props) => {
       position: 'relative',
     },
     count: {
-      width: 26,
-      height: 26,
-      borderRadius: 26 / 2,
+      width: 25,
+      height: 25,
+      borderRadius: 25 / 2,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: Colors.primary,
