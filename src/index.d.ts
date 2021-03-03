@@ -9,6 +9,7 @@ import Splash from './atoms/Splash'
 import Link from './atoms/Link'
 import Typography from './atoms/Typography'
 import Radio from './atoms/Radio'
+import Spin from './atoms/Spin'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -43,6 +44,7 @@ export {
   Link,
   Typography,
   Radio,
+  Spin,
   RadioBox,
   Collapse,
   formatCurrency,

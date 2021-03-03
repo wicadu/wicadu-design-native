@@ -60,8 +60,8 @@ const styles = ({ size }: Props) => {
       marginHorizontal: 15,
     },
     box: {
-      width: size + 1,
-      height: size + 1
+      width: sizes?.[size] + 1,
+      height: sizes?.[size] + 1
     }
   })
 }
