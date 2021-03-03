@@ -1,3 +1,7 @@
+# 1.6.0
+
+- Add Spin (Atom)
+
 # 1.5.1
 
 - Add loading to bag
