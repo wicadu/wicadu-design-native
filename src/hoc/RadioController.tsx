@@ -7,7 +7,8 @@ import PropTypes, { InferProps } from 'prop-types'
 const propTypes = {
   children: PropTypes.node.isRequired,
   name: PropTypes.string,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
@@ -31,6 +32,7 @@ function RadioController ({ children, name, value: defaultValue, ...props }: Pro
         control={control}
         render={({ onChange }) => {
           const handleOnChange = () => {
+            if (props.disabled) return
             onChange(defaultValue)
           }
 
