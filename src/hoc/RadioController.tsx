@@ -1,6 +1,5 @@
 import React from 'react'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
-import { View } from 'react-native'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import PropTypes, { InferProps } from 'prop-types'
 
@@ -26,25 +25,23 @@ function RadioController ({ children, name, value: defaultValue, ...props }: Pro
   })
 
   return (
-    <View>
-      <Controller
-        name={name}
-        control={control}
-        render={({ onChange }) => {
-          const handleOnChange = () => {
-            if (props.disabled) return
-            onChange(defaultValue)
-          }
+    <Controller
+      name={name}
+      control={control}
+      render={({ onChange }) => {
+        const handleOnChange = () => {
+          if (props.disabled) return
+          onChange(defaultValue)
+        }
 
-          return (
-            <TouchableWithoutFeedback onPress={handleOnChange}>
-              {React.cloneElement(children, { checked: formValue === defaultValue, ...props })}
-            </TouchableWithoutFeedback>
-          )
-        }}
-        defaultValue=''
-      />
-    </View>
+        return (
+          <TouchableWithoutFeedback onPress={handleOnChange}>
+            {React.cloneElement(children, { checked: formValue === defaultValue, ...props })}
+          </TouchableWithoutFeedback>
+        )
+      }}
+      defaultValue=''
+    />
   )
 }
 
