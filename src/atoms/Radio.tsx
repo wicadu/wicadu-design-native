@@ -1,42 +1,31 @@
-import React, { useCallback } from 'react'
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
+import RadioGroup from '../hoc/RadioGroup'
+import RadioController from '../hoc/RadioController'
 
 const propTypes = {
   type: PropTypes.oneOf(['primary']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  disabled: PropTypes.bool
 }
 
 const defaultProps: Props = {
   type: 'primary',
-  size: 'medium',
-  value: '',
-  onChange () {}
+  size: 'medium'
 }
 
 type Props = InferProps<typeof propTypes>
 
-function Radio (props: Props){
+function Radio (props: Props) {
   const generatedStyles = styles(props)
 
-  const { onChange, disabled, value } = props
-
-  const handlePressed = useCallback(() => {
-    if (disabled) return
-    onChange(value)
-  }, [disabled, onChange, value])
-
   return (
-    <TouchableWithoutFeedback onPress={handlePressed}>
-      <View style={generatedStyles.container}>
-        <View style={generatedStyles.bullet} />
-      </View>
-    </TouchableWithoutFeedback>
+    <View style={generatedStyles.container}>
+      <View style={generatedStyles.bullet} />
+    </View>
   )
 }
 
@@ -107,5 +96,7 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
 Radio.propTypes = propTypes
 Radio.defaultProps = defaultProps
 
+Radio.Group = RadioGroup
+Radio.Controller = RadioController
 
 export default Radio
