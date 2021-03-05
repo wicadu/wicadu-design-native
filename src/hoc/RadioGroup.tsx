@@ -1,5 +1,4 @@
 import React from 'react'
-import { View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
@@ -10,11 +9,7 @@ const propTypes = {
 type Props = InferProps<typeof propTypes>
 
 function RadioGroup ({ children, name, ...props }: Props) {
-  return (
-    <View>
-      {children.map(child => React.cloneElement(child, { name, ...props }))}
-    </View>
-  )
+  return children.map(child => React.cloneElement(child, { name, ...props }))
 }
 
 RadioGroup.propTypes = propTypes
