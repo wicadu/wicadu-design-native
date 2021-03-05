@@ -2,6 +2,8 @@ import React, { useCallback } from 'react'
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
+import RadioGroup from '../hoc/RadioGroup'
+import RadioController from '../hoc/RadioController'
 
 const propTypes = {
   type: PropTypes.oneOf(['primary']),
@@ -21,7 +23,7 @@ const defaultProps: Props = {
 
 type Props = InferProps<typeof propTypes>
 
-function Radio (props: Props){
+function Radio (props: Props) {
   const generatedStyles = styles(props)
 
   const { onChange, disabled, value } = props
@@ -107,5 +109,7 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
 Radio.propTypes = propTypes
 Radio.defaultProps = defaultProps
 
+Radio.Group = RadioGroup
+Radio.Controller = RadioController
 
 export default Radio
