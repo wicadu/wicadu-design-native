@@ -31,7 +31,7 @@ function Badge (props: Props) {
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={generatedStyles.container}>
         <View style={generatedStyles.count}>
-          {!loading ? (
+          {loading ? (
             <Spin size='very-small' />
           ) : (
             <Text style={generatedStyles.countNumber}>{count}</Text>
