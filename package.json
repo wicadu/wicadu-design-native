@@ -1,6 +1,6 @@
 {
   "name": "@wicadu/native-ui",
-  "version": "1.6.1",
+  "version": "1.7.1",
   "main": "src/index.d.ts",
   "scripts": {
     "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
@@ -31,6 +31,7 @@
     "design-system"
   ],
   "dependencies": {
-    "react-hook-form": "^6.11.0"
+    "react-hook-form": "^6.11.0",
+    "react-native-gesture-handler": "^1.10.3"
   }
 }
