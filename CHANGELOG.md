@@ -1,3 +1,7 @@
+# 1.6.1
+
+Add very-small size in Spin (Atom) and used in Bagde (Atom)
+
 # 1.6.0
 
 - Add Spin (Atom)

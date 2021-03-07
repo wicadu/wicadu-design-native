@@ -7,13 +7,14 @@ import { AntDesign } from '@expo/vector-icons'
 import Colors from '../constants/colors'
 
 const sizes = {
+  'very-small': 15,
   small: 35,
   medium: 50,
   large: 70
 }
 
 const propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['very-small', 'small', 'medium', 'large'])
 }
 
 const defaultProps = {
