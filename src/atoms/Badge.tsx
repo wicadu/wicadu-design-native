@@ -1,7 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
-import Colors from '../constants/colors'
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
+
+import Colors from '../constants/colors'
+import Spin from './Spin'
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -28,10 +30,9 @@ function Badge (props: Props) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={generatedStyles.container}>
-        <View style={generatedStyles.count
-        }>
+        <View style={generatedStyles.count}>
           {loading ? (
-            <ActivityIndicator size='small' color={Colors.white} />
+            <Spin size='very-small' />
           ) : (
             <Text style={generatedStyles.countNumber}>{count}</Text>
           )}
