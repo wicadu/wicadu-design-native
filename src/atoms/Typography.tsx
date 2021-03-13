@@ -33,12 +33,12 @@ function Typography (props: Props) {
 const styles = ({ type, size, style, invertedColor }: Props) => {
   const defaultStylesText: object = {
     fontFamily: 'Cabin_Regular',
-    fontSize: size
+    fontSize: size,
+    color: invertedColor ? Colors.white : Colors.black
   }
 
   const defaultStylesTitleText: object = {
-    fontFamily: 'Cabin_Bold',
-    color: invertedColor ? Colors.white : Colors.black
+    fontFamily: 'Cabin_Bold'
   }
 
   const classes: object = {
