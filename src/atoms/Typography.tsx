@@ -47,17 +47,17 @@ const styles = ({ type, size, style, inverse }: Props) => {
       'title': {
         ...defaultStylesText,
         ...defaultStylesTitleText,
-        fontSize: 26
+        fontSize: size | 26
       },
       'title-2': {
         ...defaultStylesText,
         ...defaultStylesTitleText,
-        fontSize: 24
+        fontSize: size | 24
       },
       'title-3': {
         ...defaultStylesText,
         ...defaultStylesTitleText,
-        fontSize: 22
+        fontSize: size | 22
       },
       'title-4': {
         ...defaultStylesText,
