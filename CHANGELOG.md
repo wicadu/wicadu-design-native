@@ -1,3 +1,7 @@
+# 1.7.3
+
+- Rename invertedColor prop to inverse in Typography
+- Move color style to defaultStylesText in Typography
 # 1.7.2
 
 - Add invertedColor prop to Typography
