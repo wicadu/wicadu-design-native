@@ -1,3 +1,8 @@
+# 1.8.0
+
+- Rename folder hoc to HOCs and
+- Remove export RadioBox
+
 # 1.7.3
 
 - Rename invertedColor prop to inverse in Typography
