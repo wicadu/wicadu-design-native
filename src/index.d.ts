@@ -1,4 +1,4 @@
-import Form from './hoc/Form'
+import Form from './HOCs/Form'
 import { Controller } from 'react-hook-form'
 
 import TextInput from './atoms/TextInput'
@@ -17,8 +17,6 @@ import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
-
-import RadioBox from './organisms/RadioBox'
 
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
@@ -45,7 +43,6 @@ export {
   Typography,
   Radio,
   Spin,
-  RadioBox,
   Collapse,
   formatCurrency,
   normalizeSize,

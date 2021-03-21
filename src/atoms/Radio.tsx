@@ -2,8 +2,8 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
-import RadioGroup from '../hoc/RadioGroup'
-import RadioController from '../hoc/RadioController'
+import RadioGroup from '../HOCs/RadioGroup'
+import RadioController from '../HOCs/RadioController'
 
 const propTypes = {
   type: PropTypes.oneOf(['primary']),
