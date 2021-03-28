@@ -1,4 +1,4 @@
-import Form from './hoc/Form'
+import Form from './HOCs/Form'
 import { Controller } from 'react-hook-form'
 
 import TextInput from './atoms/TextInput'

@@ -1,13 +1,27 @@
-# 1.7.4
+# 1.8.1
 
 - Fix error exporting organism/RadioBox
 
+# 1.8.0
+
+- Rename folder hoc to HOCs and
+- Remove export RadioBox
+
+# 1.7.3
+
+- Rename invertedColor prop to inverse in Typography
+- Move color style to defaultStylesText in Typography
+# 1.7.2
+
+- Add invertedColor prop to Typography
+
 # 1.7.1
 
-Add very-small size in Spin (Atom) and used in Bagde (Atom)
+- Add very-small size in Spin (Atom) and used in Bagde (Atom)
 
 # 1.7.0
-Refactoring Radio and add Group and Controller Radios
+
+- Refactoring Radio and add Group and Controller Radios
 
 # 1.6.0
 
