@@ -18,8 +18,6 @@ import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
 
-import RadioBox from './organisms/RadioBox'
-
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
 import sizesPercent from './utils/sizesPercent'
@@ -45,7 +43,6 @@ export {
   Typography,
   Radio,
   Spin,
-  RadioBox,
   Collapse,
   formatCurrency,
   normalizeSize,
