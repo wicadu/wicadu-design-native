@@ -6,7 +6,6 @@ import Button from './atoms/Button'
 import IconContainer from './atoms/IconContainer'
 import Badge from './atoms/Badge'
 import Splash from './atoms/Splash'
-import Link from './atoms/Link'
 import Typography from './atoms/Typography'
 import Radio from './atoms/Radio'
 import Spin from './atoms/Spin'
@@ -39,7 +38,6 @@ export {
   Slider,
   AddOrSubtract,
   Splash,
-  Link,
   Typography,
   Radio,
   Spin,

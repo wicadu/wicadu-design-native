@@ -1,8 +1,10 @@
 import React from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
 import { View } from 'react-native'
-import TextInput from '../atoms/TextInput'
 import PropTypes, { InferProps } from 'prop-types'
+
+import { Controller, useFormContext } from 'react-hook-form'
+
+import TextInput from '../atoms/TextInput'
 import InputError from '../@types/InputError'
 
 const propTypes = {

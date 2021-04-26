@@ -1,3 +1,8 @@
+# 1.8.2
+
+- Delete Link component
+- Add label into Input/TextInput
+
 # 1.8.1
 
 - Fix error exporting organism/RadioBox
@@ -11,6 +16,7 @@
 
 - Rename invertedColor prop to inverse in Typography
 - Move color style to defaultStylesText in Typography
+
 # 1.7.2
 
 - Add invertedColor prop to Typography

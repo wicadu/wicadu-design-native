@@ -37,10 +37,15 @@ type Props = InferProps<typeof propTypes>
 function TextInput(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChange, error, ...restProps } = props
+  const { value, onChange, label, error, ...restProps } = props
 
   return (
     <View>
+      {Boolean(label) && (
+        <Typography type='title-4' style={generatedStyles.label}>
+          {label}
+        </Typography>
+      )}
       <View style={generatedStyles.inputContainer}>
         <Input
           style={generatedStyles.input}
@@ -50,7 +55,11 @@ function TextInput(props: Props) {
         />
       </View>
       <View style={generatedStyles.errorContainer}>
-        {Boolean(error) && <Typography size={14} style={generatedStyles.error}>{error.message}</Typography>}
+        {Boolean(error) && (
+          <Typography size={14} style={generatedStyles.error}>
+            {error.message}
+          </Typography>
+        )}
       </View>
     </View>
   )
@@ -68,6 +77,9 @@ const styles = (props: Props) => {
       margin: 0,
       borderWidth: 1,
       borderColor: Boolean(error) ? Colors.error : 'transparent'
+    },
+    label: {
+      fontSize: 14
     },
     input: {
       fontSize: 18
