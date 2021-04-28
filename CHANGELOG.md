@@ -1,3 +1,7 @@
+# 1.10.0
+
+- Add Tag (Atom) and export Select (Atom) into index.d.ts
+
 # 1.9.0
 
 - Add Select (Atom with react-native-select-picker) Component.
