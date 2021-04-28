@@ -1,43 +1,47 @@
 import React from 'react'
-import { TextInput as Input, StyleSheet, View } from 'react-native'
+import PropTypes, { InferProps } from 'prop-types'
+import { StyleSheet, View } from 'react-native'
+
+import PickerSelect from 'react-native-picker-select'
+import { AntDesign } from '@expo/vector-icons'
+
 import Colors from '../constants/colors'
 import Typography from './Typography'
-import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   label: PropTypes.string,
-  keyboardType: PropTypes.string,
-  autoCompleteType: PropTypes.string,
-  autoFocus: PropTypes.bool,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  maxLength: PropTypes.number,
   error: PropTypes.shape({
     type: PropTypes.string,
     message: PropTypes.string
   }),
-  onChangeText: PropTypes.func,
-  autoCapitalize: PropTypes.string
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.string,
+    label: PropTypes.string,
+  })).isRequired,
+  onChange: PropTypes.func,
 }
 
 const defaultProps: Props = {
   bgColor: 'white',
-  keyboardType: 'default',
-  autoCompleteType: 'off',
-  autoFocus: false,
   value: '',
-  maxLength: 100,
   placeholder: '',
   onChange () {},
-  autoCapitalize: 'none'
+  items: [],
 }
 
 type Props = InferProps<typeof propTypes>
 
-function TextInput(props: Props) {
+function Icon () {
+  return <AntDesign name="down" size={16} color={Colors.black} />
+}
+
+function Select(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChange, label, error, ...restProps } = props
+  const { value, onChange, label, error, items, placeholder } = props
 
   return (
     <View>
@@ -47,19 +51,16 @@ function TextInput(props: Props) {
         </Typography>
       )}
       <View style={generatedStyles.inputContainer}>
-        <Input
-          style={generatedStyles.input}
+        <PickerSelect
+          placeholder={{ inputLabel: placeholder }}
           value={value}
-          onChangeText={(value: string) => onChange(value)}
-          {...restProps}
+          onValueChange={onChange}
+          items={items}
+          Icon={Icon}
         />
       </View>
       <View style={generatedStyles.errorContainer}>
-        {Boolean(error) && (
-          <Typography size={14} style={generatedStyles.error}>
-            {error.message}
-          </Typography>
-        )}
+        {Boolean(error) && <Typography size={14} style={generatedStyles.error}>{error.message}</Typography>}
       </View>
     </View>
   )
@@ -71,7 +72,7 @@ const styles = (props: Props) => {
   return StyleSheet.create({
     inputContainer: {
       borderRadius: 5,
-      backgroundColor: '#FFFFFF',
+      backgroundColor: 'white',
       paddingVertical: 15,
       paddingHorizontal: 10,
       margin: 0,
@@ -81,9 +82,6 @@ const styles = (props: Props) => {
     label: {
       fontSize: 14,
       marginBottom: 5
-    },
-    input: {
-      fontSize: 18
     },
     errorContainer: {
       height: 17,
@@ -96,7 +94,7 @@ const styles = (props: Props) => {
   })
 }
 
-TextInput.propTypes = propTypes
-TextInput.defaultProps = defaultProps
+Select.propTypes = propTypes
+Select.defaultProps = defaultProps
 
-export default TextInput
+export default Select

@@ -1,3 +1,8 @@
+# 1.9.0
+
+- Add Select (Atom with react-native-select-picker) Component.
+- Integrate Select with Input (Molecule) for Form (react-hook-form)
+
 # 1.8.2
 
 - Delete Link component
