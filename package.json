@@ -1,17 +1,17 @@
 {
   "name": "@wicadu/native-ui",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "main": "src/index.d.ts",
   "scripts": {
     "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@expo/vector-icons": "^10.2.1",
-    "@react-native-picker/picker": "^1.15.0",
+    "@expo/vector-icons": "^12.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-native": "^0.61.4",
+    "react-native-picker-select": "^8.0.4",
     "react-native-safe-area-context": "^3.1.8"
   },
   "repository": {

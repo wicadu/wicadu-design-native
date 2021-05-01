@@ -1,3 +1,7 @@
+# 1.10.2
+
+- Fix picker-selector dependency and update dependencies
+
 # 1.10.1
 
 - Add size, noError and itemKey into Select (Atom).
