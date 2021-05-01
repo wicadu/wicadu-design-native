@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 import { Controller, useFormContext } from 'react-hook-form'
 
 import TextInput from '../atoms/TextInput'
+import Select from '../atoms/Select'
 import InputError from '../@types/InputError'
 
 const propTypes = {
@@ -14,19 +15,23 @@ const propTypes = {
   keyboardType: PropTypes.string,
   secureTextEntry: PropTypes.bool,
   autoCompleteType: PropTypes.string,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  componentType: PropTypes.oneOf(['textInput', 'select'])
 }
 
 type Props = InferProps<typeof propTypes>
 
 const defaultProps = {
-  defaultValue: ''
+  defaultValue: '',
+  componentType: 'textInput'
 }
 
-function Input ({ name, defaultValue, ...props }: Props) {
+function Input ({ name, defaultValue, componentType, ...props }: Props) {
   const { control, errors } = useFormContext()
 
   const error: InputError | undefined = errors[name]
+
+  const Component = useMemo(() => componentType === 'textInput' ? TextInput : Select, [componentType])
 
   return (
     <View>
@@ -34,7 +39,7 @@ function Input ({ name, defaultValue, ...props }: Props) {
         name={name}
         control={control}
         render={({ onChange, value }) => (
-          <TextInput
+          <Component
             onChange={(value: string) => onChange(value)}
             value={value}
             error={error}

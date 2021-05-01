@@ -9,6 +9,8 @@ import Splash from './atoms/Splash'
 import Typography from './atoms/Typography'
 import Radio from './atoms/Radio'
 import Spin from './atoms/Spin'
+import Select from './atoms/Select'
+import Tag from './atoms/Tag'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -41,6 +43,8 @@ export {
   Typography,
   Radio,
   Spin,
+  Select,
+  Tag,
   Collapse,
   formatCurrency,
   normalizeSize,

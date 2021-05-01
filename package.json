@@ -1,6 +1,6 @@
 {
   "name": "@wicadu/native-ui",
-  "version": "1.8.2",
+  "version": "1.10.1",
   "main": "src/index.d.ts",
   "scripts": {
     "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
@@ -8,6 +8,7 @@
   },
   "peerDependencies": {
     "@expo/vector-icons": "^10.2.1",
+    "@react-native-picker/picker": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-native": "^0.61.4",

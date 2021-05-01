@@ -38,7 +38,7 @@ const Carousel = React.forwardRef((props: ICarousel & Props, ref) => {
   const { title, horizontal, headerRight, children, containerStyles } = props
 
   return (
-    <View style={{ ...generatedStyles.container, ...containerStyles}}>
+    <View style={{ ...generatedStyles.container, ...containerStyles }}>
       {(title || headerRight) && (
         <View style={generatedStyles.header}>
           {title && <Text style={generatedStyles.title}>{title}</Text>}

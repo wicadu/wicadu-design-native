@@ -79,7 +79,8 @@ const styles = (props: Props) => {
       borderColor: Boolean(error) ? Colors.error : 'transparent'
     },
     label: {
-      fontSize: 14
+      fontSize: 14,
+      marginBottom: 5
     },
     input: {
       fontSize: 18

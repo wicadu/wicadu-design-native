@@ -1,3 +1,17 @@
+# 1.10.1
+
+- Add size, noError and itemKey into Select (Atom).
+- Add containerStyles for Carousel.Item (Molecule)
+
+# 1.10.0
+
+- Add Tag (Atom) and export Select (Atom) into index.d.ts
+
+# 1.9.0
+
+- Add Select (Atom with react-native-select-picker) Component.
+- Integrate Select with Input (Molecule) for Form (react-hook-form)
+
 # 1.8.2
 
 - Delete Link component
