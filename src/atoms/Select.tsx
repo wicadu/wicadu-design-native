@@ -22,14 +22,18 @@ const propTypes = {
     label: PropTypes.string,
   })).isRequired,
   onChange: PropTypes.func,
+  size: PropTypes.oneOf(['default', 'small', 'medium', 'large']),
+  noError: PropTypes.bool,
+  itemKey: PropTypes.string,
 }
 
 const defaultProps: Props = {
-  bgColor: 'white',
   value: '',
   placeholder: '',
   onChange () {},
   items: [],
+  size: 'default',
+  itemKey: 'id'
 }
 
 type Props = InferProps<typeof propTypes>
@@ -41,33 +45,51 @@ function Icon () {
 function Select(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChange, label, error, items, placeholder } = props
+  const { value, onChange, label, error, items, placeholder, itemKey, noError } = props
 
   return (
     <View>
       {Boolean(label) && (
-        <Typography type='title-4' style={generatedStyles.label}>
-          {label}
-        </Typography>
+        <Typography type='title-4' style={generatedStyles.label}>{String(label)}</Typography>
       )}
       <View style={generatedStyles.inputContainer}>
         <PickerSelect
-          placeholder={{ inputLabel: placeholder }}
+          placeholder={{ inputLabel: placeholder, label: placeholder }}
           value={value}
           onValueChange={onChange}
           items={items}
           Icon={Icon}
+          itemKey={itemKey}
+          key='id'
         />
       </View>
-      <View style={generatedStyles.errorContainer}>
-        {Boolean(error) && <Typography size={14} style={generatedStyles.error}>{error.message}</Typography>}
-      </View>
+      {!noError && (
+        <View style={generatedStyles.errorContainer}>
+          {Boolean(error) && (
+            <Typography size={14} style={generatedStyles.error}>{String(error.message)}</Typography>
+          )}
+        </View>
+      )}
     </View>
   )
 }
 
 const styles = (props: Props) => {
-  const { error } = props
+  const { error, size } = props
+
+  const sizes = {
+    'default': {},
+    'small': {
+      height: 30,
+      paddingVertical: 7,
+    },
+    'medium': {
+      height: 45,
+    },
+    'large': {
+      height: 55
+    }
+  }
 
   return StyleSheet.create({
     inputContainer: {
@@ -75,9 +97,9 @@ const styles = (props: Props) => {
       backgroundColor: 'white',
       paddingVertical: 15,
       paddingHorizontal: 10,
-      margin: 0,
       borderWidth: 1,
-      borderColor: Boolean(error) ? Colors.error : 'transparent'
+      borderColor: Boolean(error) ? Colors.error : 'transparent',
+      ...sizes[size]
     },
     label: {
       fontSize: 14,

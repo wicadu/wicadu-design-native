@@ -1,3 +1,8 @@
+# 1.10.1
+
+- Add size, noError and itemKey into Select (Atom).
+- Add containerStyles for Carousel.Item (Molecule)
+
 # 1.10.0
 
 - Add Tag (Atom) and export Select (Atom) into index.d.ts
