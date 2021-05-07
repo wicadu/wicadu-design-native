@@ -16,12 +16,12 @@ const propTypes = {
     type: PropTypes.string,
     message: PropTypes.string
   }),
-  onChangeText: PropTypes.func,
-  autoCapitalize: PropTypes.string
+  onChange: PropTypes.func,
+  autoCapitalize: PropTypes.string,
+  noError: PropTypes.bool
 }
 
 const defaultProps: Props = {
-  bgColor: 'white',
   keyboardType: 'default',
   autoCompleteType: 'off',
   autoFocus: false,
@@ -29,7 +29,8 @@ const defaultProps: Props = {
   maxLength: 100,
   placeholder: '',
   onChange () {},
-  autoCapitalize: 'none'
+  autoCapitalize: 'none',
+  noError: false
 }
 
 type Props = InferProps<typeof propTypes>
@@ -37,7 +38,7 @@ type Props = InferProps<typeof propTypes>
 function TextInput(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChange, label, error, ...restProps } = props
+  const { value, onChange, label, error, noError, ...restProps } = props
 
   return (
     <View>
@@ -54,13 +55,15 @@ function TextInput(props: Props) {
           {...restProps}
         />
       </View>
-      <View style={generatedStyles.errorContainer}>
-        {Boolean(error) && (
-          <Typography size={14} style={generatedStyles.error}>
-            {error.message}
+      {!noError && (
+        <View style={generatedStyles.errorContainer}>
+          {Boolean(error) && (
+            <Typography size={14} style={generatedStyles.error}>
+            {String(error.message)}
           </Typography>
-        )}
-      </View>
+          )}
+        </View>
+      )}
     </View>
   )
 }
