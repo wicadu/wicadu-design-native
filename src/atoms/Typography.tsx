@@ -10,7 +10,8 @@ const propTypes = {
   style: PropTypes.object,
   numberOfLines: PropTypes.number,
   ellipsizeMode: PropTypes.string,
-  inverse: PropTypes.bool
+  inverse: PropTypes.bool,
+  bold: PropTypes.bool
 }
 
 const defaultProps: Props = {
@@ -30,7 +31,7 @@ function Typography (props: Props) {
   return <Text style={generatedStyles.text} numberOfLines={props.numberOfLines} ellipsizeMode={props.ellipsizeMode}>{children}</Text>
 }
 
-const styles = ({ type, size, style, inverse }: Props) => {
+const styles = ({ type, size, style, inverse, bold }: Props) => {
   const defaultStylesText: object = {
     fontFamily: 'Cabin_Regular',
     fontSize: size,
@@ -66,7 +67,8 @@ const styles = ({ type, size, style, inverse }: Props) => {
       },
       'description': {
         ...defaultStylesText,
-        color: Colors.darkGray
+        color: Colors.darkGray,
+        ...(bold ? defaultStylesTitleText : {})
       }
     }
   }
