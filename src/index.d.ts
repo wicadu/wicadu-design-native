@@ -11,6 +11,7 @@ import Radio from './atoms/Radio'
 import Spin from './atoms/Spin'
 import Select from './atoms/Select'
 import Tag from './atoms/Tag'
+import Modal from './atoms/Modal'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -18,6 +19,7 @@ import Carousel from './molecules/Carousel'
 import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
+import FeedbackModal from './molecules/FeedbackModal'
 
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
@@ -45,7 +47,9 @@ export {
   Spin,
   Select,
   Tag,
+  Modal,
   Collapse,
+  FeedbackModal,
   formatCurrency,
   normalizeSize,
   sizesPercent,
