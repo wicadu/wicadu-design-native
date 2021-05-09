@@ -1,3 +1,11 @@
+# 1.12.0
+
+- Move Modal to Atoms and create FeedbackModal in Molecules.
+
+# 1.11.0
+
+- Add Modal (Molecule), Bold-prop (Typography) & noError-prop (TextInput)
+
 # 1.10.2
 
 - Fix picker-selector dependency and update dependencies
