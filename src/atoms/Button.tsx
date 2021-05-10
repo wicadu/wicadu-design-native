@@ -109,6 +109,17 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       'link': {
         paddingVertical: 0,
         paddingHorizontal: 0
+      },
+      'dashed': {
+        borderWidth: 2,
+        borderStyle: 'dashed',
+        borderColor: Colors.primary
+      },
+      'dashed-inverse': {
+        backgroundColor: Colors.primary,
+        borderWidth: 2,
+        borderStyle: 'dashed',
+        borderColor: Colors.white
       }
     },
     sizeContainer: {
@@ -153,6 +164,12 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       },
       'link-disabled': {
         color: Colors.gray
+      },
+      'dashed': {
+        color: Colors.primary
+      },
+      'dashed-inverse': {
+        color: Colors.white
       }
     },
     sizeText: {

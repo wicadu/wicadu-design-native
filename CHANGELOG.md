@@ -1,3 +1,7 @@
+# 1.12.1
+
+- Add 'dashed' and 'dashed-inverse' styles to button
+
 # 1.12.0
 
 - Move Modal to Atoms and create FeedbackModal in Molecules.
