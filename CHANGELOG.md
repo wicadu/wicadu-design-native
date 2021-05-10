@@ -1,3 +1,7 @@
+# 1.13.0
+
+- Add Snackbar molecule
+
 # 1.12.1
 
 - Add 'dashed' and 'dashed-inverse' styles to button
