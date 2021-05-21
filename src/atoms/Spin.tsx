@@ -32,6 +32,7 @@ function Spin (props: Props) {
   Animated.loop(Animated.timing(animatedSpin, {
     toValue: 100,
     duration: 1000,
+    useNativeDriver: true
   })).start()
 
   const rotate = animatedSpin.interpolate({

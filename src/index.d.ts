@@ -20,10 +20,12 @@ import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
 import FeedbackModal from './molecules/FeedbackModal'
+import Snackbar from './molecules/Snackbar'
 
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
 import sizesPercent from './utils/sizesPercent'
+import hexToRGBA from './utils/hexToRGBA'
 
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
@@ -50,9 +52,11 @@ export {
   Modal,
   Collapse,
   FeedbackModal,
+  Snackbar,
   formatCurrency,
   normalizeSize,
   sizesPercent,
+  hexToRGBA,
   Colors,
   Fonts,
   Utils

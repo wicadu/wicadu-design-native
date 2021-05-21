@@ -1,3 +1,15 @@
+# 1.13.1
+
+- Add fonts 36 & 40, wPay color and export Snackbar & hexToRBGA
+
+# 1.13.0
+
+- Add Snackbar molecule
+
+# 1.12.1
+
+- Add 'dashed' and 'dashed-inverse' styles to button
+
 # 1.12.0
 
 - Move Modal to Atoms and create FeedbackModal in Molecules.
