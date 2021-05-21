@@ -11,5 +11,6 @@ export default {
   warning: '#ffd500',
   error: '#FF001B',
   white: '#f2f2f2',
-  black: '#1E1926'
+  black: '#1E1926',
+  wPay: '#020126'
 }

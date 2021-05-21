@@ -1,3 +1,7 @@
+# 1.13.1
+
+- Add fonts 36 & 40, wPay color and export Snackbar & hexToRBGA
+
 # 1.13.0
 
 - Add Snackbar molecule
