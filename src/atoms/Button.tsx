@@ -120,7 +120,14 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
         borderWidth: 2,
         borderStyle: 'dashed',
         borderColor: Colors.white
-      }
+      },
+      'error': {
+        backgroundColor: Colors.error,
+      },
+      'error-inverse': {
+        borderWidth: 1,
+        borderColor: Colors.error
+      },
     },
     sizeContainer: {
       'default': {},
@@ -170,7 +177,16 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       },
       'dashed-inverse': {
         color: Colors.white
-      }
+      },
+      'error': {
+        color: Colors.white
+      },
+      'error-inverse': {
+        color: Colors.error
+      },
+      'error-disabled': {
+        color: Colors.white
+      },
     },
     sizeText: {
       'default': {
