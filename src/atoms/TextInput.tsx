@@ -1,8 +1,10 @@
 import React from 'react'
-import { TextInput as Input, StyleSheet, View } from 'react-native'
-import Colors from '../constants/colors'
-import Typography from './Typography'
 import PropTypes, { InferProps } from 'prop-types'
+import { TextInput as Input, StyleSheet, View } from 'react-native'
+
+import Colors from '../constants/colors'
+import Fonts from '../constants/fonts'
+import Typography from './Typography'
 
 const propTypes = {
   label: PropTypes.string,
@@ -18,7 +20,9 @@ const propTypes = {
   }),
   onChange: PropTypes.func,
   autoCapitalize: PropTypes.string,
-  noError: PropTypes.bool
+  noError: PropTypes.bool,
+  optional: PropTypes.bool,
+  helpMessage: PropTypes.string
 }
 
 const defaultProps: Props = {
@@ -30,7 +34,8 @@ const defaultProps: Props = {
   placeholder: '',
   onChange () {},
   autoCapitalize: 'none',
-  noError: false
+  noError: false,
+  helpMessage: ''
 }
 
 type Props = InferProps<typeof propTypes>
@@ -38,15 +43,19 @@ type Props = InferProps<typeof propTypes>
 function TextInput(props: Props) {
   const generatedStyles = styles(props)
 
-  const { value, onChange, label, error, noError, ...restProps } = props
+  const { value, onChange, label, error, noError, optional, helpMessage, ...restProps } = props
 
   return (
     <View>
-      {Boolean(label) && (
-        <Typography type='title-4' style={generatedStyles.label}>
-          {label}
-        </Typography>
+      {!!label && (
+        <View style={generatedStyles.labelContainer}>
+          <Typography type='title-4' style={generatedStyles.label}>{label}</Typography>
+          {optional && (
+            <Typography type='description' style={generatedStyles.label}>(Opcional)</Typography>
+          )}
+        </View>
       )}
+
       <View style={generatedStyles.inputContainer}>
         <Input
           style={generatedStyles.input}
@@ -55,12 +64,13 @@ function TextInput(props: Props) {
           {...restProps}
         />
       </View>
+
       {!noError && (
         <View style={generatedStyles.errorContainer}>
-          {Boolean(error) && (
-            <Typography size={14} style={generatedStyles.error}>
-            {String(error.message)}
-          </Typography>
+          {!!error ? (
+            <Typography size={14} style={generatedStyles.error}>{error?.message}</Typography>
+          ): (
+            <Typography size={Fonts.f14} style={generatedStyles.helpMessageContainer} type='description'>{helpMessage}</Typography>
           )}
         </View>
       )}
@@ -69,7 +79,7 @@ function TextInput(props: Props) {
 }
 
 const styles = (props: Props) => {
-  const { error } = props
+  const { error, helpMessage } = props
 
   return StyleSheet.create({
     inputContainer: {
@@ -81,20 +91,32 @@ const styles = (props: Props) => {
       borderWidth: 1,
       borderColor: Boolean(error) ? Colors.error : 'transparent'
     },
+    labelContainer: {
+      flexDirection: 'row',
+    },
     label: {
       fontSize: 14,
-      marginBottom: 5
+      marginBottom: 5,
+      marginRight: 5,
     },
     input: {
       fontSize: 18
     },
     errorContainer: {
-      height: 17,
-      marginVertical: 5
+      minHeight: helpMessage ? 30 : 15,
+      marginVertical: 5,
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap'
     },
     error: {
       color: Colors.error,
       textAlign: 'right'
+    },
+    helpMessageContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap'
     }
   })
 }

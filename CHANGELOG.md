@@ -1,3 +1,9 @@
+# 1.14.0
+
+- Add ModalOptionPicker (Molecule)
+- Add Toggle (Atom)
+- Improves: Handle description and label in TextInput and add error type into Button
+
 # 1.13.1
 
 - Add fonts 36 & 40, wPay color and export Snackbar & hexToRBGA
