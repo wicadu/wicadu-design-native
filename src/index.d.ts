@@ -12,6 +12,7 @@ import Spin from './atoms/Spin'
 import Select from './atoms/Select'
 import Tag from './atoms/Tag'
 import Modal from './atoms/Modal'
+import Toggle from './atoms/Toggle'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -20,6 +21,7 @@ import Slider from './molecules/Slider'
 import AddOrSubtract from './molecules/AddOrSubtract'
 import Collapse from './molecules/Collapse'
 import FeedbackModal from './molecules/FeedbackModal'
+import ModalOptionPicker from './molecules/ModalOptionPicker'
 import Snackbar from './molecules/Snackbar'
 
 import formatCurrency from './utils/formatCurrency'
@@ -50,8 +52,10 @@ export {
   Select,
   Tag,
   Modal,
+  Toggle,
   Collapse,
   FeedbackModal,
+  ModalOptionPicker,
   Snackbar,
   formatCurrency,
   normalizeSize,
