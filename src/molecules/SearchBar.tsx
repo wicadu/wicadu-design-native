@@ -1,11 +1,13 @@
 import React, { useMemo, useCallback } from 'react'
+import PropTypes, { InferProps } from 'prop-types'
 import { StyleSheet, View } from 'react-native'
+
 import { AntDesign } from '@expo/vector-icons'
+
 import IconContainer from '../atoms/IconContainer'
 import Form from '../HOCs/Form'
 import Input from '../molecules/Input'
 import Colors from '../constants/colors'
-import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -15,7 +17,8 @@ const propTypes = {
   autoCompleteType: PropTypes.string,
   style: PropTypes.object,
   styleContainer: PropTypes.object,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  noIcon: PropTypes.bool
 }
 
 type Props = InferProps<typeof propTypes>
@@ -25,7 +28,7 @@ const defaultProps: Props = {
   onPress () {}
 }
 
-function SearchBar ({ name, styleContainer, onPress: rawOnPress, ...props }: Props) {
+function SearchBar ({ name, styleContainer, onPress: rawOnPress, noIcon, ...props }: Props) {
   const { control, setValue } = Form.useForm()
   const value = Form.useWatch({
     control,
@@ -43,17 +46,15 @@ function SearchBar ({ name, styleContainer, onPress: rawOnPress, ...props }: Pro
 
   return (
     <View style={{ ...styles.container, ...styleContainer}}>
-      <Input
-        name={name}
-        placeholderTextColor={Colors.gray}
-        style={styles.input}
-        {...props}
-      />
-      <IconContainer
-        containerStyle={styles.containerIcon}
-        icon={<AntDesign name={iconType} size={18} color={Colors.gray} />}
-        onPress={onPress}
-      />
+      <Input name={name} placeholderTextColor={Colors.gray} style={styles.input} {...props} />
+
+      {!noIcon && (
+        <IconContainer
+          containerStyle={styles.containerIcon}
+          icon={<AntDesign name={iconType} size={18} color={Colors.gray} />}
+          onPress={onPress}
+        />
+      )}
     </View>
   )
 }
