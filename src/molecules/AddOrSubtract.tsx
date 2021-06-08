@@ -1,10 +1,11 @@
 import React, { useState, useCallback } from 'react'
 import { View, StyleSheet, ActivityIndicator } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
-import Typography from '../atoms/Typography'
-import IconContainer from '../atoms/IconContainer'
-import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
+
+import { AntDesign } from '@expo/vector-icons'
+
+import Typography from '../atoms/Typography'
+import Colors from '../constants/colors'
 
 const propTypes = {
   initialQuantity: PropTypes.number.isRequired,
@@ -12,7 +13,14 @@ const propTypes = {
   maxQuantity: PropTypes.number,
   minQuantity: PropTypes.number,
   disabled: PropTypes.bool,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  containerStyles: PropTypes.object,
+  inverse: PropTypes.bool,
+  type: PropTypes.oneOf(['ghost', 'primary', 'error', 'warning']),
+  alternate: PropTypes.shape({
+    break: PropTypes.array,
+    type: PropTypes.array
+  })
 }
 
 type Props = InferProps<typeof propTypes>
@@ -23,7 +31,8 @@ const defaultProps: Props = {
   maxQuantity: 1,
   minQuantity: 0,
   disabled: false,
-  loading: false
+  loading: false,
+  type: 'ghost'
 }
 
 enum ActionType {
@@ -31,8 +40,10 @@ enum ActionType {
   'SUBTRACT'
 }
 
-function AddOrSubtract ({ onChangeQuantity, initialQuantity, maxQuantity, minQuantity, disabled, loading }: Props) {
-  const [ quantity, setQuantity ] = useState(initialQuantity)
+function AddOrSubtract (props: Props) {
+  const { onChangeQuantity, initialQuantity, maxQuantity, minQuantity, disabled, loading, inverse } = props
+
+  const [quantity, setQuantity] = useState(initialQuantity)
 
   const onChange = useCallback((type: ActionType) => {
     let newQuantity: number = quantity
@@ -56,47 +67,129 @@ function AddOrSubtract ({ onChangeQuantity, initialQuantity, maxQuantity, minQua
     onChange(ActionType.SUBTRACT)
   }, [onChange])
 
+  const generatedStyles = styles({ ...props, quantity })
+
   return (
-    <View style={styles.container}>
-      <IconContainer
-        icon={<AntDesign name='minus' size={20} color={Colors.gray} />}
-        containerStyle={styles.button}
+    <View style={generatedStyles.container}>
+      <AntDesign
+        name='minus'
+        size={18}
+        style={generatedStyles.iconAction}
         onPress={onSubtractQuantity}
       />
+
       {loading ? (
-        <View>
-          <ActivityIndicator size='small' color={Colors.darkGray} />
-        </View>
+        <ActivityIndicator size='small' color={inverse ? Colors.darkGray : Colors.white} />
       ) : (
-        <Typography type='title-4'>{String(quantity)}</Typography>
+        <Typography type='title-4' style={generatedStyles.text}>{quantity}</Typography>
       )}
-      <IconContainer
-        icon={<AntDesign name='plus' size={20} color={Colors.gray} />}
-        containerStyle={styles.button}
+
+      <AntDesign
+        name='plus'
+        size={18}
+        style={generatedStyles.iconAction}
         onPress={onAddQuantity}
       />
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
+const styles = (props: Props) => {
+  const { containerStyles, type, inverse, quantity, alternate } = props
+
+  let classType: string = type
+
+  if (Boolean(alternate)) {
+    if (quantity <= alternate?.break?.[0]) {
+      classType = alternate?.type?.[0]
+    } else if (quantity >= alternate?.break?.[1]) {
+      classType = alternate?.type?.[2]
+    } else {
+      classType = alternate?.type?.[1]
+    }
+  }
+
+  const defaltContainerStyles: object = {
     height: 45,
-    minWidth: 100,
+    minWidth: 120,
     maxWidth: 130,
+    borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  button: {
-    width: 35,
-    height: 35,
+    justifyContent: 'space-between',
+  }
+
+  const defaultButtonStyles: object = {
+    padding: 8,
     marginHorizontal: 4,
     borderWidth: 1,
-    borderColor: Colors.gray,
-    borderRadius: 10
+    borderRadius: 10,
   }
-})
+  
+  const classes: object = {
+    container: {
+      'primary': {
+        backgroundColor: Colors.primary,
+      },
+      'ghost': {
+        backgroundColor: Colors.darkGray,
+      },
+      'error': {
+        backgroundColor: Colors.error,
+      },
+      'warning': {
+        backgroundColor: Colors.warning,
+      }
+    },
+    iconAction: {
+      'primary': {
+        color: inverse ? Colors.primary : Colors.white,
+        borderColor: Colors.primary
+      },
+      'ghost': {
+        color: inverse ? Colors.darkGray : Colors.white,
+        borderColor: Colors.darkGray
+      },
+      'error': {
+        color: inverse ? Colors.error : Colors.white,
+        borderColor: Colors.error
+      },
+      'warning': {
+        color: inverse ? Colors.warning : Colors.white,
+        borderColor: Colors.warning
+      }
+    },
+    text: {
+      'primary': {
+        color: inverse ? Colors.primary : Colors.white,
+      },
+      'ghost': {
+        color: inverse ? Colors.darkGray : Colors.white,
+      },
+      'error': {
+        color: inverse ? Colors.error : Colors.white,
+      },
+      'warning': {
+        color: inverse ? Colors.warning : Colors.white,
+      }
+    }
+  }
+
+  return StyleSheet.create({
+    container: {
+      ...defaltContainerStyles,
+      ...(inverse ? {} : classes.container[classType]),
+      ...containerStyles
+    },
+    iconAction: {
+      ...defaultButtonStyles,
+      ...classes.iconAction[classType],
+    },
+    text: {
+      ...classes.text[classType],
+    }
+  })
+}
 
 AddOrSubtract.propTypes = propTypes
 AddOrSubtract.defaultProps = defaultProps
