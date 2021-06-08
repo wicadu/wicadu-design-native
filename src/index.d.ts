@@ -13,6 +13,7 @@ import Select from './atoms/Select'
 import Tag from './atoms/Tag'
 import Modal from './atoms/Modal'
 import Toggle from './atoms/Toggle'
+import Breadcrumb from './atoms/Breadcrumb'
 
 import Input from './molecules/Input'
 import SearchBar from './molecules/SearchBar'
@@ -53,6 +54,7 @@ export {
   Tag,
   Modal,
   Toggle,
+  Breadcrumb,
   Collapse,
   FeedbackModal,
   ModalOptionPicker,
