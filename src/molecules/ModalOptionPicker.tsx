@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { Fragment, useCallback, useEffect, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
-import { StyleSheet, View, Modal as NativeModal, Pressable } from 'react-native'
+import { StyleSheet, View, Pressable } from 'react-native'
 
 import Typography from '@wicadu/native-ui/src/atoms/Typography'
 import Button from '@wicadu/native-ui/src/atoms/Button'
@@ -32,8 +32,10 @@ function ModalOptionPicker (props: Props) {
 
   const generatedStyles = styles(props)
 
+  if (!isVisible) return null
+
   return (
-    <NativeModal animationType='slide' transparent visible={isVisible}>
+    <Fragment>
       <View style={generatedStyles.backgroundScreen} />
       <View style={generatedStyles.container}>
         {options?.map(({ name, id, icon, onPress }: any) => (
@@ -47,7 +49,7 @@ function ModalOptionPicker (props: Props) {
 
         <Button size='large' type='error' onPress={handlePress}>{toCancelMessage}</Button>
       </View>
-    </NativeModal>
+    </Fragment>
   )
 }
 
