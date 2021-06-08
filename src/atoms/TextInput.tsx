@@ -22,7 +22,8 @@ const propTypes = {
   autoCapitalize: PropTypes.string,
   noError: PropTypes.bool,
   optional: PropTypes.bool,
-  helpMessage: PropTypes.string
+  helpMessage: PropTypes.string,
+  borders: PropTypes.bool
 }
 
 const defaultProps: Props = {
@@ -35,7 +36,8 @@ const defaultProps: Props = {
   onChange () {},
   autoCapitalize: 'none',
   noError: false,
-  helpMessage: ''
+  helpMessage: '',
+  borders: false
 }
 
 type Props = InferProps<typeof propTypes>
@@ -79,7 +81,12 @@ function TextInput(props: Props) {
 }
 
 const styles = (props: Props) => {
-  const { error, helpMessage } = props
+  const { error, borders, helpMessage } = props
+
+  let borderColor = 'transparent'
+
+  if (borders) borderColor = Colors.darkGray
+  if (Boolean(error)) borderColor = Colors.error
 
   return StyleSheet.create({
     inputContainer: {
@@ -89,7 +96,7 @@ const styles = (props: Props) => {
       paddingHorizontal: 10,
       margin: 0,
       borderWidth: 1,
-      borderColor: Boolean(error) ? Colors.error : 'transparent'
+      borderColor
     },
     labelContainer: {
       flexDirection: 'row',
