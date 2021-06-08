@@ -4,8 +4,12 @@ import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
-  children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'title', 'title-2', 'title-3', 'title-4', 'description']),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.node
+  ]).isRequired,
+  type: PropTypes.oneOf(['default', 'title', 'title-2', 'title-3', 'title-4', 'description', 'error']),
   size: PropTypes.number,
   style: PropTypes.object,
   numberOfLines: PropTypes.number,
@@ -68,6 +72,11 @@ const styles = ({ type, size, style, inverse, bold }: Props) => {
       'description': {
         ...defaultStylesText,
         color: Colors.darkGray,
+        ...(bold ? defaultStylesTitleText : {})
+      },
+      'error': {
+        ...defaultStylesText,
+        color: Colors.error,
         ...(bold ? defaultStylesTitleText : {})
       }
     }
