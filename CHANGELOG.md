@@ -1,3 +1,13 @@
+# 1.15.0
+
+- Add Breadcumb (Atom).
+- Improves:
+  1. Add bordes to TextInput & SearchBar
+  2. Add prop noIcon to Searchbar
+  3. Remove NativeModal and use Fragment (Problems with Expo-Image).
+  4. Add types to AddOrSubtract: ghost, primary, error & warning
+  5. Add type error to Typography
+
 # 1.14.0
 
 - Add ModalOptionPicker (Molecule)
