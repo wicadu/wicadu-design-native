@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import Spin from './Spin'
 
 const propTypes = {
@@ -59,14 +59,14 @@ const styles = ({ size }: Props) => {
       borderRadius: 25 / 2,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: Colors.primary,
+      backgroundColor: colors.MAIN.PRIMARY,
       position: 'absolute',
       top: 0,
       right: 0,
       zIndex: 5,
     },
     countNumber: {
-      color: Colors.white
+      color: colors.NEUTRAL.DARK_WHITE
     }
   }) 
 }

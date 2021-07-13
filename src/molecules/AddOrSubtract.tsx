@@ -5,7 +5,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import { AntDesign } from '@expo/vector-icons'
 
 import Typography from '../atoms/Typography'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 
 const propTypes = {
   initialQuantity: PropTypes.number.isRequired,
@@ -79,7 +79,7 @@ function AddOrSubtract (props: Props) {
       />
 
       {loading ? (
-        <ActivityIndicator size='small' color={inverse ? Colors.darkGray : Colors.white} />
+        <ActivityIndicator size='small' color={inverse ? colors.NEUTRAL.DARK_GRAY : colors.NEUTRAL.DARK_WHITE} />
       ) : (
         <Typography type='title-4' style={generatedStyles.text}>{quantity}</Typography>
       )}
@@ -129,48 +129,48 @@ const styles = (props: Props) => {
   const classes: object = {
     container: {
       'primary': {
-        backgroundColor: Colors.primary,
+        backgroundColor: colors.MAIN.PRIMARY,
       },
       'ghost': {
-        backgroundColor: Colors.darkGray,
+        backgroundColor: colors.NEUTRAL.DARK_GRAY,
       },
       'error': {
-        backgroundColor: Colors.error,
+        backgroundColor: colors.FEEDBACK.ERROR,
       },
       'warning': {
-        backgroundColor: Colors.warning,
+        backgroundColor: colors.FEEDBACK.WARNING,
       }
     },
     iconAction: {
       'primary': {
-        color: inverse ? Colors.primary : Colors.white,
-        borderColor: Colors.primary
+        color: inverse ? colors.MAIN.PRIMARY : colors.NEUTRAL.DARK_WHITE,
+        borderColor: colors.MAIN.PRIMARY
       },
       'ghost': {
-        color: inverse ? Colors.darkGray : Colors.white,
-        borderColor: Colors.darkGray
+        color: inverse ? colors.NEUTRAL.DARK_GRAY : colors.NEUTRAL.DARK_WHITE,
+        borderColor: colors.NEUTRAL.DARK_GRAY
       },
       'error': {
-        color: inverse ? Colors.error : Colors.white,
-        borderColor: Colors.error
+        color: inverse ? colors.FEEDBACK.ERROR : colors.NEUTRAL.DARK_WHITE,
+        borderColor: colors.FEEDBACK.ERROR
       },
       'warning': {
-        color: inverse ? Colors.warning : Colors.white,
-        borderColor: Colors.warning
+        color: inverse ? colors.FEEDBACK.WARNING : colors.NEUTRAL.DARK_WHITE,
+        borderColor: colors.FEEDBACK.WARNING
       }
     },
     text: {
       'primary': {
-        color: inverse ? Colors.primary : Colors.white,
+        color: inverse ? colors.MAIN.PRIMARY : colors.NEUTRAL.DARK_WHITE,
       },
       'ghost': {
-        color: inverse ? Colors.darkGray : Colors.white,
+        color: inverse ? colors.NEUTRAL.DARK_GRAY : colors.NEUTRAL.DARK_WHITE,
       },
       'error': {
-        color: inverse ? Colors.error : Colors.white,
+        color: inverse ? colors.FEEDBACK.ERROR : colors.NEUTRAL.DARK_WHITE,
       },
       'warning': {
-        color: inverse ? Colors.warning : Colors.white,
+        color: inverse ? colors.FEEDBACK.WARNING : colors.NEUTRAL.DARK_WHITE,
       }
     }
   }

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import { TextInput as Input, StyleSheet, View } from 'react-native'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import Fonts from '../constants/fonts'
 import Typography from './Typography'
 
@@ -68,9 +68,9 @@ function TextInput(props: Props) {
       </View>
 
       {!noError && (
-        <View style={generatedStyles.errorContainer}>
+        <View style={generatedStyles.FEEDBACK.ERRORContainer}>
           {!!error ? (
-            <Typography size={14} style={generatedStyles.error}>{error?.message}</Typography>
+            <Typography size={14} style={generatedStyles.FEEDBACK.ERROR}>{error?.message}</Typography>
           ): (
             <Typography size={Fonts.f14} style={generatedStyles.helpMessageContainer} type='description'>{helpMessage}</Typography>
           )}
@@ -85,8 +85,8 @@ const styles = (props: Props) => {
 
   let borderColor = 'transparent'
 
-  if (borders) borderColor = Colors.darkGray
-  if (Boolean(error)) borderColor = Colors.error
+  if (borders) borderColor = colors.NEUTRAL.DARK_GRAY
+  if (Boolean(error)) borderColor = colors.FEEDBACK.ERROR
 
   return StyleSheet.create({
     inputContainer: {
@@ -116,7 +116,7 @@ const styles = (props: Props) => {
       flexWrap: 'wrap'
     },
     error: {
-      color: Colors.error,
+      color: colors.FEEDBACK.ERROR,
       textAlign: 'right'
     },
     helpMessageContainer: {

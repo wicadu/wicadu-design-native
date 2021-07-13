@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons'
 import IconContainer from '../atoms/IconContainer'
 import Form from '../HOCs/Form'
 import Input from '../molecules/Input'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -50,12 +50,12 @@ function SearchBar (props: Props) {
 
   return (
     <View style={generatedStyles.container}>
-      <Input {...props} name={name} placeholderTextColor={Colors.gray} style={generatedStyles.input} />
+      <Input {...props} name={name} placeholderTextColor={colors.NEUTRAL.GRAY} style={generatedStyles.input} />
 
       {!noIcon && (
         <IconContainer
           containerStyle={generatedStyles.containerIcon}
-          icon={<AntDesign name={iconType} size={18} color={Colors.gray} />}
+          icon={<AntDesign name={iconType} size={18} color={colors.NEUTRAL.GRAY} />}
           onPress={onPress}
         />
       )}
@@ -69,7 +69,7 @@ const styles = (props: Props) => {
   const borderStyles: object = {
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: Colors.lightGray
+    borderColor: colors.NEUTRAL.LIGHT_GRAY
   }
   
   return StyleSheet.create({

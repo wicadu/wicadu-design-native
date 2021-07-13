@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import { Pressable, StyleSheet, View } from 'react-native'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 
 const propTypes = {
   onPress: PropTypes.func,
@@ -34,12 +34,12 @@ function Toggle (props: Props) {
 const styles = (active: boolean) => {
   const stylesActive: object = {
     alignItems: 'flex-end',
-    backgroundColor: Colors.primary
+    backgroundColor: colors.MAIN.PRIMARY
   }
 
   const stylesInactive: object = {
     alignItems: 'flex-start',
-    backgroundColor: Colors.lightGray
+    backgroundColor: colors.NEUTRAL.LIGHT_GRAY
   }
 
   return StyleSheet.create({

@@ -4,7 +4,7 @@ import { StyleSheet, View, Dimensions } from 'react-native'
 
 import { AntDesign } from '@expo/vector-icons'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import Modal from '../atoms/Modal'
 import Button from '../atoms/Button'
 import Typography from '../atoms/Typography'
@@ -46,7 +46,7 @@ function FeedbackModal (props: Props) {
     <Modal visible={isVisible}>
       <View style={generatedStyles.container}>
         <View style={generatedStyles.content}>
-          <AntDesign name={icons[type]} size={90} color={Colors[type]} />
+          <AntDesign name={icons[type]} size={90} color={colors[type]} />
 
           <Typography type='title-2' style={generatedStyles.title}>{title}</Typography>
           <Typography type='description' style={generatedStyles.description}>{description}</Typography>

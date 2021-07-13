@@ -23,9 +23,9 @@ function Collapse ({ title, children }: Props) {
         <View style={styles.containerTitle}>
           <Typography type='title-4' style={styles.title}>{title}</Typography>
           {collapsed ? (
-            <FontAwesome name='minus-square-o' size={18} color={colors.darkGray} />
+            <FontAwesome name='minus-square-o' size={18} color={colors.NEUTRAL.DARK_GRAY} />
             ) : (
-            <FontAwesome name='plus-square-o' size={18} color={colors.darkGray} />
+            <FontAwesome name='plus-square-o' size={18} color={colors.NEUTRAL.DARK_GRAY} />
           )}
         </View>
       </TouchableWithoutFeedback>

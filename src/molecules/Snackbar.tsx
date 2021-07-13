@@ -5,7 +5,7 @@ import { StyleSheet, View, Dimensions, Pressable } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
 import Typography from '../atoms/Typography'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import Fonts from '../constants/fonts'
 
 const propTypes = {
@@ -55,7 +55,7 @@ function Snackbar (props: Props) {
       ): (
         <View style={generatedStyles.feedback}>
           <View style={generatedStyles.feedback}>
-            <AntDesign name={types[type]} size={35} color={Colors[type]} />
+            <AntDesign name={types[type]} size={35} color={colors[type]} />
             <View style={generatedStyles.details}>
               <Typography style={generatedStyles.title} numberOfLines={1}>{title}</Typography>
               <Typography type='description' size={Fonts.f14} numberOfLines={2}>{description}</Typography>

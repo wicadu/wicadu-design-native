@@ -4,7 +4,7 @@ import PropTypes, { InferProps } from 'prop-types'
 
 import { AntDesign } from '@expo/vector-icons'
 
-import Colors from '@wicadu/native-ui/src/constants/colors'
+import colors from '@wicadu/native-ui/src/constants/colors'
 import Fonts from '@wicadu/native-ui/src/constants/fonts'
 import IconContainer from '@wicadu/native-ui/src/atoms/IconContainer'
 import Typography from '@wicadu/native-ui/src/atoms/Typography'
@@ -26,7 +26,7 @@ function Breadcrumb (props: Props) {
     <View style={generatedStyles.container}>
       {!withoutExternalIcons && (
         <IconContainer
-          icon={<AntDesign name='caretright' size={10} color={Colors.darkGray} />}
+          icon={<AntDesign name='caretright' size={10} color={colors.NEUTRAL.DARK_GRAY} />}
           containerStyle={generatedStyles.iconStyles}
         />
       )}
@@ -35,7 +35,7 @@ function Breadcrumb (props: Props) {
           <Typography type='description' size={Fonts.f14}>{name}</Typography>
           {withoutExternalIcons && items?.length - 1 <= index ? null : (
             <IconContainer
-              icon={<AntDesign name='caretright' size={10} color={Colors.darkGray} />}
+              icon={<AntDesign name='caretright' size={10} color={colors.NEUTRAL.DARK_GRAY} />}
               containerStyle={generatedStyles.iconStyles}
             />
           )}

@@ -1,7 +1,7 @@
-import Colors from './colors'
+import colors from './colors'
 
 const defaultStyles = (styles?: any) => ({
-  backgroundColor: Colors.white,
+  backgroundColor: colors.NEUTRAL.DARK_WHITE,
   elevation: 0,
   shadowOpacity: 0,
   shadowColor: 'transparent',

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
@@ -39,7 +39,7 @@ const styles = ({ type, size, style, inverse, bold }: Props) => {
   const defaultStylesText: object = {
     fontFamily: 'Cabin_Regular',
     fontSize: size,
-    color: inverse ? Colors.white : Colors.black
+    color: inverse ? colors.NEUTRAL.DARK_WHITE : colors.NEUTRAL.BLACK
   }
 
   const defaultStylesTitleText: object = {
@@ -71,12 +71,12 @@ const styles = ({ type, size, style, inverse, bold }: Props) => {
       },
       'description': {
         ...defaultStylesText,
-        color: Colors.darkGray,
+        color: colors.NEUTRAL.DARK_GRAY,
         ...(bold ? defaultStylesTitleText : {})
       },
       'error': {
         ...defaultStylesText,
-        color: Colors.error,
+        color: colors.FEEDBACK.ERROR,
         ...(bold ? defaultStylesTitleText : {})
       }
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text, Pressable, ActivityIndicator } from 'react-native'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
 const propTypes = {
@@ -78,34 +78,34 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
   }
 
   const defaultLoading: object = {
-    color: Colors.white
+    color: colors.NEUTRAL.DARK_WHITE
   }
 
   const classes: object = {
     container: {
       'primary': {
-        backgroundColor: Colors.primary,
+        backgroundColor: colors.MAIN.PRIMARY,
       },
       'primary-inverse': {
         borderWidth: 1,
-        borderColor: Colors.primary
+        borderColor: colors.MAIN.PRIMARY
       },
       'primary-disabled': {
-        backgroundColor: Colors.lightGray,
+        backgroundColor: colors.NEUTRAL.LIGHT_GRAY,
       },
       'light': {
-        backgroundColor: Colors.white,
+        backgroundColor: colors.NEUTRAL.DARK_WHITE,
       },
       'light-inverse': {
         borderWidth: 1,
-        borderColor: Colors.white
+        borderColor: colors.NEUTRAL.DARK_WHITE
       },
       'ghost': {
-        backgroundColor: Colors.darkGray
+        backgroundColor: colors.NEUTRAL.DARK_GRAY
       },
       'ghost-inverse': {
         borderWidth: 1,
-        borderColor: Colors.darkGray
+        borderColor: colors.NEUTRAL.DARK_GRAY
       },
       'link': {
         paddingVertical: 0,
@@ -114,20 +114,20 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
       'dashed': {
         borderWidth: 2,
         borderStyle: 'dashed',
-        borderColor: Colors.primary
+        borderColor: colors.MAIN.PRIMARY
       },
       'dashed-inverse': {
-        backgroundColor: Colors.primary,
+        backgroundColor: colors.MAIN.PRIMARY,
         borderWidth: 2,
         borderStyle: 'dashed',
-        borderColor: Colors.white
+        borderColor: colors.NEUTRAL.DARK_WHITE
       },
       'error': {
-        backgroundColor: Colors.error,
+        backgroundColor: colors.FEEDBACK.ERROR,
       },
       'error-inverse': {
         borderWidth: 1,
-        borderColor: Colors.error
+        borderColor: colors.FEEDBACK.ERROR
       },
     },
     sizeContainer: {
@@ -144,49 +144,49 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     },
     text: {
       'primary': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'primary-inverse': {
-        color: Colors.primary
+        color: colors.MAIN.PRIMARY
       },
       'primary-disabled': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'light': {
-        color: Colors.primary
+        color: colors.MAIN.PRIMARY
       },
       'light-inverse': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'ghost': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'ghost-inverse': {
-        color: Colors.darkGray
+        color: colors.NEUTRAL.DARK_GRAY
       },
       'link': {
-        color: Colors.primary
+        color: colors.MAIN.PRIMARY
       },
       'link-inverse': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'link-disabled': {
-        color: Colors.gray
+        color: colors.NEUTRAL.GRAY
       },
       'dashed': {
-        color: Colors.primary
+        color: colors.MAIN.PRIMARY
       },
       'dashed-inverse': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'error': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
       'error-inverse': {
-        color: Colors.error
+        color: colors.FEEDBACK.ERROR
       },
       'error-disabled': {
-        color: Colors.white
+        color: colors.NEUTRAL.DARK_WHITE
       },
     },
     sizeText: {
@@ -217,13 +217,13 @@ const styles = ({ type, size, inverse, containerStyle, textStyle, disabled }: Pr
     },
     loading: {
       'primary': {
-        color: Colors.white,
+        color: colors.NEUTRAL.DARK_WHITE,
       },
       'link': {
-        color: Colors.primary,
+        color: colors.MAIN.PRIMARY,
       },
       'link-disabled': {
-        color: Colors.gray
+        color: colors.NEUTRAL.GRAY
       }
     }
   }

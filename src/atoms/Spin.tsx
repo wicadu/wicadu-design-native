@@ -4,7 +4,7 @@ import PropTypes, { InferProps } from 'prop-types'
 
 import { AntDesign } from '@expo/vector-icons'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 
 const sizes = {
   'very-small': 15,
@@ -45,7 +45,7 @@ function Spin (props: Props) {
     <View style={generatedStyles.container}>
       <View style={generatedStyles.box}>
         <Animated.View style={{ transform: [{ rotate }] }}>
-          <AntDesign name='loading2' size={sizes?.[size]} color={Colors.lightGray} />
+          <AntDesign name='loading2' size={sizes?.[size]} color={colors.NEUTRAL.LIGHT_GRAY} />
         </Animated.View>
       </View>
     </View>

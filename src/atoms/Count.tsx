@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
 import Fonts from '../constants/fonts'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 
 const propTypes = {
   number: PropTypes.number,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: Colors.lightGray,
+    backgroundColor: colors.NEUTRAL.LIGHT_GRAY,
     borderRadius: 10,
     padding: 5,
   },
@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
     height: 35,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.white,
+    backgroundColor: colors.NEUTRAL.DARK_WHITE,
     borderRadius: 7,
   },
   icon: {
-    color: Colors.gray,
+    color: colors.NEUTRAL.GRAY,
     fontSize: Fonts.large
   }
 })

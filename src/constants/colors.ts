@@ -1,16 +1,21 @@
-export default {
-  primary: '#056cf2',
-  secondary: '#8053FF',
-  third: '#A772FF',
-  fourth: '#CD92FF',
-  fifth: '#F4B4FF',
-  gray: '#AFA8BA',
-  lightGray: '#D3D3D3',
-  darkGray: '#8a8a8a',
-  success: '#40BEA7',
-  warning: '#ffd500',
-  error: '#FF001B',
-  white: '#f2f2f2',
-  black: '#1E1926',
-  wPay: '#020126'
+export default { 
+  MAIN: {
+    PRIMARY: '#056cf2',
+    SECONDARY: '#020126'
+  },
+  NEUTRAL: {
+    WHITE: '#ffffff',
+    DARK_WHITE: '#f2f2f2',
+    GRAY: '#AFA8BA',
+    LIGHT_GRAY: '#D3D3D3',
+    DARK_GRAY: '#8a8a8a',
+    DARK_BLACK: '#3333333',
+    BLACK: '#1E1926',
+    LIGHT_BLACK: '#444444'
+  },
+  FEEDBACK: {
+    SUCCESS: '#40BEA7',
+    ERROR: '#FF001B',
+    WARNING: '#ffd500',
+  }
 }

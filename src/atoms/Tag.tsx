@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 
 const propTypes = {
   message: PropTypes.string.isRequired,
@@ -42,16 +42,16 @@ const styles = ({ size, containerStyles, type, inverse }: Props) => {
 
   return StyleSheet.create({
     container: {
-      backgroundColor: inverse ? Colors.white : Colors[type],
+      backgroundColor: inverse ? colors.NEUTRAL.DARK_WHITE : colors[type],
       borderWidth: 1,
-      borderColor: inverse ? Colors[type] : 'transparent',
+      borderColor: inverse ? colors[type] : 'transparent',
       borderRadius: 5,
       paddingVertical: 3,
       paddingHorizontal: 6,
       ...containerStyles
     },
     text: {
-      color: inverse ? Colors[type] : Colors.white,
+      color: inverse ? colors[type] : colors.NEUTRAL.DARK_WHITE,
     fontSize: sizes[size],
     }
   }) 

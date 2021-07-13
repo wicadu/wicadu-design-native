@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 import RadioGroup from '../HOCs/RadioGroup'
 import RadioController from '../HOCs/RadioController'
@@ -42,20 +42,20 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
   const classes: object = {
     container: {
       'primary': {
-        borderColor: Colors.darkGray,
+        borderColor: colors.NEUTRAL.DARK_GRAY,
       },
       'primary-checked': {
-        borderColor: Colors.primary,
+        borderColor: colors.MAIN.PRIMARY,
         borderWidth: 1
       },
       'primary-disabled': {
-        borderColor: Colors.lightGray
+        borderColor: colors.NEUTRAL.LIGHT_GRAY
       }
     },
     bullet: {
       'primary': {},
       'primary-checked': {
-        backgroundColor: Colors.primary,
+        backgroundColor: colors.MAIN.PRIMARY,
         height: sizes[size] - 7,
         width: sizes[size] - 7,
       }

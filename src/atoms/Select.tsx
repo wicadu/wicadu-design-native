@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native'
 import PickerSelect from 'react-native-picker-select'
 import { AntDesign } from '@expo/vector-icons'
 
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import Typography from './Typography'
 
 const propTypes = {
@@ -39,7 +39,7 @@ const defaultProps: Props = {
 type Props = InferProps<typeof propTypes>
 
 function Icon () {
-  return <AntDesign name="down" size={16} color={Colors.black} />
+  return <AntDesign name="down" size={16} color={colors.NEUTRAL.BLACK} />
 }
 
 function Select(props: Props) {
@@ -64,9 +64,9 @@ function Select(props: Props) {
         />
       </View>
       {!noError && (
-        <View style={generatedStyles.errorContainer}>
+        <View style={generatedStyles.FEEDBACK.ERRORContainer}>
           {Boolean(error) && (
-            <Typography size={14} style={generatedStyles.error}>{String(error.message)}</Typography>
+            <Typography size={14} style={generatedStyles.FEEDBACK.ERROR}>{String(error.message)}</Typography>
           )}
         </View>
       )}
@@ -98,7 +98,7 @@ const styles = (props: Props) => {
       paddingVertical: 15,
       paddingHorizontal: 10,
       borderWidth: 1,
-      borderColor: Boolean(error) ? Colors.error : 'transparent',
+      borderColor: Boolean(error) ? colors.FEEDBACK.ERROR : 'transparent',
       ...sizes[size]
     },
     label: {
@@ -110,7 +110,7 @@ const styles = (props: Props) => {
       marginVertical: 5
     },
     error: {
-      color: Colors.error,
+      color: colors.FEEDBACK.ERROR,
       textAlign: 'right'
     }
   })
