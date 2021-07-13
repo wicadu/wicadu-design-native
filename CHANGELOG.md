@@ -1,3 +1,12 @@
+# 1.15.1
+
+- Add hitSlop to Button
+- Add Support styles to Android in Radio
+- Add default toCallActionText in Modals
+- Support screen position to Snackbar
+- Fix minHeight to error message in TextInput
+- Add headerStyles
+
 # 1.15.0
 
 - Add Breadcumb (Atom).
@@ -106,6 +115,7 @@
 # 1.3.4
 
 - Fix types and sizes of RadioButton
+
 # 1.3.3
 
 - Fix padding, height and icon of Small Button
@@ -121,6 +131,7 @@
 # 1.3.0
 
 - Add Collapse
+
 # 1.2.5
 
 - Add disable state/styles for Button atom

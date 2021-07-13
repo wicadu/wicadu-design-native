@@ -33,6 +33,7 @@ import hexToRGBA from './utils/hexToRGBA'
 import Colors from './constants/colors'
 import Fonts from './constants/fonts'
 import Utils from './constants/utils'
+import HeaderStyles from './constants/headerStyles'
 
 export {
   Form,
@@ -65,5 +66,6 @@ export {
   hexToRGBA,
   Colors,
   Fonts,
-  Utils
+  Utils,
+  HeaderStyles
 }
