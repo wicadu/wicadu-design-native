@@ -26,7 +26,7 @@ const icons = {
 type Props = InferProps<typeof propTypes>
 
 function FeedbackModal (props: Props) {
-  const { visible, type, title, description, toActionCallback, toActionMessage } = props
+  const { visible, type, title, description, toActionCallback, toActionMessage = 'Cerrar' } = props
 
   const [isVisible, setIsVisible] = useState<boolean>(Boolean(visible))
 

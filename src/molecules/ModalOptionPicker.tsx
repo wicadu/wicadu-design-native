@@ -2,9 +2,9 @@ import React, { Fragment, useCallback, useEffect, useState } from 'react'
 import PropTypes, { InferProps } from 'prop-types'
 import { StyleSheet, View, Pressable } from 'react-native'
 
-import Typography from '@wicadu/native-ui/src/atoms/Typography'
-import Button from '@wicadu/native-ui/src/atoms/Button'
-import IconContainer from '@wicadu/native-ui/src/atoms/IconContainer'
+import Typography from '../atoms/Typography'
+import Button from '../atoms/Button'
+import IconContainer from '../atoms/IconContainer'
 
 const propTypes = {
   visible: PropTypes.bool.isRequired,
@@ -16,7 +16,7 @@ const propTypes = {
 type Props = InferProps<typeof propTypes>
 
 function ModalOptionPicker (props: Props) {
-  const { visible, options, toCancelMessage, toCancelCallback } = props
+  const { visible, options, toCancelMessage = 'Cancelar', toCancelCallback } = props
 
   const [isVisible, setIsVisible] = useState<boolean>(visible)
 
