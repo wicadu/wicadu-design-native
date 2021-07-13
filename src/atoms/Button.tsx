@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableWithoutFeedback, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, Pressable, ActivityIndicator } from 'react-native'
 import Colors from '../constants/colors'
 import PropTypes, { InferProps } from 'prop-types'
 
@@ -13,7 +13,8 @@ const propTypes = {
   size: PropTypes.string,
   containerStyle: PropTypes.object,
   textStyle: PropTypes.object,
-  onPress: PropTypes.func.isRequired
+  onPress: PropTypes.func.isRequired,
+  hitSlop: PropTypes.oneOfType([PropTypes.number, PropTypes.object])
 }
 
 const defaultProps: Props = {
@@ -32,10 +33,10 @@ type Props = InferProps<typeof propTypes>
 function Button(props: Props) {
   const generatedStyles = styles(props)
 
-  const { children: title, icon, onPress, loading, disabled } = props
+  const { children: title, icon, onPress, loading, disabled, hitSlop } = props
 
   return (
-    <TouchableWithoutFeedback onPress={onPress} disabled={loading || disabled}>
+    <Pressable onPress={onPress} hitSlop={hitSlop} disabled={loading || disabled}>
       <View style={generatedStyles.container}>
         {loading ? (
           <View style={generatedStyles.containerLoading}>
@@ -48,7 +49,7 @@ function Button(props: Props) {
           </View>
         )}
       </View>
-    </TouchableWithoutFeedback>
+    </Pressable>
   )
 }
 
