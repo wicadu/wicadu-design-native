@@ -57,13 +57,14 @@ const styles = ({ type: classType, size, disabled, checked }: Props) => {
       'primary-checked': {
         backgroundColor: Colors.primary,
         height: sizes[size] - 7,
-        width: sizes[size] - 7
+        width: sizes[size] - 7,
       }
     },
   }
   
   const defaultStyles: object = {
-    borderRadius: 50
+    borderRadius: 50,
+    overflow: 'hidden'
   }
 
   const defaultContainerStyles: object = {
