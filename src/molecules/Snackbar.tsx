@@ -70,9 +70,11 @@ function Snackbar (props: Props) {
   )
 }
 
-const { width } = Dimensions.get('screen')
+const { width, height } = Dimensions.get('screen')
 
 const styles = () => {
+  const tenPercentOfTheScreen = (10 / 100) * height;
+
   return StyleSheet.create({
     container: {
       width: width - 30,
@@ -81,7 +83,7 @@ const styles = () => {
       marginHorizontal: 15,
       borderRadius: 5,
       position: 'absolute',
-      bottom: 100,
+      bottom: tenPercentOfTheScreen,
       zIndex: 999,
       backgroundColor: 'white',
       shadowColor: 'black',
