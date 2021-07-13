@@ -110,9 +110,8 @@ const styles = (props: Props) => {
       fontSize: 18
     },
     errorContainer: {
-      minHeight: helpMessage ? 30 : 15,
+      minHeight: helpMessage ? 30 : 20,
       marginVertical: 5,
-      flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap'
     },
