@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, StatusBar, Image } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import PropTypes, { InferProps } from 'prop-types'
+import { StyleSheet, StatusBar, Image, Dimensions } from 'react-native'
 
-import Utils from '../constants/utils'
+import { SafeAreaView } from 'react-native-safe-area-context'
+
 import normalizeSize from '../utils/normalizeSize'
 
 const propTypes = {
@@ -27,6 +27,8 @@ function Splash (props: Props) {
   )
 }
 
+const { width } = Dimensions.get('window')
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   image: {
-    width: normalizeSize(Utils.screenWidth)
+    width: normalizeSize(width)
   }
 })
 

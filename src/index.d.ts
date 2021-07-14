@@ -27,13 +27,11 @@ import Snackbar from './molecules/Snackbar'
 
 import formatCurrency from './utils/formatCurrency'
 import normalizeSize from './utils/normalizeSize'
-import sizesPercent from './utils/sizesPercent'
 import hexToRGBA from './utils/hexToRGBA'
 
 import colors from './constants/colors'
 import fonts from './constants/fonts'
-import Utils from './constants/utils'
-import HeaderStyles from './constants/headerStyles'
+import headerStyles from './constants/headerStyles'
 
 export {
   Form,
@@ -62,10 +60,8 @@ export {
   Snackbar,
   formatCurrency,
   normalizeSize,
-  sizesPercent,
   hexToRGBA,
   colors,
   fonts,
-  Utils,
-  HeaderStyles
+  headerStyles
 }
