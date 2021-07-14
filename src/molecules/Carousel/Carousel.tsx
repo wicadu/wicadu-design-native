@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, ScrollView, View } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
-import Fonts from '../../constants/fonts'
+import fonts from '../../constants/fonts'
 
 interface ICarousel {
   title: string,
@@ -74,7 +74,7 @@ const styles = (props: ICarousel) => {
       height: 50
     },
     title: {
-      fontSize: Fonts.f16,
+      fontSize: fonts.F16,
     }
   }
 

@@ -31,7 +31,7 @@ import sizesPercent from './utils/sizesPercent'
 import hexToRGBA from './utils/hexToRGBA'
 
 import colors from './constants/colors'
-import Fonts from './constants/fonts'
+import fonts from './constants/fonts'
 import Utils from './constants/utils'
 import HeaderStyles from './constants/headerStyles'
 
@@ -65,7 +65,7 @@ export {
   sizesPercent,
   hexToRGBA,
   colors,
-  Fonts,
+  fonts,
   Utils,
   HeaderStyles
 }

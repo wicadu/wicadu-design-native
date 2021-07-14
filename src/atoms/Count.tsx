@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import PropTypes, { InferProps } from 'prop-types'
 
-import Fonts from '../constants/fonts'
+import fonts from '../constants/fonts'
 import colors from '../constants/colors'
 
 const propTypes = {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: colors.NEUTRAL.GRAY,
-    fontSize: Fonts.large
+    fontSize: fonts.large
   }
 })
 

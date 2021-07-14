@@ -6,7 +6,7 @@ import { AntDesign } from '@expo/vector-icons'
 
 import Typography from '../atoms/Typography'
 import colors from '../constants/colors'
-import Fonts from '../constants/fonts'
+import fonts from '../constants/fonts'
 
 const propTypes = {
   children: PropTypes.node,
@@ -58,7 +58,7 @@ function Snackbar (props: Props) {
             <AntDesign name={types[type]} size={35} color={colors[type]} />
             <View style={generatedStyles.details}>
               <Typography style={generatedStyles.title} numberOfLines={1}>{title}</Typography>
-              <Typography type='description' size={Fonts.f14} numberOfLines={2}>{description}</Typography>
+              <Typography type='description' size={fonts.F14} numberOfLines={2}>{description}</Typography>
             </View>
           </View>
           <Pressable onPress={handlePress} hitSlop={20}>
@@ -105,8 +105,8 @@ const styles = () => {
       maxWidth: width - 120,
     },
     title: {
-      fontSize: Fonts.f18,
-      fontFamily: Fonts.CabinBold
+      fontSize: fonts.F18,
+      fontFamily: fonts.CABIN_BOLD
     },
   })
 }

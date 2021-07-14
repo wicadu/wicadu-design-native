@@ -3,7 +3,7 @@ import PropTypes, { InferProps } from 'prop-types'
 import { TextInput as Input, StyleSheet, View } from 'react-native'
 
 import colors from '../constants/colors'
-import Fonts from '../constants/fonts'
+import fonts from '../constants/fonts'
 import Typography from './Typography'
 
 const propTypes = {
@@ -72,7 +72,7 @@ function TextInput(props: Props) {
           {!!error ? (
             <Typography size={14} style={generatedStyles.FEEDBACK.ERROR}>{error?.message}</Typography>
           ): (
-            <Typography size={Fonts.f14} style={generatedStyles.helpMessageContainer} type='description'>{helpMessage}</Typography>
+            <Typography size={fonts.F14} style={generatedStyles.helpMessageContainer} type='description'>{helpMessage}</Typography>
           )}
         </View>
       )}

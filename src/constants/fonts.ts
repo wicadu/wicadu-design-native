@@ -1,17 +1,17 @@
 import normalizeSize from '../utils/normalizeSize'
 
 export default {
-  f10: normalizeSize(10),
-  f12: normalizeSize(12),
-  f14: normalizeSize(14),
-  f16: normalizeSize(16),
-  f18: normalizeSize(18),
-  f20: normalizeSize(20),
-  f24: normalizeSize(24),
-  f28: normalizeSize(28),
-  f32: normalizeSize(32),
-  f36: normalizeSize(36),
-  f40: normalizeSize(40),
-  CabinBold: 'Cabin_Bold',
-  CabinRegular: 'Cabin_Regular'
+  F10: normalizeSize(10),
+  F12: normalizeSize(12),
+  F14: normalizeSize(14),
+  F16: normalizeSize(16),
+  F18: normalizeSize(18),
+  F20: normalizeSize(20),
+  F24: normalizeSize(24),
+  F28: normalizeSize(28),
+  F32: normalizeSize(32),
+  F36: normalizeSize(36),
+  F40: normalizeSize(40),
+  CABIN_BOLD: 'Cabin_Bold',
+  CABIN_REGULAR: 'Cabin_Regular'
 }
