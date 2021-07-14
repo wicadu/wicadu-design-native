@@ -1,3 +1,8 @@
+# 1.16.0
+
+- Fix name for colors, fonts and headerStyles
+- Delete no used constants, utils & components
+
 # 1.15.1
 
 - Add hitSlop to Button

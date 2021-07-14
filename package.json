@@ -1,9 +1,9 @@
 {
   "name": "@wicadu/native-ui",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "main": "src/index.d.ts",
   "scripts": {
-    "dev": "cp  -r src ../app/node_modules/@wicadu/native-ui",
+    "dev": "cp  -r src ../store-app/node_modules/@wicadu/native-ui",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
